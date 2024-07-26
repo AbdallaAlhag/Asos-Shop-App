@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import Home from "./Home";
+import Women from "./Women";
 
 describe("something truthy and falsy", () => {
   it("true to be true", () => {
@@ -14,7 +14,7 @@ describe("something truthy and falsy", () => {
 
 describe("App", () => {
   it("renders headline", () => {
-    render(<Home title="React" />);
+    render(<Women title="React" />);
 
     screen.debug();
 

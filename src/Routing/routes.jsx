@@ -1,16 +1,16 @@
-import Home from "../pages/Home";
+import Women from "../pages/Women";
 import Men from "../pages/Men";
 import ErrorPage from "./ErrorPage";
 
 const routes = [
     {
         path: "/",
-        element: <Home />,
+        element: <Men />,
         errorElement: <ErrorPage />,
       },
       {
-        path: "/Men",
-        element: <Men />,
+        path: "/Women",
+        element: <Women />,
       },
 ];
 
