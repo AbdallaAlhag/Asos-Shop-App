@@ -13,6 +13,11 @@ const GlobalStyle = createGlobalStyle`
     --button-hover: #1862a5;
   }
   /* Base Styles */
+  body, html, #root {
+    height: 100%;
+    margin: 0;
+  }
+
   body {
     font-family: 'Arial', sans-serif;
     background-color: #ffffff;

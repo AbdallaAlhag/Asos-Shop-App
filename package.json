@@ -16,7 +16,6 @@
     "@mdi/js": "^7.4.47",
     "@mdi/light-js": "^0.2.63",
     "@mdi/react": "^1.6.1",
-    "@mui/material": "^5.16.5",
     "@styled-system/should-forward-prop": "^5.1.5",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",

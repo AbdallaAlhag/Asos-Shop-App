@@ -1,9 +1,8 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Container, Content } from "../../style/CommonComponents";
+import { Container, Content, TextLink } from "../../style/CommonComponents";
 
 import {
   FooterContainer,
-  TextLink,
   InnerContent,
   Header5,
   Separator,
@@ -14,27 +13,34 @@ import {
 import { ReactComponent as FacebookLogo } from "../../assets/FooterLogo/facebookIconsvg.svg";
 import { ReactComponent as InstagramLogo } from "../../assets/FooterLogo/instagramIconsvg.svg";
 import { ReactComponent as SnapchatLogo } from "../../assets/FooterLogo/snapchatIconsvg.svg";
-import visa from '../../assets/FooterLogo/mastercard-png.webp';
-import payPal from '../../assets/FooterLogo/pay-pal-png.webp';
-import masterCard from '../../assets/FooterLogo/mastercard-png.webp';
-import americanExpress from '../../assets/FooterLogo/american-express-png.webp';
-import klarna from '../../assets/FooterLogo/klarna-gb-png.webp';
-import applePay from '../../assets/FooterLogo/apple-pay-png.webp';
-import afterPay from '../../assets/FooterLogo/afterpay_new-png.webp';
-import discover from '../../assets/FooterLogo/discover-card-png.webp';
-import dinerClub from '../../assets/FooterLogo/diners-club-png.webp';
-
+import visa from "../../assets/FooterLogo/mastercard-png.webp";
+import payPal from "../../assets/FooterLogo/pay-pal-png.webp";
+import masterCard from "../../assets/FooterLogo/mastercard-png.webp";
+import americanExpress from "../../assets/FooterLogo/american-express-png.webp";
+import klarna from "../../assets/FooterLogo/klarna-gb-png.webp";
+import applePay from "../../assets/FooterLogo/apple-pay-png.webp";
+import afterPay from "../../assets/FooterLogo/afterpay_new-png.webp";
+import discover from "../../assets/FooterLogo/discover-card-png.webp";
+import dinerClub from "../../assets/FooterLogo/diners-club-png.webp";
 
 function Footer() {
   return (
     <FooterContainer>
-      <Container $backgroundColor="#ffffff" $color="black">
+      <Container
+        $backgroundColor="#ffffff"
+        $color="#6c6f71"
+        $borderTop="1px solid #eeeeee"
+      >
         <Content $padding="10px 0px" $justifyContent="center" $gap="40px">
           <SocialIcon>
-            <FacebookLogo width={35} height={35}/>
+            <FacebookLogo width={35} height={35} />
           </SocialIcon>
-          <SocialIcon><InstagramLogo width={35} height={35}/></SocialIcon>
-          <SocialIcon><SnapchatLogo width={35} height={35}/></SocialIcon>
+          <SocialIcon>
+            <InstagramLogo width={35} height={35} />
+          </SocialIcon>
+          <SocialIcon>
+            <SnapchatLogo width={35} height={35} />
+          </SocialIcon>
           <Separator>|</Separator>
           <PaymentImg src={visa} alt="Paypal icon"></PaymentImg>
           <PaymentImg src={masterCard} alt="Paypal icon"></PaymentImg>
@@ -76,12 +82,12 @@ function Footer() {
           </InnerContent>
           <InnerContent>
             <Header5>SHOPPING FROM:</Header5>
-            <TextLink>You're in US | Change</TextLink>
+            <p>You're in US | Change</p>
             <p>Some of your international sites: (add flags maybe later)</p>
           </InnerContent>
         </Content>
       </Container>
-      <Container $backgroundColor="#dddddd" $color="black">
+      <Container $backgroundColor="#dddddd" $color="#6c6f71">
         <Content $padding="20px 0px" $justifyContent="space-between">
           <p>© 2024 ASOS</p>
           <div>
