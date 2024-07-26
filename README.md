@@ -8,5 +8,6 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-using https://rapidapi.com/DataCrawler/api/asos10 For the API
-https://www.npmjs.com/package/react-responsive-carousel - nice little tool
+using https://rapidapi.com/DataCrawler/api/asos10 -> For the ASOS API
+https://www.npmjs.com/package/react-responsive-carousel -> nice little tool
+https://pictogrammers.com/library/mdi/ -> Icons

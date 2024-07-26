@@ -3,12 +3,12 @@ import PropTypes from "prop-types";
 
 const SearchBar = ({ placeholder }) => {
 //   const [searchTerm, setSearchTerm] = useState("");
-  const [searchTerm] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
 
 
-//   const handleChange = (event) => {
-//     setSearchTerm(event.target.value);
-//   };
+  const handleChange = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
 //   const filteredData = data.filter((item) =>
 //     item.toLowerCase().includes(searchTerm.toLowerCase())
@@ -20,7 +20,7 @@ const SearchBar = ({ placeholder }) => {
         type="text"
         placeholder={placeholder}
         value={searchTerm}
-        // onChange={handleChange}
+        onChange={handleChange}
       />
     </div>
   );
@@ -28,7 +28,6 @@ const SearchBar = ({ placeholder }) => {
 
 SearchBar.propTypes = {
   placeholder: PropTypes.string,
-  data: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default SearchBar;

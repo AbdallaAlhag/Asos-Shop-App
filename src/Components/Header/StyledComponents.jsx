@@ -17,6 +17,7 @@ const Content = styled.div`
   display: flex;
   justify-content: ${({ $justifyContent }) => $justifyContent || "flex-start"};
   width: 75%;
+  gap: ${({ $gap }) => $gap || "0px"};
 `;
 
 const InnerDiv = styled.div`
@@ -26,36 +27,45 @@ const InnerDiv = styled.div`
 `;
 
 const MidButton = styled.button`
-    color: #fff;
-    background-color: #2d2d2d;
-    border-style: none;
-    border: none;
-    box-sizing: border-box;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    height: 100%;
-    // FiX this 
-    width: 5%;
-    letter-spacing: 2px;
-    font-weight: 900px;
-    line-height: 62px
-    
-    &:hover {
-    background-color: #45a049; 
+  color: #fff;
+  background-color: #2d2d2d;
+  border-style: none;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 15px; /* Adjust padding as needed */
+  &:hover {
+    background-color: #525050;
   }
 `;
 
 const LowButton = styled(MidButton)`
-  width: 100%;
+  background-color: transparent;
+  box-sizing: border-box;
+  white-space: nowrap; 
+
+  padding: 0px 10px; 
+  &:hover {
+    background-color: white;
+    color: black;
+  }
 `;
 
 const LinkText = styled.p`
-`;
+  // FiX this
+  letter-spacing: 2px;
+  line-height: 62px;
+  font-weight: 900;
+  font-size: .875rem;
 
+`;
 const TabText = styled(LinkText)`
+  font-weight: 400;
+  line-height: 50px;
+  font-size: 100%;
 `;
-
 
 export {
   HeaderContainer,

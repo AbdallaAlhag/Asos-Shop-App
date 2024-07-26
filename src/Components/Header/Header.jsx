@@ -10,13 +10,13 @@ import {
 } from "./StyledComponents";
 import { Link } from "react-router-dom";
 import Icon from "@mdi/react";
-import { mdilAccount } from "@mdi/light-js";
-import { mdilHeart } from "@mdi/light-js";
+import { mdiAccountOutline } from "@mdi/js";
+import { mdiHeartOutline } from "@mdi/js";
 import { mdiShoppingOutline } from "@mdi/js";
 import SearchBar from "../SearchBar/";
+// import { ReactComponent as AsosLogo } from "../../assets/AsosLogo.svg";
 
 function Header() {
-
   return (
     <HeaderContainer>
       <Container $backgroundColor="#f8f8f8" $color="black">
@@ -28,10 +28,9 @@ function Header() {
       </Container>
       <Container $backgroundColor="#2d2d2d">
         <Content>
+          {/* <AsosLogo width={50} height={50} /> */}
           <MidButton>
-            <Link to="/Women">
-              <LinkText>asos</LinkText>
-            </Link>
+            <Link to="/Women"></Link>
           </MidButton>
           <MidButton>
             <Link to="/Women">
@@ -46,17 +45,17 @@ function Header() {
           {/* I should style this some time */}
           <SearchBar placeholder="Search for a fruit..." />
           <Icon
-            path={mdilAccount}
+            path={mdiAccountOutline}
             title="User Profile"
             size={1}
             color="white"
           />
-          <Icon path={mdilHeart} size={1} />
+          <Icon path={mdiHeartOutline} size={1} color="white" />
           <Icon path={mdiShoppingOutline} size={1} color="white" />
         </Content>
       </Container>
       <Container $backgroundColor="#525050">
-        <Content>
+        <Content $gap="10px">
           <LowButton>
             <TabText>Trending</TabText>
           </LowButton>
