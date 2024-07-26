@@ -1,5 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { Input } from './StyledComponents';
+
 
 const SearchBar = ({ placeholder }) => {
 //   const [searchTerm, setSearchTerm] = useState("");
@@ -15,14 +17,12 @@ const SearchBar = ({ placeholder }) => {
 //   );
 
   return (
-    <div>
-      <input
+      <Input
         type="text"
         placeholder={placeholder}
         value={searchTerm}
         onChange={handleChange}
       />
-    </div>
   );
 };
 

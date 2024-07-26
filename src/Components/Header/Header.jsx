@@ -7,6 +7,8 @@ import {
   LowButton,
   LinkText,
   TabText,
+  StyledAsosLogo,
+  TopButton,
 } from "./StyledComponents";
 import { Link } from "react-router-dom";
 import Icon from "@mdi/react";
@@ -14,22 +16,28 @@ import { mdiAccountOutline } from "@mdi/js";
 import { mdiHeartOutline } from "@mdi/js";
 import { mdiShoppingOutline } from "@mdi/js";
 import SearchBar from "../SearchBar/";
-// import { ReactComponent as AsosLogo } from "../../assets/AsosLogo.svg";
+
 
 function Header() {
   return (
     <HeaderContainer>
       <Container $backgroundColor="#f8f8f8" $color="black">
         <Content $justifyContent="flex-end">
-          <InnerDiv>Marketplace</InnerDiv>
-          <InnerDiv>Help & FAQs</InnerDiv>
-          <InnerDiv>USA</InnerDiv>
+          <TopButton>
+            <InnerDiv>Marketplace</InnerDiv>
+          </TopButton>
+          <TopButton>
+            <InnerDiv>Help & FAQs</InnerDiv>
+          </TopButton>
+          <TopButton>
+            <InnerDiv>USA</InnerDiv>
+          </TopButton>
         </Content>
       </Container>
       <Container $backgroundColor="#2d2d2d">
         <Content>
-          {/* <AsosLogo width={50} height={50} /> */}
           <MidButton>
+            <StyledAsosLogo color="white" width={80} height={50} />
             <Link to="/Women"></Link>
           </MidButton>
           <MidButton>
@@ -44,20 +52,26 @@ function Header() {
           </MidButton>
           {/* I should style this some time */}
           <SearchBar placeholder="Search for a fruit..." />
-          <Icon
-            path={mdiAccountOutline}
-            title="User Profile"
-            size={1}
-            color="white"
-          />
-          <Icon path={mdiHeartOutline} size={1} color="white" />
-          <Icon path={mdiShoppingOutline} size={1} color="white" />
+          <MidButton>
+            <Icon
+              path={mdiAccountOutline}
+              title="User Profile"
+              size={2}
+              color="white"
+            />
+          </MidButton>
+          <MidButton>
+            <Icon path={mdiHeartOutline} size={2} color="white" />
+          </MidButton>
+          <MidButton>
+            <Icon path={mdiShoppingOutline} size={2} color="white" />
+          </MidButton>
         </Content>
       </Container>
       <Container $backgroundColor="#525050">
         <Content $gap="10px">
           <LowButton>
-            <TabText>Trending</TabText>
+            <TabText>TRENDING</TabText>
           </LowButton>
           <LowButton>
             <TabText>New in</TabText>

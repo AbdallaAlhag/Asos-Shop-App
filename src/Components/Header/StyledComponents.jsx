@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { ReactComponent as AsosLogo } from "../../assets/AsosLogo.svg";
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -16,11 +17,13 @@ const Container = styled.div`
 const Content = styled.div`
   display: flex;
   justify-content: ${({ $justifyContent }) => $justifyContent || "flex-start"};
-  width: 75%;
+  width: 80%;
   gap: ${({ $gap }) => $gap || "0px"};
 `;
 
 const InnerDiv = styled.div`
+  text-align: center;
+  height: 100%;
   border-left: 2px solid #ddd;
   padding-left: 10px;
   padding-right: 10px;
@@ -44,9 +47,9 @@ const MidButton = styled.button`
 const LowButton = styled(MidButton)`
   background-color: transparent;
   box-sizing: border-box;
-  white-space: nowrap; 
+  white-space: nowrap;
 
-  padding: 0px 10px; 
+  padding: 0px 10px;
   &:hover {
     background-color: white;
     color: black;
@@ -58,8 +61,7 @@ const LinkText = styled.p`
   letter-spacing: 2px;
   line-height: 62px;
   font-weight: 900;
-  font-size: .875rem;
-
+  font-size: 0.875rem;
 `;
 const TabText = styled(LinkText)`
   font-weight: 400;
@@ -67,6 +69,18 @@ const TabText = styled(LinkText)`
   font-size: 100%;
 `;
 
+const StyledAsosLogo = styled(AsosLogo)`
+  fill: ${({ color }) => color || "black"};
+`;
+
+const TopButton = styled(MidButton)`
+  background-color: transparent;
+  color: #79716e;
+  &:hover {
+    background-color: transparent;
+    color: #0770cf;
+  }
+`;
 export {
   HeaderContainer,
   Container,
@@ -76,4 +90,6 @@ export {
   LowButton,
   LinkText,
   TabText,
+  StyledAsosLogo,
+  TopButton,
 };
