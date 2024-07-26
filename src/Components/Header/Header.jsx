@@ -1,7 +1,4 @@
 import {
-  HeaderContainer,
-  Container,
-  Content,
   InnerDiv,
   MidButton,
   LowButton,
@@ -9,7 +6,8 @@ import {
   TabText,
   StyledAsosLogo,
   TopButton,
-} from "./StyledComponents";
+} from "./HeaderStyledComponents";
+import { PageContainer, Container, Content } from '../../style/CommonComponents'
 import { Link } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiAccountOutline } from "@mdi/js";
@@ -20,7 +18,7 @@ import SearchBar from "../SearchBar/";
 
 function Header() {
   return (
-    <HeaderContainer>
+    <PageContainer>
       <Container $backgroundColor="#f8f8f8" $color="black">
         <Content $justifyContent="flex-end">
           <TopButton>
@@ -105,7 +103,7 @@ function Header() {
           </LowButton>
         </Content>
       </Container>
-    </HeaderContainer>
+    </PageContainer>
   );
 }
 

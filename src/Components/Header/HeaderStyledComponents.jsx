@@ -1,26 +1,6 @@
 import styled from "styled-components";
 import { ReactComponent as AsosLogo } from "../../assets/AsosLogo.svg";
 
-const HeaderContainer = styled.header`
-  display: flex;
-  flex-direction: column;
-`;
-
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: ${({ $color }) => $color || "white"};
-  background-color: ${({ $backgroundColor }) => $backgroundColor || "#f9f9f9"};
-`;
-
-const Content = styled.div`
-  display: flex;
-  justify-content: ${({ $justifyContent }) => $justifyContent || "flex-start"};
-  width: 80%;
-  gap: ${({ $gap }) => $gap || "0px"};
-`;
-
 const InnerDiv = styled.div`
   text-align: center;
   height: 100%;
@@ -78,13 +58,10 @@ const TopButton = styled(MidButton)`
   color: #79716e;
   &:hover {
     background-color: transparent;
-    color: #0770cf;
+    color: var(--link-hover);
   }
 `;
 export {
-  HeaderContainer,
-  Container,
-  Content,
   InnerDiv,
   MidButton,
   LowButton,
