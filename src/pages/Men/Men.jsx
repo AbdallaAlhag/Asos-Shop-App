@@ -2,6 +2,7 @@ import GlobalStyle from "../../style/GlobalStyles";
 import { Page } from "../../style/CommonComponents";
 import Header from "../../Components/Header";
 import Banner from "../../Components/Banner";
+import VideoBanner from "../../Components/VideoBanner";
 import BottomInfo from "../../Components/BottomInfo/BottomInfo";
 import Footer from "../../Components/Footer/";
 
@@ -32,10 +33,9 @@ function Men() {
         altSRc={"Disney Brand"}
       ></Banner>
       <Banner imgSrc={"src/assets/Men/nike.jpg"} altSRc={"Nike Brand"}></Banner>
-      {/* <Banner
-        imgSrc={"src/assets/Men/brandsToKnow.mp4"}
-        altSRc={"Brands to know"}
-      ></Banner> */}
+      <VideoBanner
+        videoSrc={"src/assets/Men/brandsToKnow.mp4"}
+      ></VideoBanner>
       {/* New In */}
       {/* The style Feed */}
       <BottomInfo></BottomInfo>

@@ -60,6 +60,7 @@ export default Women;
 // *Looks good on your
 // *New In
 // *style feed
+// - Video Banner for men.
 // *as seen on me (DONE)
 // *Download app (DONE)
 // *Shop More (DONE)
