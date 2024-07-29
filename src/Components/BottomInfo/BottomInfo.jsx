@@ -5,6 +5,8 @@ import {
   ContentColumn,
   LinkHeader,
   Pitch,
+  AppButton,
+  DownloadButton,
 } from "./BottomInfoStyledComponents";
 
 function BottomInfo() {
@@ -12,18 +14,20 @@ function BottomInfo() {
   return (
     <BottomInfoContainer>
       {/* Download part */}
-      <Container
-        $background="linear-gradient(90deg, #FF385C 0%, #F799BA 100%)"
-        $height="100px"
-      >
-        <Content $justifyContent="center" $gap="10px" $flexDirection="column">
-          <button>The ASOS APP</button>
-          <button>Download Now</button>
+      <Container $background="linear-gradient(90deg, #FF385C 0%, #F799BA 100%)">
+        <Content
+          $justifyContent="center"
+          $gap="10px"
+          $flexDirection="column"
+          $padding="20px 0px"
+        >
+          <AppButton>The ASOS APP</AppButton>
+          <DownloadButton>Download Now</DownloadButton>
         </Content>
       </Container>
       {/* Shop More */}
-      <Container $color='black' $flexDirection="column" >
-          <LinkHeader>SHOP MORE</LinkHeader>
+      <Container $color="black" $flexDirection="column">
+        <LinkHeader>SHOP MORE</LinkHeader>
         <Content $justifyContent="center" $gap="200px" $padding="50px 0px">
           {chunks.map((chunk, index) => (
             <ContentColumn key={index}>
@@ -36,7 +40,7 @@ function BottomInfo() {
       </Container>
       {/* Description */}
       <Container>
-        <Content $justifyContent='center' $padding='50px 0px'>
+        <Content $justifyContent="center" $padding="50px 0px">
           <Pitch>
             Level up your off-duty 'fits with ASOS, serving up on-trend menswear
             and accessories from your fave brands. Raise your layer game with
