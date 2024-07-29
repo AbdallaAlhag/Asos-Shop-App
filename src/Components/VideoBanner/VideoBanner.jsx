@@ -8,15 +8,15 @@ const BannerDiv = styled.div`
 `;
 
 const StyledVideo = styled.video`
-  height: 100%;
-  width: auto;
+  height: auto;
+  width: 99vw;
 `;
 
 function VideoBanner({ videoSrc }) {
   return (
     <BannerDiv>
       <StyledVideo autoPlay controls loop playsInline>
-      <source src={videoSrc} type="video/mp4" />
+        <source src={videoSrc} type="video/mp4" />
         Your browser does not support the video tag.
       </StyledVideo>
     </BannerDiv>
@@ -26,5 +26,9 @@ function VideoBanner({ videoSrc }) {
 VideoBanner.propTypes = {
   videoSrc: PropTypes.string.isRequired,
 };
+
+// VideoBanner.defaultProps = {
+//   videoWidth: "98vw",
+// };
 
 export default VideoBanner;

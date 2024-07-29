@@ -22,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Arial', sans-serif;
     background-color: #ffffff;
     color: #333;
+    overflow-x: none;
   }
 
   a {

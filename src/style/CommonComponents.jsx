@@ -9,7 +9,7 @@ export const PageContainer = styled.div`
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ $justifyContent }) => $justifyContent || "center"};
   flex-direction: ${({ $flexDirection }) => $flexDirection || "row"};
   color: ${({ $color }) => $color || "white"};
   background-color: ${({ $backgroundColor }) => $backgroundColor || "#ffffff"};
@@ -42,3 +42,9 @@ export const TextLink = styled.a`
   }
 `;
 // Add any additional common components here
+ export const Column = styled.div`
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center
+ `;

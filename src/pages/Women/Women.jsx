@@ -4,8 +4,11 @@ import GlobalStyle from "../../style/GlobalStyles";
 import { Page } from "../../style/CommonComponents";
 import Header from "../../Components/Header";
 import Banner from "../../Components/Banner";
+import SectionTitle from "../../Components/SectionTitle";
+import NewIn from "../../Components/NewIn";
 import BottomInfo from "../../Components/BottomInfo/BottomInfo";
 import Footer from "../../Components/Footer/";
+import newInInfo from "./newInInfo";
 
 function Women() {
   return (
@@ -21,6 +24,10 @@ function Women() {
         altSRc={"Summer dresses"}
       ></Banner>
       {/* Asos looks good and Image carousel */}
+      <SectionTitle
+        justifyContent="center"
+        Title="ASOS LOOKS GOOD ON YOU"
+      ></SectionTitle>
       <Banner
         imgSrc={"src/assets/Women/topshop.webp"}
         altSRc={"TopShop"}
@@ -38,15 +45,21 @@ function Women() {
         altSRc={"Reclaimed Vintage Brand"}
       ></Banner>
       {/* New In Section*/}
+      <SectionTitle Title="New In" justifyContent="flex-start"></SectionTitle>
+      <NewIn newInInfo={newInInfo}></NewIn>
       <Banner
         imgSrc={"src/assets/Men/disneyAsos.avif"}
         altSRc={"Disney Brand"}
       ></Banner>
-            <Banner
+      <Banner
         imgSrc={"src/assets/Women/ghdDuetBlowdryBrush.avif"}
         altSRc={"ghd Duet Blowdry Brush"}
       ></Banner>
       {/* The Style Feeds Section */}
+      <SectionTitle
+        Title="The style Feed"
+        justifyContent="flex-start"
+      ></SectionTitle>
       <BottomInfo></BottomInfo>
       <Footer></Footer>
     </Page>
