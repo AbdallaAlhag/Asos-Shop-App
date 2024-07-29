@@ -1,0 +1,3 @@
+const CarouselArray = ["src/assets/Men/carMen1.jpg","src/assets/Men/carMen2.jpg","src/assets/Men/carMen3.jpg","src/assets/Men/carMen4.jpg","src/assets/Men/carMen5.jpg","src/assets/Men/carMen6.jpg","src/assets/Men/carMen7.jpg","src/assets/Men/carMen8.jpg","src/assets/Men/carMen9.jpg","src/assets/Men/carMen10.jpg","src/assets/Men/carMen11.jpg","src/assets/Men/carMen12.jpg"]
+
+export default CarouselArray

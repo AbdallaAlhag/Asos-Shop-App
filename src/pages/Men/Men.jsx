@@ -2,6 +2,7 @@ import GlobalStyle from "../../style/GlobalStyles";
 import { Page } from "../../style/CommonComponents";
 import Header from "../../Components/Header";
 import Banner from "../../Components/Banner";
+import Carousel from "../../Components/Carousel";
 import VideoBanner from "../../Components/VideoBanner";
 import SectionTitle from "../../Components/SectionTitle";
 import NewIn from "../../Components/NewIn";
@@ -10,6 +11,7 @@ import BottomInfo from "../../Components/BottomInfo/BottomInfo";
 import Footer from "../../Components/Footer/";
 import newInInfo from "./newInInfo";
 import styleFeed from "./StyleFeed";
+import CarouselArray from "./CarouselArray";
 
 function Men() {
   return (
@@ -29,6 +31,7 @@ function Men() {
         justifyContent="center"
         Title="ASOS LOOKS GOOD ON YOU"
       ></SectionTitle>
+      <Carousel array={CarouselArray}></Carousel>
       <Banner
         imgSrc={"src/assets/Men/yourMostHyped.webp"}
         altSRc={"Your Most hyped"}

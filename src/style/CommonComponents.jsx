@@ -74,3 +74,10 @@ export const StyledButton = styled.button`
     color: ${({ $hoverTextColor }) => $hoverTextColor || 'white'};
   }
 `;
+
+export const StyledImg = styled.img`
+  height: ${({ $height }) => ($height ? $height : "")};
+  width: ${({ $height }) => ($height ? $height : "")};
+  user-select: ${({ $userSelect }) => ($userSelect ? $userSelect : "")};
+
+`;

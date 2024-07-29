@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
 const TitleContainer = styled.div`
-  font-size: 4rem;
+  font-size: ${({ $fontSize }) => $fontSize || "4rem"};
+
   color: black;
   display: flex;
   align-items: center;
-    font-weight: bold;
+  font-weight: bold;
   justify-content: ${({ $justifyContent }) => $justifyContent || "flex-start"};
   padding: 20px 30px;
 `;

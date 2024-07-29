@@ -4,6 +4,7 @@ import GlobalStyle from "../../style/GlobalStyles";
 import { Page } from "../../style/CommonComponents";
 import Header from "../../Components/Header";
 import Banner from "../../Components/Banner";
+import Carousel from "../../Components/Carousel";
 import SectionTitle from "../../Components/SectionTitle";
 import NewIn from "../../Components/NewIn";
 import StyleFeed from "../../Components/StyleFeed";
@@ -11,6 +12,7 @@ import BottomInfo from "../../Components/BottomInfo/BottomInfo";
 import Footer from "../../Components/Footer/";
 import newInInfo from "./newInInfo";
 import styleFeed from "./StyleFeed";
+import CarouselArray from "./CarouselArray";
 
 function Women() {
   return (
@@ -30,6 +32,7 @@ function Women() {
         justifyContent="center"
         Title="ASOS LOOKS GOOD ON YOU"
       ></SectionTitle>
+      <Carousel array={CarouselArray}></Carousel>
       <Banner
         imgSrc={"src/assets/Women/topshop.webp"}
         altSRc={"TopShop"}
@@ -74,9 +77,9 @@ export default Women;
 // *header     (DONE)
 // *Banner (DONE)
 // *Looks good on your
-// *New In
-// *style feed
-// - Video Banner for men.
+// *New In (DONE)
+// *style feed (DONE)
+// - Video Banner for men. (DONE)
 // *as seen on me (DONE)
 // *Download app (DONE)
 // *Shop More (DONE)
