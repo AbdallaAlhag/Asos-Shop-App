@@ -6,9 +6,11 @@ import Header from "../../Components/Header";
 import Banner from "../../Components/Banner";
 import SectionTitle from "../../Components/SectionTitle";
 import NewIn from "../../Components/NewIn";
+import StyleFeed from "../../Components/StyleFeed";
 import BottomInfo from "../../Components/BottomInfo/BottomInfo";
 import Footer from "../../Components/Footer/";
 import newInInfo from "./newInInfo";
+import styleFeed from "./StyleFeed";
 
 function Women() {
   return (
@@ -60,6 +62,7 @@ function Women() {
         Title="The style Feed"
         justifyContent="flex-start"
       ></SectionTitle>
+      <StyleFeed styleFeedArray={styleFeed}></StyleFeed>
       <BottomInfo></BottomInfo>
       <Footer></Footer>
     </Page>

@@ -5,9 +5,11 @@ import Banner from "../../Components/Banner";
 import VideoBanner from "../../Components/VideoBanner";
 import SectionTitle from "../../Components/SectionTitle";
 import NewIn from "../../Components/NewIn";
+import StyleFeed from "../../Components/StyleFeed";
 import BottomInfo from "../../Components/BottomInfo/BottomInfo";
 import Footer from "../../Components/Footer/";
 import newInInfo from "./newInInfo";
+import styleFeed from "./StyleFeed";
 
 function Men() {
   return (
@@ -50,6 +52,7 @@ function Men() {
         Title="The style Feed"
         justifyContent="flex-start"
       ></SectionTitle>
+      <StyleFeed styleFeedArray={styleFeed}></StyleFeed>
       <BottomInfo></BottomInfo>
       <Footer></Footer>
     </Page>

@@ -8,7 +8,7 @@ export const PageContainer = styled.div`
 
 export const Container = styled.div`
   display: flex;
-  align-items: center;
+  align-items: ${({ $alignItems }) => $alignItems || "center"};
   justify-content: ${({ $justifyContent }) => $justifyContent || "center"};
   flex-direction: ${({ $flexDirection }) => $flexDirection || "row"};
   color: ${({ $color }) => $color || "white"};
@@ -23,7 +23,7 @@ export const Content = styled.div`
   flex-direction: ${({ $flexDirection }) => $flexDirection || "row"};
   justify-content: ${({ $justifyContent }) => $justifyContent || "flex-start"};
   align-items: center;
-  width: 70%;
+  width: ${({ $width }) => $width || ""};
   gap: ${({ $gap }) => $gap || "0px"};
   padding: ${({ $padding }) => $padding || "0px"};
 `;
@@ -42,9 +42,35 @@ export const TextLink = styled.a`
   }
 `;
 // Add any additional common components here
- export const Column = styled.div`
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center
- `;
+export const Column = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+
+export const StyledP = styled.p`
+  color: ${({ $color }) => $color || "black"};
+  font-size: ${({ $fontSize }) => $fontSize || "16px"};
+  font-weight: ${({ $fontWeight }) => $fontWeight || "normal"};
+  text-align: ${({ $textAlign }) => $textAlign || "center"};
+  margin: ${({ $margin }) => $margin || '10px'};
+`;
+
+export const StyledButton = styled.button`
+  padding: ${({ $padding }) => $padding || '10px 20px'};
+  font-size: ${({ $fontSize }) => $fontSize || '14px'};
+  font-weight: ${({ $fontWeight }) => $fontWeight || "normal"};
+  color: ${({ $textColor }) => $textColor || 'black'};
+  background-color: ${({ $bgColor }) => $bgColor || '#007bff'};
+  border: ${({ $border }) => $border || '2px solid black'};
+  border-radius: ${({ $borderRadius }) => $borderRadius || '4px'};
+  cursor: pointer;
+  margin: ${({ $margin }) => $margin || '10px'};
+
+  &:hover {
+    background-color: ${({ $hoverBgColor }) => $hoverBgColor || '#0056b3'};
+    color: ${({ $hoverTextColor }) => $hoverTextColor || 'white'};
+  }
+`;

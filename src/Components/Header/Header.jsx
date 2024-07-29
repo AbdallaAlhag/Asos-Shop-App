@@ -20,7 +20,7 @@ function Header() {
   return (
     <PageContainer>
       <Container $backgroundColor="#f8f8f8" $color="black">
-        <Content $justifyContent="flex-end">
+        <Content $width='70%' $justifyContent="flex-end">
           <TopButton>
             <InnerDiv>Marketplace</InnerDiv>
           </TopButton>
@@ -33,7 +33,7 @@ function Header() {
         </Content>
       </Container>
       <Container $backgroundColor="#2d2d2d">
-        <Content>
+        <Content $width='70%'>
           <MidButton>
             <StyledAsosLogo color="white" width={80} height={50} />
             <Link to="/Women"></Link>
@@ -67,7 +67,7 @@ function Header() {
         </Content>
       </Container>
       <Container $backgroundColor="#525050">
-        <Content $gap="10px">
+        <Content $gap="10px" $width='70%'>
           <LowButton>
             <TabText>TRENDING</TabText>
           </LowButton>
