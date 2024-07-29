@@ -3,35 +3,63 @@
 import GlobalStyle from "../../style/GlobalStyles";
 import { Page } from "../../style/CommonComponents";
 import Header from "../../Components/Header";
+import Banner from "../../Components/Banner";
 import BottomInfo from "../../Components/BottomInfo/BottomInfo";
 import Footer from "../../Components/Footer/";
 
 function Women() {
-
   return (
-      <Page>
-        <GlobalStyle />
-        <Header></Header>
-        <BottomInfo></BottomInfo>
-        <Footer></Footer>
-      </Page>
+    <Page>
+      <GlobalStyle />
+      <Header></Header>
+      <Banner
+        imgSrc={"src/assets/Women/unrealFinds.jpg"}
+        altSRc={"Unreal Finds, Unreal Summer"}
+      ></Banner>
+      <Banner
+        imgSrc={"src/assets/Women/summerDresses.webp"}
+        altSRc={"Summer dresses"}
+      ></Banner>
+      {/* Asos looks good and Image carousel */}
+      <Banner
+        imgSrc={"src/assets/Women/topshop.webp"}
+        altSRc={"TopShop"}
+      ></Banner>
+      <Banner
+        imgSrc={"src/assets/Women/yourMostHypedWomen.webp"}
+        altSRc={"Your most hyped"}
+      ></Banner>
+      <Banner
+        imgSrc={"src/assets/Women/MangoBrand.avif"}
+        altSRc={"Mango Brand"}
+      ></Banner>
+      <Banner
+        imgSrc={"src/assets/Women/reclaimedVintage.webp"}
+        altSRc={"Reclaimed Vintage Brand"}
+      ></Banner>
+      {/* New In Section*/}
+      <Banner
+        imgSrc={"src/assets/Men/disneyAsos.avif"}
+        altSRc={"Disney Brand"}
+      ></Banner>
+            <Banner
+        imgSrc={"src/assets/Women/ghdDuetBlowdryBrush.avif"}
+        altSRc={"ghd Duet Blowdry Brush"}
+      ></Banner>
+      {/* The Style Feeds Section */}
+      <BottomInfo></BottomInfo>
+      <Footer></Footer>
+    </Page>
   );
 }
 
 export default Women;
 
-
-// *header     
-// *image/call to action to shop 
-// [euro summer, girls mdiWeatherNight, statement dresses, casuals]
-// - [summer nights, modern staples, shorts, statement shirts]
-// as seen on social 
-// - must have: graphic T's
-// euro brands we love
-//  - Brands to know
-// *featured shops
-// *sneakers of the season 
-// *style feed 
-// *as seen on me 
-// *Download app 
-// *Shop More
+// *header     (DONE)
+// *Banner (DONE)
+// *Looks good on your
+// *New In
+// *style feed
+// *as seen on me (DONE)
+// *Download app (DONE)
+// *Shop More (DONE)
