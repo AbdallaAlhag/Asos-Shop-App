@@ -9,7 +9,7 @@ import {
   DownloadButton,
 } from "./BottomInfoStyledComponents";
 
-function BottomInfo() {
+function BottomInfo( ) {
   const chunks = chunkArray(mensFashionItems.slice(0, 40), 10);
   return (
     <BottomInfoContainer>

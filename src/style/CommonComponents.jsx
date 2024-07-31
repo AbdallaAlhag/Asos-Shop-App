@@ -22,10 +22,11 @@ export const Content = styled.div`
   display: flex;
   flex-direction: ${({ $flexDirection }) => $flexDirection || "row"};
   justify-content: ${({ $justifyContent }) => $justifyContent || "flex-start"};
-  align-items: center;
+  align-items: ${({ $alignItems }) => $alignItems || "center"};
   width: ${({ $width }) => $width || ""};
   gap: ${({ $gap }) => $gap || "0px"};
   padding: ${({ $padding }) => $padding || "0px"};
+  flex-wrap: ${({ $wrap }) => $wrap || ""};
 `;
 
 export const Page = styled.div`
@@ -79,5 +80,8 @@ export const StyledImg = styled.img`
   height: ${({ $height }) => ($height ? $height : "")};
   width: ${({ $height }) => ($height ? $height : "")};
   user-select: ${({ $userSelect }) => ($userSelect ? $userSelect : "")};
+    transition: opacity 0.3s ease-in-out;
 
 `;
+
+

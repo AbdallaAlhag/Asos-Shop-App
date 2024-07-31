@@ -54,7 +54,7 @@ function Footer() {
         </Content>
       </Container>
       <Container $backgroundColor="#eeeeee" $color="black">
-        <Content $padding="20px 0px" $justifyContent="Space-between">
+        <Content $padding="20px 0px" $justifyContent="Space-between" $gap='100px' $alignItems='flex-start'>
           <InnerContent>
             <Header5>HELP AND INFORMATION</Header5>
             <TextLink>Help</TextLink>
@@ -88,7 +88,7 @@ function Footer() {
         </Content>
       </Container>
       <Container $backgroundColor="#dddddd" $color="#6c6f71">
-        <Content $padding="20px 0px" $justifyContent="space-between">
+        <Content $padding="20px 0px" $justifyContent="space-between" $gap='900px'>
           <p>© 2024 ASOS</p>
           <div>
             <TextLink>Privacy & Cookies</TextLink>
