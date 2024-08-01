@@ -7,7 +7,11 @@ import {
   StyledAsosLogo,
   TopButton,
 } from "./HeaderStyledComponents";
-import { PageContainer, Container, Content } from '../../style/CommonComponents'
+import {
+  PageContainer,
+  Container,
+  Content,
+} from "../../style/CommonComponents";
 import { Link } from "react-router-dom";
 import Icon from "@mdi/react";
 import { mdiAccountOutline } from "@mdi/js";
@@ -15,12 +19,11 @@ import { mdiHeartOutline } from "@mdi/js";
 import { mdiShoppingOutline } from "@mdi/js";
 import SearchBar from "../SearchBar/";
 
-
 function Header() {
   return (
     <PageContainer>
       <Container $backgroundColor="#f8f8f8" $color="black">
-        <Content $width='70%' $justifyContent="flex-end">
+        <Content $width="70%" $justifyContent="flex-end">
           <TopButton>
             <InnerDiv>Marketplace</InnerDiv>
           </TopButton>
@@ -33,10 +36,11 @@ function Header() {
         </Content>
       </Container>
       <Container $backgroundColor="#2d2d2d">
-        <Content $width='70%'>
+        <Content $width="70%">
           <MidButton>
-            <StyledAsosLogo color="white" width={80} height={50} />
-            <Link to="/Women"></Link>
+            <Link to="/">
+              <StyledAsosLogo color="white" width={80} height={50} />
+            </Link>
           </MidButton>
           <MidButton>
             <Link to="/Women">
@@ -44,12 +48,12 @@ function Header() {
             </Link>
           </MidButton>
           <MidButton>
-            <Link to="/">
+            <Link to="/Men">
               <LinkText>Men</LinkText>
             </Link>
           </MidButton>
           {/* I should style this some time */}
-          <SearchBar placeholder="Search for a fruit..." />
+          <SearchBar placeholder="Search for items and brands" />
           <MidButton>
             <Icon
               path={mdiAccountOutline}
@@ -67,7 +71,7 @@ function Header() {
         </Content>
       </Container>
       <Container $backgroundColor="#525050">
-        <Content $gap="10px" $width='70%'>
+        <Content $gap="10px" $width="70%">
           <LowButton>
             <TabText>TRENDING</TabText>
           </LowButton>
@@ -114,7 +118,7 @@ export default Header;
 //   const data = ["Apple", "Banana", "Orange", "Mango", "Grapes"];
 //   return (
 //     <div>
-//       <MuiSearchBar placeholder="Search for a fruit..." data={data} />
+//       <MuiSearchBar placeholder="..." data={data} />
 //     </div>
 //   );
 // };

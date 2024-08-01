@@ -64,15 +64,16 @@ export const StyledButton = styled.button`
   font-size: ${({ $fontSize }) => $fontSize || '14px'};
   font-weight: ${({ $fontWeight }) => $fontWeight || "normal"};
   color: ${({ $textColor }) => $textColor || 'black'};
-  background-color: ${({ $bgColor }) => $bgColor || '#007bff'};
+  background-color: ${({ $bgColor }) => $bgColor || '#ffffff'};
   border: ${({ $border }) => $border || '2px solid black'};
   border-radius: ${({ $borderRadius }) => $borderRadius || '4px'};
   cursor: pointer;
   margin: ${({ $margin }) => $margin || '10px'};
 
   &:hover {
-    background-color: ${({ $hoverBgColor }) => $hoverBgColor || '#0056b3'};
+    background-color: ${({ $hoverBgColor }) => $hoverBgColor || 'black'};
     color: ${({ $hoverTextColor }) => $hoverTextColor || 'white'};
+    border-color: ${({ $hoverBorderColor }) => $hoverBorderColor || ''};
   }
 `;
 
