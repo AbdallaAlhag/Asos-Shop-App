@@ -8,7 +8,17 @@ import FourPicBanner from "../../Components/FourPicBanner/";
 import SectionTitle from "../../Components/SectionTitle";
 import Footer from "../../Components/Footer/";
 import { discountInfo, womensBrands, mensBrands } from "./Data";
+import styled from "styled-components";
 
+const RelativeButtonContainer = styled.div`
+  position: absolute;
+  top: 1000px;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+`;
 function Home() {
   return (
     <Page>
@@ -18,6 +28,28 @@ function Home() {
         imgSrc={"src/assets/Home/thisIsAsos.webp"}
         altSRc={"New in Summer image"}
       ></Banner>
+      <RelativeButtonContainer>
+        <StyledButton
+          $borderRadius="0px"
+          $hoverBorderColor="black"
+          $padding="10px 25px"
+          $fontWeight="bold"
+          $fontSize="16px"
+          $border="2px solid white"
+        >
+          SHOP WOMENS
+        </StyledButton>
+        <StyledButton
+          $borderRadius="0px"
+          $hoverBorderColor="black"
+          $padding="10px 35px"
+          $fontWeight="bold"
+          $fontSize="16px"
+          $border="2px solid white"
+        >
+          SHOP MENS
+        </StyledButton>
+      </RelativeButtonContainer>
       <FourPicBanner resource={discountInfo}></FourPicBanner>
       <SectionTitle
         justifyContent="center"

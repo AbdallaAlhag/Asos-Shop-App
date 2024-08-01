@@ -1,6 +1,15 @@
 // src/CommonComponents.js
 import styled from "styled-components";
 
+
+export const Page = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  `;
+
 export const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -29,11 +38,6 @@ export const Content = styled.div`
   flex-wrap: ${({ $wrap }) => $wrap || ""};
 `;
 
-export const Page = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-`;
 
 export const TextLink = styled.a`
   color: #6c6f71;
