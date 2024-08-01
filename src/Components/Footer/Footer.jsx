@@ -13,7 +13,7 @@ import {
 import { ReactComponent as FacebookLogo } from "../../assets/FooterLogo/facebookIconsvg.svg";
 import { ReactComponent as InstagramLogo } from "../../assets/FooterLogo/instagramIconsvg.svg";
 import { ReactComponent as SnapchatLogo } from "../../assets/FooterLogo/snapchatIconsvg.svg";
-import visa from "../../assets/FooterLogo/mastercard-png.webp";
+import visa from "../../assets/FooterLogo/visa-png.webp";
 import payPal from "../../assets/FooterLogo/pay-pal-png.webp";
 import masterCard from "../../assets/FooterLogo/mastercard-png.webp";
 import americanExpress from "../../assets/FooterLogo/american-express-png.webp";
@@ -54,7 +54,12 @@ function Footer() {
         </Content>
       </Container>
       <Container $backgroundColor="#eeeeee" $color="black">
-        <Content $padding="20px 0px" $justifyContent="Space-between" $gap='100px' $alignItems='flex-start'>
+        <Content
+          $padding="20px 0px"
+          $justifyContent="Space-between"
+          $gap="100px"
+          $alignItems="flex-start"
+        >
           <InnerContent>
             <Header5>HELP AND INFORMATION</Header5>
             <TextLink>Help</TextLink>
@@ -88,7 +93,11 @@ function Footer() {
         </Content>
       </Container>
       <Container $backgroundColor="#dddddd" $color="#6c6f71">
-        <Content $padding="20px 0px" $justifyContent="space-between" $gap='900px'>
+        <Content
+          $padding="20px 0px"
+          $justifyContent="space-between"
+          $gap="900px"
+        >
           <p>© 2024 ASOS</p>
           <div>
             <TextLink>Privacy & Cookies</TextLink>

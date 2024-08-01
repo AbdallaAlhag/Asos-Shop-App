@@ -21,7 +21,10 @@ const routes = [
     errorElement: <ErrorPage />,
   },
   {
-    path: "/Shop",
+    // path: "/Shop",
+    // element: <Shop />,
+    // errorElement: <ErrorPage />,
+    path: "/Shop/:category",
     element: <Shop />,
     errorElement: <ErrorPage />,
   },

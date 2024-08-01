@@ -5,7 +5,6 @@ const FooterContainer = styled(PageContainer)`
   margin-top: auto;
 `;
 
-
 const InnerContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -15,7 +14,6 @@ const InnerContent = styled.div`
 const Header5 = styled.h4`
   color: #6e6e6e;
 `;
-
 
 const Separator = styled.span`
   margin: 0 0.5rem;

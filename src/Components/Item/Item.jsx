@@ -5,16 +5,22 @@ import { useState } from "react";
 
 function Item({ item }) {
   const [isHovered, setIsHovered] = useState(false);
-
+  console.log(item.imageUrl);
   const completeImageUrl = item.imageUrl.startsWith("http")
     ? item.imageUrl
     : `https://${item.imageUrl}`;
 
-  const completeHoverImageUrl = item.additionalImageUrls[0].startsWith("http")
-    ? item.additionalImageUrls[0]
-    : `https://${item.additionalImageUrls[0]}`;
+  let completeHoverImageUrl = item.imageUrl.startsWith("http")
+    ? item.imageUrl
+    : `https://${item.imageUrl}`;
+  if (item.additionalImageUrls.length !== 0) {
+    completeHoverImageUrl = item.additionalImageUrls[0].startsWith("http")
+      ? item.additionalImageUrls[0]
+      : `https://${item.additionalImageUrls[0]}`;
 
-  console.log(completeHoverImageUrl);
+    console.log(completeHoverImageUrl);
+  }
+
   return (
     <ItemContainer>
       <StyledImg

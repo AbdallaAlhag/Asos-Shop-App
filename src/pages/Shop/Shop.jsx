@@ -7,12 +7,32 @@ import Footer from "../../Components/Footer/";
 import Item from "../../Components/Item";
 // import { fetchProductList, fetchCategories } from "../../API/test";
 // import categoryData from "../../API/getCatagoriesData.json";
-import AdidasData from "../../API/MenData/AdidasData.json";
+// import AdidasData from "../../API/MenData/AdidasData.json";
+
+import useFetchDataWithCache from "../../API/useFetchDataWithCache";
+import { useParams } from "react-router-dom";
 
 function Shop() {
-  //   const brands = categoryData.data.brands;
-  const adidasBrand = AdidasData.data.products;
-  // This should return the first brand
+  const { category } = useParams();
+  const [gender, brand, categoryId] = category.split("-");
+  console.log(brand, gender, categoryId);
+
+  const url = `https://asos10.p.rapidapi.com/api/v1/getProductList?categoryId=${categoryId}&currency=USD&country=US&store=US&languageShort=en&sizeSchema=US&offset=0&sort=recommended`;
+  const options = {
+    method: "GET",
+    headers: {
+      "x-rapidapi-key": "938d9a2093msh6edd9ccf27904aep192706jsn0203b5a863a9",
+      "x-rapidapi-host": "asos10.p.rapidapi.com",
+    },
+  };
+
+  const { data, loading, error } = useFetchDataWithCache(url, options, 500); // 500ms debounce
+
+  const items = data?.data?.products || [];
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+  if (!items || items.length === 0) return <p>No data available</p>;
 
   return (
     <Page>
@@ -26,7 +46,10 @@ function Shop() {
           $padding="50px 0px"
           $width="70%"
         >
-          {adidasBrand.map((item, index) => (
+          {/* {adidasBrand.map((item, index) => (
+            <Item key={index} item={item} />
+          ))} */}
+          {items.map((item, index) => (
             <Item key={index} item={item} />
           ))}
         </Content>

@@ -20,37 +20,37 @@ export const discountInfo = [
 export const womensBrands = [
   {
     src: "src/assets/Home/womensBrand1.webp",
-    alt: "womens brands image 1",
+    alt: "Womens-adidas-5906",
   },
   {
     src: "src/assets/Home/womensBrand2.avif",
-    alt: "womens brands image 2",
+    alt: "Womens-Mango-8264",
   },
   {
     src: "src/assets/Home/womensBrand3.avif",
-    alt: "womens brands image 3",
+    alt: "Womens-ASOS DESIGN-27869",
   },
   {
     src: "src/assets/Home/womensBrand4.avif",
-    alt: "womens brands image 4",
+    alt: "Womens-Topshop-29299",
   },
 ];
 
 export const mensBrands = [
   {
     src: "src/assets/Home/mensBrand1.avif",
-    alt: "mens brands image 1",
+    alt: "Mens-Adidas-7113",
   },
   {
     src: "src/assets/Home/mensBrand2.avif",
-    alt: "mens brands image 2",
+    alt: "Mens-New Balance-3792",
   },
   {
     src: "src/assets/Home/mensBrand3.avif",
-    alt: "mens brands image 3",
+    alt: "Mens-ASOS DESIGN-27871",
   },
   {
     src: "src/assets/Home/mensBrand4.avif",
-    alt: "mens brands image 4",
+    alt: "Mens-Topman-29065",
   },
 ];

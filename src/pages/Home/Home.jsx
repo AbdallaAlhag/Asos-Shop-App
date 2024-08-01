@@ -10,7 +10,7 @@ import Footer from "../../Components/Footer/";
 import { discountInfo, womensBrands, mensBrands } from "./Data";
 import styled from "styled-components";
 
-const RelativeButtonContainer = styled.div`
+const ButtonContainer = styled.div`
   position: absolute;
   top: 1000px;
   align-self: center;
@@ -19,6 +19,7 @@ const RelativeButtonContainer = styled.div`
   align-items: center;
   gap: 5px;
 `;
+
 function Home() {
   return (
     <Page>
@@ -28,7 +29,7 @@ function Home() {
         imgSrc={"src/assets/Home/thisIsAsos.webp"}
         altSRc={"New in Summer image"}
       ></Banner>
-      <RelativeButtonContainer>
+      <ButtonContainer>
         <StyledButton
           $borderRadius="0px"
           $hoverBorderColor="black"
@@ -49,13 +50,17 @@ function Home() {
         >
           SHOP MENS
         </StyledButton>
-      </RelativeButtonContainer>
-      <FourPicBanner resource={discountInfo}></FourPicBanner>
+      </ButtonContainer>
+      <FourPicBanner resource={discountInfo} click={false}></FourPicBanner>
       <SectionTitle
         justifyContent="center"
         Title="The Biggest Labels"
       ></SectionTitle>
-      <FourPicBanner resource={womensBrands} height={"70vh"}></FourPicBanner>
+      <FourPicBanner
+        resource={womensBrands}
+        height={"70vh"}
+        click={true}
+      ></FourPicBanner>
       <StyledButton
         $margin="70px auto"
         $borderRadius="0px"
@@ -66,7 +71,11 @@ function Home() {
       >
         SHOP WOMEN'S BRANDS
       </StyledButton>
-      <FourPicBanner resource={mensBrands} height={"70vh"}></FourPicBanner>
+      <FourPicBanner
+        resource={mensBrands}
+        height={"70vh"}
+        click={true}
+      ></FourPicBanner>
       <StyledButton
         $margin="70px auto"
         $borderRadius="0px"

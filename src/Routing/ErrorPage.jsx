@@ -5,9 +5,7 @@ const ErrorPage = () => {
   return (
     <div>
       <h1>Oh no, this route doesn't exist!</h1>
-      <Link to="/">
-        Go to Women's section
-      </Link>
+      <Link to="/">Go Home</Link>
     </div>
   );
 };
