@@ -2,10 +2,10 @@ import { ItemContainer } from "./ItemStyled";
 import { StyledImg, StyledP } from "../../style/CommonComponents";
 import PropTypes from "prop-types";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Item({ item }) {
   const [isHovered, setIsHovered] = useState(false);
-  console.log(item.imageUrl);
   const completeImageUrl = item.imageUrl.startsWith("http")
     ? item.imageUrl
     : `https://${item.imageUrl}`;
@@ -17,18 +17,23 @@ function Item({ item }) {
     completeHoverImageUrl = item.additionalImageUrls[0].startsWith("http")
       ? item.additionalImageUrls[0]
       : `https://${item.additionalImageUrls[0]}`;
-
-    console.log(completeHoverImageUrl);
   }
 
   return (
     <ItemContainer>
-      <StyledImg
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        src={isHovered ? completeHoverImageUrl : completeImageUrl}
-        alt={item.name}
-      />
+      <Link
+        to={{
+          pathname: `/Checkout/${item.name}`,
+          state: { data: item },
+        }}
+      >
+        <StyledImg
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          src={isHovered ? completeHoverImageUrl : completeImageUrl}
+          alt={item.name}
+        />
+      </Link>
       <StyledP $textAlign="left" $fontSize="12px" $margin="10px 0px">
         {item.name}
       </StyledP>

@@ -5,9 +5,7 @@ import { Page, Container, Content } from "../../style/CommonComponents";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer/";
 import Item from "../../Components/Item";
-// import { fetchProductList, fetchCategories } from "../../API/test";
-// import categoryData from "../../API/getCatagoriesData.json";
-// import AdidasData from "../../API/MenData/AdidasData.json";
+import { v4 as uuidv4 } from "uuid";
 
 import useFetchDataWithCache from "../../API/useFetchDataWithCache";
 import { useParams } from "react-router-dom";
@@ -49,8 +47,8 @@ function Shop() {
           {/* {adidasBrand.map((item, index) => (
             <Item key={index} item={item} />
           ))} */}
-          {items.map((item, index) => (
-            <Item key={index} item={item} />
+          {items.map((item) => (
+            <Item key={uuidv4()} item={item} />
           ))}
         </Content>
       </Container>

@@ -3,6 +3,7 @@ import Men from "../pages/Men";
 import ErrorPage from "./ErrorPage";
 import Shop from "../pages/Shop";
 import Home from "../pages/Home";
+import Checkout from "../pages/Checkout";
 
 const routes = [
   {
@@ -28,6 +29,10 @@ const routes = [
     element: <Shop />,
     errorElement: <ErrorPage />,
   },
+  { 
+    path: "/Checkout/:category", 
+    element: <Checkout />, 
+    errorElement: <ErrorPage /> },
 ];
 
 export default routes;

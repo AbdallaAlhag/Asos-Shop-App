@@ -8,6 +8,7 @@ import FourPicBanner from "../../Components/FourPicBanner/";
 import SectionTitle from "../../Components/SectionTitle";
 import Footer from "../../Components/Footer/";
 import { discountInfo, womensBrands, mensBrands } from "./Data";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const ButtonContainer = styled.div`
@@ -30,26 +31,30 @@ function Home() {
         altSRc={"New in Summer image"}
       ></Banner>
       <ButtonContainer>
-        <StyledButton
-          $borderRadius="0px"
-          $hoverBorderColor="black"
-          $padding="10px 25px"
-          $fontWeight="bold"
-          $fontSize="16px"
-          $border="2px solid white"
-        >
-          SHOP WOMENS
-        </StyledButton>
-        <StyledButton
-          $borderRadius="0px"
-          $hoverBorderColor="black"
-          $padding="10px 35px"
-          $fontWeight="bold"
-          $fontSize="16px"
-          $border="2px solid white"
-        >
-          SHOP MENS
-        </StyledButton>
+        <Link to={`/Shop/Womens-New-27108`}>
+          <StyledButton
+            $borderRadius="0px"
+            $hoverBorderColor="black"
+            $padding="10px 25px"
+            $fontWeight="bold"
+            $fontSize="16px"
+            $border="2px solid white"
+          >
+            SHOP WOMENS
+          </StyledButton>
+        </Link>
+        <Link to={`/Shop/Mens-New-27110`}>
+          <StyledButton
+            $borderRadius="0px"
+            $hoverBorderColor="black"
+            $padding="10px 35px"
+            $fontWeight="bold"
+            $fontSize="16px"
+            $border="2px solid white"
+          >
+            SHOP MENS
+          </StyledButton>
+        </Link>
       </ButtonContainer>
       <FourPicBanner resource={discountInfo} click={false}></FourPicBanner>
       <SectionTitle
