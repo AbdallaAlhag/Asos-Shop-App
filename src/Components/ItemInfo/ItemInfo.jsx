@@ -9,6 +9,7 @@ import {
 } from "../../style/CommonComponents";
 import PropTypes from "prop-types";
 import AccordionComponent from "./AccordionComponent";
+import SizingComponent from "./SizingComponent";
 
 const ItemInfo = ({ item }) => {
   // Construct the complete image URL
@@ -20,7 +21,7 @@ const ItemInfo = ({ item }) => {
 
   return (
     <Container $gap="50px">
-      <Content>
+      <Content $height='100%' $width='auto'>
         <StyledImg src={completeImageUrl} alt={item.name} />
       </Content>
       <Column
@@ -35,8 +36,8 @@ const ItemInfo = ({ item }) => {
           {item.price.current?.text || "N/A"}
         </StyledP>{" "}
         {/* Access price text */}
-        <StyledDiv $backGroundColor="#cde2f5">
-          <StyledP $margin="10px 0px" $textAlign="left">
+        <StyledDiv $backGroundColor="#cde2f5" $margin="10px 0px">
+          <StyledP $margin="10px 10px" $textAlign="left">
             {/* icon */}
             PSST! NEW HERE? Get 10% off almost everything!* With code:{" "}
             <strong>HIFRIEND</strong>
@@ -46,6 +47,7 @@ const ItemInfo = ({ item }) => {
           <strong>COLOR:</strong> {item.colour || "N/A"}
         </StyledP>
         {/* Drop Down Menu */}
+        <SizingComponent productId={item.id}/>
         <StyledButton
           $width="100%"
           $margin="10px 0px

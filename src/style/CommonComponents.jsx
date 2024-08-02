@@ -36,6 +36,7 @@ export const Content = styled.div`
   gap: ${({ $gap }) => $gap || "0px"};
   padding: ${({ $padding }) => $padding || "0px"};
   flex-wrap: ${({ $wrap }) => $wrap || ""};
+  height: ${({ $height }) => $height || ""};
 `;
 
 export const TextLink = styled.a`
@@ -90,7 +91,7 @@ export const StyledImg = styled.img`
 `;
 
 export const StyledDiv = styled.div`
-  color: ${({ $backGroundColor }) => $backGroundColor || "#ffffff"};
+  background-color: ${({ $backGroundColor }) => $backGroundColor || "#ffffff"};
   width: ${({ $width }) => $width || ""};
   margin: ${({ $margin }) => $margin || "10px"};
 `;
