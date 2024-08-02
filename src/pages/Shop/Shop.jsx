@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 function Shop() {
   const { category } = useParams();
   const [gender, brand, categoryId] = category.split("-");
-  console.log(brand, gender, categoryId);
+  // console.log(brand, gender, categoryId);
 
   const url = `https://asos10.p.rapidapi.com/api/v1/getProductList?categoryId=${categoryId}&currency=USD&country=US&store=US&languageShort=en&sizeSchema=US&offset=0&sort=recommended`;
   const options = {
@@ -28,7 +28,7 @@ function Shop() {
 
   const items = data?.data?.products || [];
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <p>Loading... {gender} {brand}</p>;
   if (error) return <p>Error: {error.message}</p>;
   if (!items || items.length === 0) return <p>No data available</p>;
 

@@ -1,14 +1,12 @@
 // src/CommonComponents.js
 import styled from "styled-components";
 
-
 export const Page = styled.div`
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   overflow-x: hidden;
-
-  `;
+`;
 
 export const PageContainer = styled.div`
   display: flex;
@@ -23,8 +21,10 @@ export const Container = styled.div`
   color: ${({ $color }) => $color || "white"};
   background-color: ${({ $backgroundColor }) => $backgroundColor || "#ffffff"};
   border-top: ${({ $borderTop }) => $borderTop || "none"};
+  border-bottom: ${({ $borderBottom }) => $borderBottom || "none"};
   background: ${({ $background }) => ($background ? $background : "")};
   height: ${({ $height }) => ($height ? $height : "")};
+  gap: ${({ $gap }) => $gap || ""};
 `;
 
 export const Content = styled.div`
@@ -38,7 +38,6 @@ export const Content = styled.div`
   flex-wrap: ${({ $wrap }) => $wrap || ""};
 `;
 
-
 export const TextLink = styled.a`
   color: #6c6f71;
   cursor: pointer;
@@ -50,36 +49,36 @@ export const TextLink = styled.a`
 export const Column = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-    text-align: ${({ $textAlign }) => $textAlign || "left"};
-
+  justify-content: ${({ $justifyContent }) => $justifyContent || "center"};
+  align-items: ${({ $alignItems }) => $alignItems || "center"};
+  text-align: ${({ $textAlign }) => $textAlign || "left"};
+  width: ${({ $width }) => $width || ""};
 `;
-
 
 export const StyledP = styled.p`
   color: ${({ $color }) => $color || "black"};
   font-size: ${({ $fontSize }) => $fontSize || "16px"};
   font-weight: ${({ $fontWeight }) => $fontWeight || "normal"};
   text-align: ${({ $textAlign }) => $textAlign || "center"};
-  margin: ${({ $margin }) => $margin || '10px'};
+  margin: ${({ $margin }) => $margin || "10px"};
+  width: ${({ $width }) => $width || ""};
 `;
 
 export const StyledButton = styled.button`
-  padding: ${({ $padding }) => $padding || '10px 20px'};
-  font-size: ${({ $fontSize }) => $fontSize || '14px'};
+  padding: ${({ $padding }) => $padding || "10px 20px"};
+  font-size: ${({ $fontSize }) => $fontSize || "14px"};
   font-weight: ${({ $fontWeight }) => $fontWeight || "normal"};
-  color: ${({ $textColor }) => $textColor || 'black'};
-  background-color: ${({ $bgColor }) => $bgColor || '#ffffff'};
-  border: ${({ $border }) => $border || '2px solid black'};
-  border-radius: ${({ $borderRadius }) => $borderRadius || '4px'};
+  color: ${({ $textColor }) => $textColor || "black"};
+  background-color: ${({ $bgColor }) => $bgColor || "#ffffff"};
+  border: ${({ $border }) => $border || "2px solid black"};
+  border-radius: ${({ $borderRadius }) => $borderRadius || "4px"};
   cursor: pointer;
-  margin: ${({ $margin }) => $margin || '10px'};
-
+  margin: ${({ $margin }) => $margin || "10px"};
+  width: ${({ $width }) => $width || ""};
   &:hover {
-    background-color: ${({ $hoverBgColor }) => $hoverBgColor || 'black'};
-    color: ${({ $hoverTextColor }) => $hoverTextColor || 'white'};
-    border-color: ${({ $hoverBorderColor }) => $hoverBorderColor || ''};
+    background-color: ${({ $hoverBgColor }) => $hoverBgColor || "black"};
+    color: ${({ $hoverTextColor }) => $hoverTextColor || "white"};
+    border-color: ${({ $hoverBorderColor }) => $hoverBorderColor || ""};
   }
 `;
 
@@ -87,11 +86,11 @@ export const StyledImg = styled.img`
   height: ${({ $height }) => ($height ? $height : "")};
   width: ${({ $height }) => ($height ? $height : "")};
   user-select: ${({ $userSelect }) => ($userSelect ? $userSelect : "")};
-    transition: opacity 0.3s ease-in-out;
-
+  transition: opacity 0.3s ease-in-out;
 `;
-
 
 export const StyledDiv = styled.div`
   color: ${({ $backGroundColor }) => $backGroundColor || "#ffffff"};
+  width: ${({ $width }) => $width || ""};
+  margin: ${({ $margin }) => $margin || "10px"};
 `;

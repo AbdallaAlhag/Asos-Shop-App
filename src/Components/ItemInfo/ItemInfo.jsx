@@ -5,57 +5,95 @@ import {
   StyledImg,
   StyledP,
   StyledButton,
-  StyledDiv
+  StyledDiv,
 } from "../../style/CommonComponents";
 import PropTypes from "prop-types";
 import AccordionComponent from "./AccordionComponent";
 
 const ItemInfo = ({ item }) => {
+  // Construct the complete image URL
   const completeImageUrl = item.imageUrl.startsWith("http")
     ? item.imageUrl
     : `https://${item.imageUrl}`;
+
+  // Logging the item id for debugging
+
   return (
-    <Container>
+    <Container $gap="50px">
       <Content>
-        {<StyledImg src={completeImageUrl} alt={item.name}></StyledImg>}
+        <StyledImg src={completeImageUrl} alt={item.name} />
       </Content>
-      <Column>
-        <StyledP>{item.name}</StyledP>
-        <StyledP>{item.price}</StyledP>
+      <Column
+        $justifyContent="flex-start"
+        $alignItems="flex-start"
+        $width="35%"
+      >
+        <StyledP $margin="10px 0px" $textAlign="left">
+          {item.name}
+        </StyledP>
+        <StyledP $margin="10px 0px" $textAlign="left">
+          {item.price.current?.text || "N/A"}
+        </StyledP>{" "}
+        {/* Access price text */}
         <StyledDiv $backGroundColor="#cde2f5">
-          <StyledP>
+          <StyledP $margin="10px 0px" $textAlign="left">
             {/* icon */}
             PSST! NEW HERE? Get 10% off almost everything!* With code:{" "}
             <strong>HIFRIEND</strong>
           </StyledP>
         </StyledDiv>
-        <StyledP>
-          <strong>COLOR</strong> {item.color}
+        <StyledP $fontSize="12px" $textAlign="left" $margin="10px 0px">
+          <strong>COLOR:</strong> {item.colour || "N/A"}
         </StyledP>
         {/* Drop Down Menu */}
-        <StyledButton>
+        <StyledButton
+          $width="100%"
+          $margin="10px 0px
+        "
+          $bgColor="#018849"
+          $hoverBgColor="#006637"
+          $textColor="white"
+          $border="2px solid #018849"
+          $borderRadius="0px"
+          $hoverBorderColor="#006637"
+        >
           {/* Icon */}
-          NOTIFY ME
+          Add to Bag
         </StyledButton>
-        {/* Heart Button*/}
-        <Column>
+        {/* Heart Button */}
+        <Column $width="100%" $alignItems="flex-start">
           <StyledDiv>
             {/* Truck Delivery Icon */}
-            <StyledP>Free delivery on qualifying orders.</StyledP>
+            <StyledP $fontSize="12px" $textAlign="left" $margin="0px 0px">
+              Free delivery on qualifying orders.
+            </StyledP>
           </StyledDiv>
           <StyledDiv>
             {/* Return Icon */}
-            <StyledP>Free Returns</StyledP>
+            <StyledP $fontSize="12px" $textAlign="left" $margin="0px 0px">
+              Free Returns
+            </StyledP>
           </StyledDiv>
         </Column>
-        <AccordionComponent ProductId={item.id}/>
+        <AccordionComponent productId={item.id} />
       </Column>
     </Container>
   );
 };
 
+// PropTypes for validation
 ItemInfo.propTypes = {
-  item: PropTypes.array.isRequired,
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    price: PropTypes.shape({
+      current: PropTypes.shape({
+        text: PropTypes.string,
+      }),
+    }),
+    colour: PropTypes.string,
+  }).isRequired,
 };
 
 export default ItemInfo;

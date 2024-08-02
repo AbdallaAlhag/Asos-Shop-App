@@ -19,14 +19,10 @@ function Item({ item }) {
       : `https://${item.additionalImageUrls[0]}`;
   }
 
+  const itemPath = item.name.replace(/ /g, "-");
   return (
     <ItemContainer>
-      <Link
-        to={{
-          pathname: `/Checkout/${item.name}`,
-          state: { data: item },
-        }}
-      >
+      <Link to={`/Checkout/${itemPath}-${item.id}`} state={{ data: item }}>
         <StyledImg
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}

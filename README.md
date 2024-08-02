@@ -9,6 +9,6 @@ Currently, two official plugins are available:
 
 The Website we were working with changes weekly: https://www.asos.com
 
-using https://rapidapi.com/DataCrawler/api/asos10 -> For the ASOS API
+using https://rapidapi.com/DataCrawler/api/asos10 and https://rapidapi.com/apidojo/api/asos2 (for the product detail)-> For the ASOS API
 https://www.npmjs.com/package/react-responsive-carousel -> nice little tool
 https://pictogrammers.com/library/mdi/ -> Icons
