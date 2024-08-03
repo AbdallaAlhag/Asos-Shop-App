@@ -37,6 +37,7 @@ export const Content = styled.div`
   padding: ${({ $padding }) => $padding || "0px"};
   flex-wrap: ${({ $wrap }) => $wrap || ""};
   height: ${({ $height }) => $height || ""};
+  max-width: ${({ $maxWidth }) => $maxWidth || ""};
 `;
 
 export const TextLink = styled.a`

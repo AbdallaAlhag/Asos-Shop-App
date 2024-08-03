@@ -2,7 +2,7 @@ import {
   Container,
   Content,
   Column,
-  StyledImg,
+  // StyledImg,
   StyledP,
   StyledButton,
   StyledDiv,
@@ -10,6 +10,7 @@ import {
 import PropTypes from "prop-types";
 import AccordionComponent from "./AccordionComponent";
 import SizingComponent from "./SizingComponent";
+import SlickCarousel from "../SlickCarousel";
 
 const ItemInfo = ({ item }) => {
   // Construct the complete image URL
@@ -17,12 +18,22 @@ const ItemInfo = ({ item }) => {
     ? item.imageUrl
     : `https://${item.imageUrl}`;
 
-  // Logging the item id for debugging
+  const images = [completeImageUrl];
+
+  if (item.additionalImageUrls?.length !== 0) {
+    item.additionalImageUrls.map((image) => {
+      const temp = item.imageUrl.startsWith("http")
+        ? item.imageUrl
+        : `https://${image}`;
+      images.push(temp);
+    });
+  }
 
   return (
     <Container $gap="50px">
-      <Content $height='100%' $width='auto'>
-        <StyledImg src={completeImageUrl} alt={item.name} />
+      <Content>
+          <SlickCarousel images={images}></SlickCarousel>
+        {/* <StyledImg src={completeImageUrl} alt={item.name} /> */}
       </Content>
       <Column
         $justifyContent="flex-start"
@@ -47,7 +58,7 @@ const ItemInfo = ({ item }) => {
           <strong>COLOR:</strong> {item.colour || "N/A"}
         </StyledP>
         {/* Drop Down Menu */}
-        <SizingComponent productId={item.id}/>
+        <SizingComponent productId={item.id} />
         <StyledButton
           $width="100%"
           $margin="10px 0px
@@ -89,6 +100,7 @@ ItemInfo.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
+    additionalImageUrls: PropTypes.array.isRequired,
     price: PropTypes.shape({
       current: PropTypes.shape({
         text: PropTypes.string,
