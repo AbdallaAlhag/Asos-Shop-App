@@ -86,7 +86,7 @@ export const StyledButton = styled.button`
 
 export const StyledImg = styled.img`
   height: ${({ $height }) => ($height ? $height : "")};
-  width: ${({ $height }) => ($height ? $height : "")};
+  width: ${({ $width }) => ($width ? $width : "")};
   user-select: ${({ $userSelect }) => ($userSelect ? $userSelect : "")};
   transition: opacity 0.3s ease-in-out;
 `;

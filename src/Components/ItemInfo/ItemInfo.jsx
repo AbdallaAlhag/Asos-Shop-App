@@ -20,7 +20,7 @@ const ItemInfo = ({ item }) => {
 
   const images = [completeImageUrl];
 
-  if (item.additionalImageUrls?.length !== 0) {
+  if (item.additionalImageUrls && item.additionalImageUrls?.length !== 0) {
     item.additionalImageUrls.map((image) => {
       const temp = item.imageUrl.startsWith("http")
         ? item.imageUrl
@@ -32,7 +32,7 @@ const ItemInfo = ({ item }) => {
   return (
     <Container $gap="50px">
       <Content>
-          <SlickCarousel images={images}></SlickCarousel>
+        <SlickCarousel images={images}></SlickCarousel>
         {/* <StyledImg src={completeImageUrl} alt={item.name} /> */}
       </Content>
       <Column
@@ -88,7 +88,10 @@ const ItemInfo = ({ item }) => {
             </StyledP>
           </StyledDiv>
         </Column>
-        <AccordionComponent productId={item.id} />
+        <AccordionComponent
+          productId={item.id}
+          additionalImages={item.additionalImageUrls}
+        />
       </Column>
     </Container>
   );
@@ -100,7 +103,7 @@ ItemInfo.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
     imageUrl: PropTypes.string.isRequired,
-    additionalImageUrls: PropTypes.array.isRequired,
+    additionalImageUrls: PropTypes.array,
     price: PropTypes.shape({
       current: PropTypes.shape({
         text: PropTypes.string,

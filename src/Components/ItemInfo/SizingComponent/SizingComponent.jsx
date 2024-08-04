@@ -68,6 +68,7 @@
 import useFetchDataWithCache from "../../../API/useFetchDataWithCache";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { StyledP } from "../../../style/CommonComponents";
 
 const StyledContainer = styled.div`
   margin: 10px 0;
@@ -135,10 +136,10 @@ const SizingComponent = ({ productId }) => {
   };
   const { data, loading, error } = useFetchDataWithCache(url, options, 500);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (loading) return <StyledP>Loading...</StyledP>;
+  if (error) return <StyledP>Error: {error.message}</StyledP>;
   if (!data || !data.variants || data.variants.length === 0)
-    return <p>No sizes available</p>;
+    return <StyledP>No sizes available</StyledP>;
 
   const sizes = data.variants;
 

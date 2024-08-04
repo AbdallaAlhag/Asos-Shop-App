@@ -5,10 +5,10 @@ import { Page, Container, Content } from "../../style/CommonComponents";
 import Header from "../../Components/Header";
 import Footer from "../../Components/Footer/";
 import Item from "../../Components/Item";
-import { v4 as uuidv4 } from "uuid";
 
 import useFetchDataWithCache from "../../API/useFetchDataWithCache";
 import { useParams } from "react-router-dom";
+import { StyledP } from "../../style/CommonComponents";
 
 function Shop() {
   const { category } = useParams();
@@ -28,10 +28,16 @@ function Shop() {
 
   const items = data?.data?.products || [];
 
-  if (loading) return <p>Loading... {gender} {brand}</p>;
-  if (error) return <p>Error: {error.message}</p>;
-  if (!items || items.length === 0) return <p>No data available</p>;
-
+  if (loading)
+    return (
+      <StyledP>
+        Loading... {gender} {brand}
+      </StyledP>
+    );
+  if (error) return <StyledP>Error: {error.message}</StyledP>;
+  if (!items || items.length === 0) return <StyledP>No data available</StyledP>;
+  
+  
   return (
     <Page>
       <GlobalStyle />
@@ -48,7 +54,7 @@ function Shop() {
             <Item key={index} item={item} />
           ))} */}
           {items.map((item) => (
-            <Item key={uuidv4()} item={item} />
+            <Item key={item.id} item={item} />
           ))}
         </Content>
       </Container>

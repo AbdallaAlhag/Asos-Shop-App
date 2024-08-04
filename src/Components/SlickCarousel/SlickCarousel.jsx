@@ -44,7 +44,7 @@ const Thumbnail = styled.img`
 `;
 
 // SlickCarousel component
-const SlickCarousel = ({ images }) => {
+const SlickCarousel = ({ images, additionalImages }) => {
   const sliderRef1 = useRef(null);
   const sliderRef2 = useRef(null);
 
@@ -64,7 +64,12 @@ const SlickCarousel = ({ images }) => {
   };
 
   return (
-    <Content $maxWidth="600px" $height="400px" $flexDirection="row-reverse" $gap='0px'>
+    <Content
+      $maxWidth="600px"
+      $height="400px"
+      $flexDirection="row-reverse"
+      $gap="0px"
+    >
       <SliderWrapper>
         <Slider
           {...mainSliderSettings}
@@ -78,25 +83,28 @@ const SlickCarousel = ({ images }) => {
           ))}
         </Slider>
       </SliderWrapper>
-      <ThumbnailWrapper>
-        <Slider
-          {...thumbnailSliderSettings}
-          ref={(slider) => (sliderRef2.current = slider)}
-          className="thumbnail-slider"
-        >
-          {images.map((image, index) => (
-            <div key={`thumbnail-${index}`}>
-              <Thumbnail src={image} alt={`Thumbnail ${index}`} />
-            </div>
-          ))}
-        </Slider>
-      </ThumbnailWrapper>
+      {additionalImages && (
+        <ThumbnailWrapper>
+          <Slider
+            {...thumbnailSliderSettings}
+            ref={(slider) => (sliderRef2.current = slider)}
+            className="thumbnail-slider"
+          >
+            {images.map((image, index) => (
+              <div key={`thumbnail-${index}`}>
+                <Thumbnail src={image} alt={`Thumbnail ${index}`} />
+              </div>
+            ))}
+          </Slider>
+        </ThumbnailWrapper>
+      )}
     </Content>
   );
 };
 
 SlickCarousel.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
+  additionalImages: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default SlickCarousel;

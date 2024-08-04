@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Item({ item }) {
+function Item({ item, height, width }) {
   const [isHovered, setIsHovered] = useState(false);
   const completeImageUrl = item.imageUrl.startsWith("http")
     ? item.imageUrl
@@ -13,7 +13,7 @@ function Item({ item }) {
   let completeHoverImageUrl = item.imageUrl.startsWith("http")
     ? item.imageUrl
     : `https://${item.imageUrl}`;
-  if (item.additionalImageUrls.length !== 0) {
+  if (item.additionalImageUrls && item.additionalImageUrls.length !== 0) {
     completeHoverImageUrl = item.additionalImageUrls[0].startsWith("http")
       ? item.additionalImageUrls[0]
       : `https://${item.additionalImageUrls[0]}`;
@@ -21,18 +21,20 @@ function Item({ item }) {
 
   const itemPath = item.name.replace(/ /g, "-");
   return (
-    <ItemContainer>
+    <ItemContainer $height={height} $width={width}>
       <Link to={`/Checkout/${itemPath}-${item.id}`} state={{ data: item }}>
         <StyledImg
+          $height={height}
+          $width={width}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           src={isHovered ? completeHoverImageUrl : completeImageUrl}
           alt={item.name}
         />
       </Link>
-      <StyledP $textAlign="left" $fontSize="12px" $margin="10px 0px">
+{!height && !width &&      <StyledP $textAlign="left" $fontSize="12px" $margin="10px 0px">
         {item.name}
-      </StyledP>
+      </StyledP>}
       <StyledP
         $textAlign="left"
         $fontSize="12px"
@@ -41,11 +43,23 @@ function Item({ item }) {
       >
         {item.price.current.text}
       </StyledP>
+      {height && width && (
+        <StyledP
+          $textAlign="left"
+          $fontSize="12px"
+          $fontWeight="bold"
+          $margin="0px 0px"
+        >
+          {item.brandName}
+        </StyledP>
+      )}
     </ItemContainer>
   );
 }
 
 Item.propTypes = {
   item: PropTypes.object.isRequired,
+  height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 export default Item;

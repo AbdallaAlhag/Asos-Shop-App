@@ -6,6 +6,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import PropTypes from "prop-types";
 import useFetchDataWithCache from "../../../API/useFetchDataWithCache";
 import DOMPurify from "dompurify";
+import { StyledP } from "../../../style/CommonComponents";
 
 const AccordionComponent = ({ productId }) => {
   // gotta fetch the item detail info
@@ -21,9 +22,9 @@ const AccordionComponent = ({ productId }) => {
   // console.log(data);
   const items = data || [];
   // console.log(items);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-  if (!items || items.length === 0) return <p>No data available</p>;
+  if (loading) return <StyledP>Loading...</StyledP>;
+  if (error) return <StyledP>Error: {error.message}</StyledP>;
+  if (!items || items.length === 0) return <StyledP>No data available</StyledP>;
 
   const sanitizedDescription = DOMPurify.sanitize(items.description);
   const sanitizedSizeAndFit = items.info.sizeAndFit

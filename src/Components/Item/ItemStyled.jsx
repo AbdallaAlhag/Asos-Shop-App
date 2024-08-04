@@ -6,6 +6,7 @@ export const ItemContainer = styled(Column)`
   align-items: flex-start;
   justify-content: space-around;
   flex-wrap: wrap;
-  width: 320px; /* Adjust size as needed */
-  height: auto;
+  width: ${({ $width }) => $width || "320px"};
+
+  height: ${({ $height }) => $height || ""};
 `;
