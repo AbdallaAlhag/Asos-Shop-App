@@ -57,6 +57,15 @@ export const Column = styled.div`
   width: ${({ $width }) => $width || ""};
 `;
 
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: ${({ $justifyContent }) => $justifyContent || "center"};
+  align-items: ${({ $alignItems }) => $alignItems || "center"};
+  text-align: ${({ $textAlign }) => $textAlign || "left"};
+  width: ${({ $width }) => $width || ""};
+`;
+
 export const StyledP = styled.p`
   color: ${({ $color }) => $color || "black"};
   font-size: ${({ $fontSize }) => $fontSize || "16px"};

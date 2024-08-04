@@ -54,7 +54,7 @@ function Shop() {
             <Item key={index} item={item} />
           ))} */}
           {items.map((item) => (
-            <Item key={item.id} item={item} />
+            <Item key={item.id} item={item} title={true}/>
           ))}
         </Content>
       </Container>

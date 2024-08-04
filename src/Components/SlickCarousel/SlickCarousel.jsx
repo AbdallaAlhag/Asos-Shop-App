@@ -44,7 +44,7 @@ const Thumbnail = styled.img`
 `;
 
 // SlickCarousel component
-const SlickCarousel = ({ images, additionalImages }) => {
+const SlickCarousel = ({ images }) => {
   const sliderRef1 = useRef(null);
   const sliderRef2 = useRef(null);
 
@@ -65,7 +65,7 @@ const SlickCarousel = ({ images, additionalImages }) => {
 
   return (
     <Content
-      $maxWidth="600px"
+      $maxWidth="700px"
       $height="400px"
       $flexDirection="row-reverse"
       $gap="0px"
@@ -83,7 +83,7 @@ const SlickCarousel = ({ images, additionalImages }) => {
           ))}
         </Slider>
       </SliderWrapper>
-      {additionalImages && (
+      {images.length > 1 && (
         <ThumbnailWrapper>
           <Slider
             {...thumbnailSliderSettings}
@@ -104,7 +104,7 @@ const SlickCarousel = ({ images, additionalImages }) => {
 
 SlickCarousel.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  additionalImages: PropTypes.arrayOf(PropTypes.string),
+  // additionalImages: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default SlickCarousel;

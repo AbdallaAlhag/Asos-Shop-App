@@ -33,7 +33,6 @@ const ItemInfo = ({ item }) => {
     <Container $gap="50px">
       <Content>
         <SlickCarousel images={images}></SlickCarousel>
-        {/* <StyledImg src={completeImageUrl} alt={item.name} /> */}
       </Content>
       <Column
         $justifyContent="flex-start"

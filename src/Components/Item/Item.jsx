@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function Item({ item, height, width }) {
+function Item({ item, height, width, title,brand }) {
   const [isHovered, setIsHovered] = useState(false);
   const completeImageUrl = item.imageUrl.startsWith("http")
     ? item.imageUrl
@@ -32,9 +32,11 @@ function Item({ item, height, width }) {
           alt={item.name}
         />
       </Link>
-{!height && !width &&      <StyledP $textAlign="left" $fontSize="12px" $margin="10px 0px">
-        {item.name}
-      </StyledP>}
+      {title && (
+        <StyledP $textAlign="left" $fontSize="12px" $margin="10px 0px">
+          {item.name}
+        </StyledP>
+      )}
       <StyledP
         $textAlign="left"
         $fontSize="12px"
@@ -43,11 +45,10 @@ function Item({ item, height, width }) {
       >
         {item.price.current.text}
       </StyledP>
-      {height && width && (
+      {brand && (
         <StyledP
           $textAlign="left"
           $fontSize="12px"
-          $fontWeight="bold"
           $margin="0px 0px"
         >
           {item.brandName}
@@ -61,5 +62,7 @@ Item.propTypes = {
   item: PropTypes.object.isRequired,
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  title: PropTypes.boolean,
+  brand: PropTypes.boolean,
 };
 export default Item;
