@@ -63,7 +63,8 @@ export const Row = styled.div`
   justify-content: ${({ $justifyContent }) => $justifyContent || "center"};
   align-items: ${({ $alignItems }) => $alignItems || "center"};
   text-align: ${({ $textAlign }) => $textAlign || "left"};
-  width: ${({ $width }) => $width || ""};
+  width: ${({ $width }) => $width || "100%"};
+  background-color: ${({ $backgroundColor }) => $backgroundColor || "#ffffff"};
 `;
 
 export const StyledP = styled.p`
@@ -104,4 +105,14 @@ export const StyledDiv = styled.div`
   background-color: ${({ $backGroundColor }) => $backGroundColor || "#ffffff"};
   width: ${({ $width }) => $width || ""};
   margin: ${({ $margin }) => $margin || "10px"};
+  display: flex;
+  flex-direction: ${({ $flexDirection }) => $flexDirection || "row"};
+  justify-content: ${({ $justifyContent }) => $justifyContent || "flex-start"};
+  align-items: ${({ $alignItems }) => $alignItems || "center"};
+  width: ${({ $width }) => $width || ""};
+  gap: ${({ $gap }) => $gap || "0px"};
+  padding: ${({ $padding }) => $padding || "0px"};
+  flex-wrap: ${({ $wrap }) => $wrap || ""};
+  height: ${({ $height }) => $height || ""};
+  max-width: ${({ $maxWidth }) => $maxWidth || ""};
 `;

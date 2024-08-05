@@ -11,10 +11,11 @@ import PropTypes from "prop-types";
 import AccordionComponent from "./AccordionComponent";
 import SizingComponent from "./SizingComponent";
 import SlickCarousel from "../SlickCarousel";
+import { useCart } from "../../pages/Cart/CartContext";
 
 const ItemInfo = ({ item }) => {
+  const { addToCart } = useCart();
   // Construct the complete image URL
-  console.log(item)
   const completeImageUrl = item.imageUrl?.startsWith("http")
     ? item.imageUrl
     : `https://${item.imageUrl}`;
@@ -61,14 +62,14 @@ const ItemInfo = ({ item }) => {
         <SizingComponent productId={item.id} />
         <StyledButton
           $width="100%"
-          $margin="10px 0px
-        "
+          $margin="10px 0px"
           $bgColor="#018849"
           $hoverBgColor="#006637"
           $textColor="white"
           $border="2px solid #018849"
           $borderRadius="0px"
           $hoverBorderColor="#006637"
+          onClick={() => addToCart(item)}
         >
           {/* Icon */}
           Add to Bag

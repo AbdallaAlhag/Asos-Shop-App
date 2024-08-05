@@ -65,9 +65,11 @@ function Header() {
           <MidButton>
             <Icon path={mdiHeartOutline} size={2} color="white" />
           </MidButton>
-          <MidButton>
-            <Icon path={mdiShoppingOutline} size={2} color="white" />
-          </MidButton>
+          <Link to="/Cart">
+            <MidButton>
+              <Icon path={mdiShoppingOutline} size={2} color="white" />
+            </MidButton>
+          </Link>
         </Content>
       </Container>
       <Container $backgroundColor="#525050">
