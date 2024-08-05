@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { StyledImg } from "../../style/CommonComponents";
 import styled from "styled-components";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const CarouselContent = styled.div`
   display: flex;
@@ -48,119 +48,47 @@ const CustomCarousel = styled(Carousel)`
   }
 `;
 
-
-
 const CarouselComponent = ({ array }) => {
   const width = "24vw";
+  const chunkArray = (array, size) => {
+    const result = [];
+    for (let i = 0; i < array.length; i += size) {
+      result.push(array.slice(i, i + size));
+    }
+    return result;
+  };
 
+
+  const chunks = chunkArray(array, 4);
   return (
-      <CustomCarousel
-        infiniteLoop
-        autoPlay
-        stopOnHover
-        showArrows
-        showStatus={false} // Hide the status indicators
-        showIndicators
-        showThumbs={false} // Disable thumbnail generation
-        swipeable
-        emulateTouch
-      >
-        {/* Wrap each group of images in CarouselContent */}
-        <CarouselContent>
-          <Link>
-            <StyledImg
-              $width={width}
-              $userSelect="none"
-              $height="auto"
-              src={array[0]}
-              alt="Carousel Image 1" // Add alt text for accessibility
-            />
-          </Link>
-          <Link>
-            <StyledImg
-              $width={width}
-              $userSelect="none"
-              $height="auto"
-              src={array[1]}
-              alt="Carousel Image 2"
-            />
-          </Link>
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[2]}
-            alt="Carousel Image 3"
-          />
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[3]}
-            alt="Carousel Image 4"
-          />
+    <CustomCarousel
+      infiniteLoop
+      autoPlay
+      stopOnHover
+      showArrows
+      showStatus={false} // Hide the status indicators
+      showIndicators
+      showThumbs={false} // Disable thumbnail generation
+      swipeable
+      emulateTouch
+    >
+      {chunks.map((chunk, chunkIndex) => (
+        <CarouselContent key={chunkIndex}>
+          {chunk.map((src, index) => (
+            // <Link to={`/Checkout/${src[1]}`} key={index}>
+              <StyledImg
+                key={index}
+                $width={width}
+                $userSelect="none"
+                $height="auto"
+                src={src[0]}
+                alt={`Carousel Image ${chunkIndex * 4 + index + 1}`} // Add alt text for accessibility
+              />
+            // </Link>
+          ))}
         </CarouselContent>
-        <CarouselContent>
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[4]}
-            alt="Carousel Image 5"
-          />
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[5]}
-            alt="Carousel Image 6"
-          />
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[6]}
-            alt="Carousel Image 7"
-          />
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[7]}
-            alt="Carousel Image 8"
-          />
-        </CarouselContent>
-        <CarouselContent>
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[8]}
-            alt="Carousel Image 9"
-          />
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[9]}
-            alt="Carousel Image 10"
-          />
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[10]}
-            alt="Carousel Image 11"
-          />
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[11]}
-            alt="Carousel Image 12"
-          />
-        </CarouselContent>
-      </CustomCarousel>
+      ))}
+    </CustomCarousel>
   );
 };
 

@@ -36,8 +36,7 @@ function Shop() {
     );
   if (error) return <StyledP>Error: {error.message}</StyledP>;
   if (!items || items.length === 0) return <StyledP>No data available</StyledP>;
-  
-  
+
   return (
     <Page>
       <GlobalStyle />
@@ -54,7 +53,7 @@ function Shop() {
             <Item key={index} item={item} />
           ))} */}
           {items.map((item) => (
-            <Item key={item.id} item={item} title={true}/>
+            <Item key={item.id} item={item} title={true} />
           ))}
         </Content>
       </Container>

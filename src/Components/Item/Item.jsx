@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Item({ item, height, width, title,brand }) {
+  // console.log(item)
   const [isHovered, setIsHovered] = useState(false);
   const completeImageUrl = item.imageUrl.startsWith("http")
     ? item.imageUrl

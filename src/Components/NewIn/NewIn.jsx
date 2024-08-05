@@ -1,6 +1,7 @@
 import { Container, Column } from "../../style/CommonComponents";
 import { StyledImg, ImgTitle } from "./NewInStyled";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const NewIn = ({ newInInfo }) => {
   return (
@@ -10,38 +11,18 @@ const NewIn = ({ newInInfo }) => {
       $color="black"
       $height="50vh"
     >
-      <Column>
-        <StyledImg src={newInInfo[0][0]} alt={newInInfo[0][1]}></StyledImg>
-        <ImgTitle>{newInInfo[0][1]}</ImgTitle>
-      </Column>
-
-      <Column>
-        <StyledImg src={newInInfo[1][0]} alt={newInInfo[1][1]}></StyledImg>
-        <ImgTitle>{newInInfo[1][1]}</ImgTitle>
-      </Column>
-
-      <Column>
-        <StyledImg src={newInInfo[2][0]} alt={newInInfo[2][1]}></StyledImg>
-        <ImgTitle>{newInInfo[2][1]}</ImgTitle>
-      </Column>
-
-      <Column>
-        <StyledImg src={newInInfo[3][0]} alt={newInInfo[3][1]}></StyledImg>
-        <ImgTitle>{newInInfo[3][1]}</ImgTitle>
-      </Column>
-
-      <Column>
-        <StyledImg src={newInInfo[4][0]} alt={newInInfo[4][1]}></StyledImg>
-        <ImgTitle>{newInInfo[4][1]}</ImgTitle>
-      </Column>
-
-      <Column>
-        <StyledImg src={newInInfo[5][0]} alt={newInInfo[5][1]}></StyledImg>
-        <ImgTitle>{newInInfo[5][1]}</ImgTitle>
-      </Column>
+      {newInInfo.map((item, index) => (
+        <Column key={index}>
+          <Link to={item[2] ? `/Shop/${item[2]}` : '#'}>
+            <StyledImg src={item[0]} alt={item[1]} />
+            <ImgTitle>{item[1]}</ImgTitle>
+          </Link>
+        </Column>
+      ))}
     </Container>
   );
 };
+
 
 NewIn.propTypes = {
   newInInfo: PropTypes.array.isRequired,

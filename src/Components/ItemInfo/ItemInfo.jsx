@@ -14,7 +14,8 @@ import SlickCarousel from "../SlickCarousel";
 
 const ItemInfo = ({ item }) => {
   // Construct the complete image URL
-  const completeImageUrl = item.imageUrl.startsWith("http")
+  console.log(item)
+  const completeImageUrl = item.imageUrl?.startsWith("http")
     ? item.imageUrl
     : `https://${item.imageUrl}`;
 

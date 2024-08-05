@@ -126,7 +126,9 @@ const TopDiv = styled.div`
   justify-content: space-between;
 `;
 const SizingComponent = ({ productId }) => {
-  const url = `https://asos2.p.rapidapi.com/products/v4/detail?id=${productId}&lang=en-US&store=US&sizeSchema=US&currency=USD`;
+  const url = productId
+    ? `https://asos2.p.rapidapi.com/products/v4/detail?id=${productId}&lang=en-US&store=US&sizeSchema=US&currency=USD`
+    : null;
   const options = {
     method: "GET",
     headers: {
@@ -135,7 +137,6 @@ const SizingComponent = ({ productId }) => {
     },
   };
   const { data, loading, error } = useFetchDataWithCache(url, options, 500);
-
   if (loading) return <StyledP>Loading...</StyledP>;
   if (error) return <StyledP>Error: {error.message}</StyledP>;
   if (!data || !data.variants || data.variants.length === 0)

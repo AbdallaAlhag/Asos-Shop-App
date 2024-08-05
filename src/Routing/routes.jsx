@@ -29,10 +29,10 @@ const routes = [
     element: <Shop />,
     errorElement: <ErrorPage />,
   },
-  { 
-    path: "/Checkout/:name", 
-    element: <Checkout />, 
-    errorElement: <ErrorPage /> 
+  {
+    path: "/Checkout/:category",
+    element: <Checkout />,
+    errorElement: <ErrorPage />,
   },
 ];
 
