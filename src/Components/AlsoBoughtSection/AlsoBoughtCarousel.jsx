@@ -35,12 +35,12 @@ const StyledSlider = styled(Slider)`
   }
 
   .slick-dots li button:before {
-    color: blue; /* Change dot color */
+    color: grey; /* Change dot color */
     font-size: 12px; /* Adjust dot size */
   }
 
   .slick-dots .slick-active button:before {
-    color: green; /* Change color of active dot */
+    color: black; /* Change color of active dot */
   }
 
   .slick-slide {
@@ -74,6 +74,8 @@ const AlsoBoughtCarousel = ({ data }) => {
     arrows: true,
     // asNavFor: sliderRef2.current,
     // fade: true,
+    dots: true,
+
   };
 
   return (

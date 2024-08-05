@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -25,7 +25,7 @@ const SliderWrapper = styled.div`
 const Image = styled.img`
   width: 100%;
   height: auto;
-  object-fit: none;
+  object-fit: cover;
 `;
 
 const ThumbnailWrapper = styled.div`
@@ -36,7 +36,7 @@ const ThumbnailWrapper = styled.div`
 `;
 
 const Thumbnail = styled.img`
-  width: 40px;
+  width: 101px;
   height: auto;
   cursor: pointer;
   object-fit: cover;
@@ -45,27 +45,37 @@ const Thumbnail = styled.img`
 
 // SlickCarousel component
 const SlickCarousel = ({ images }) => {
-  const sliderRef1 = useRef(null);
-  const sliderRef2 = useRef(null);
+  const [nav1, setNav1] = useState(null);
+  const [nav2, setNav2] = useState(null);
+
+  let sliderRef1 = useRef(null);
+  let sliderRef2 = useRef(null);
+
+  useEffect(() => {
+    setNav1(sliderRef1);
+    setNav2(sliderRef2);
+  }, []);
 
   const mainSliderSettings = {
     arrows: true,
-    asNavFor: sliderRef2.current,
+    asNavFor: nav2,
     fade: true,
+    draggable: false, // Optional: Disable dragging
   };
 
   const thumbnailSliderSettings = {
     arrows: false,
-    asNavFor: sliderRef1.current,
+    asNavFor: nav1,
     slidesToShow: 4,
     swipeToSlide: true,
     focusOnSelect: true,
     vertical: true,
+    centerMode: true,
   };
 
   return (
     <Content
-      $maxWidth="700px"
+      $maxWidth="600px"
       $height="400px"
       $flexDirection="row-reverse"
       $gap="0px"
@@ -73,7 +83,7 @@ const SlickCarousel = ({ images }) => {
       <SliderWrapper>
         <Slider
           {...mainSliderSettings}
-          ref={(slider) => (sliderRef1.current = slider)}
+          ref={(slider) => (sliderRef1 = slider)}
           className="main-slider"
         >
           {images.map((image, index) => (
@@ -87,7 +97,7 @@ const SlickCarousel = ({ images }) => {
         <ThumbnailWrapper>
           <Slider
             {...thumbnailSliderSettings}
-            ref={(slider) => (sliderRef2.current = slider)}
+            ref={(slider) => (sliderRef2 = slider)}
             className="thumbnail-slider"
           >
             {images.map((image, index) => (

@@ -3,6 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import { StyledImg } from "../../style/CommonComponents";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const CarouselContent = styled.div`
   display: flex;
@@ -66,20 +67,24 @@ const CarouselComponent = ({ array }) => {
       >
         {/* Wrap each group of images in CarouselContent */}
         <CarouselContent>
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[0]}
-            alt="Carousel Image 1" // Add alt text for accessibility
-          />
-          <StyledImg
-            $width={width}
-            $userSelect="none"
-            $height="auto"
-            src={array[1]}
-            alt="Carousel Image 2"
-          />
+          <Link>
+            <StyledImg
+              $width={width}
+              $userSelect="none"
+              $height="auto"
+              src={array[0]}
+              alt="Carousel Image 1" // Add alt text for accessibility
+            />
+          </Link>
+          <Link>
+            <StyledImg
+              $width={width}
+              $userSelect="none"
+              $height="auto"
+              src={array[1]}
+              alt="Carousel Image 2"
+            />
+          </Link>
           <StyledImg
             $width={width}
             $userSelect="none"

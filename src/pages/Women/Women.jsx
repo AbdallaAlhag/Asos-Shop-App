@@ -22,10 +22,12 @@ function Women() {
       <Banner
         imgSrc={"src/assets/Women/unrealFinds.jpg"}
         altSRc={"Unreal Finds, Unreal Summer"}
+        linkSrc={"Women-UnrealFinds-51449"}
       ></Banner>
       <Banner
         imgSrc={"src/assets/Women/summerDresses.webp"}
         altSRc={"Summer dresses"}
+        linkSrc={"Women-SummerDresses-50597"}
       ></Banner>
       {/* Asos looks good and Image carousel */}
       <SectionTitle
@@ -36,18 +38,22 @@ function Women() {
       <Banner
         imgSrc={"src/assets/Women/topshop.webp"}
         altSRc={"TopShop"}
+        linkSrc={"Women-TopShop-29298"}
       ></Banner>
       <Banner
         imgSrc={"src/assets/Women/yourMostHypedWomen.webp"}
         altSRc={"Your most hyped"}
+        linkSrc={"Women-MostHyped-51674"}
       ></Banner>
       <Banner
         imgSrc={"src/assets/Women/MangoBrand.avif"}
         altSRc={"Mango Brand"}
+        linkSrc={"Women-Mango-8264"}
       ></Banner>
       <Banner
         imgSrc={"src/assets/Women/reclaimedVintage.webp"}
         altSRc={"Reclaimed Vintage Brand"}
+        linkSrc={"Women-ReclaimedVintage-11248"}
       ></Banner>
       {/* New In Section*/}
       <SectionTitle Title="New In" justifyContent="flex-start"></SectionTitle>
@@ -55,10 +61,12 @@ function Women() {
       <Banner
         imgSrc={"src/assets/Men/disneyAsos.avif"}
         altSRc={"Disney Brand"}
+        linkSrc={"Women-Disney-50451"}
       ></Banner>
       <Banner
         imgSrc={"src/assets/Women/ghdDuetBlowdryBrush.avif"}
         altSRc={"ghd Duet Blowdry Brush"}
+        linkSrc={"Women-ghdDuetBlowdryBrush-26316"}
       ></Banner>
       {/* The Style Feeds Section */}
       <SectionTitle

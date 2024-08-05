@@ -21,10 +21,12 @@ function Men() {
       <Banner
         imgSrc={"src/assets/Men/NewInSummer.webp"}
         altSRc={"New in Summer image"}
+        linkSrc={"Men-NewInSummer-50607"}
       ></Banner>
       <Banner
         imgSrc={"src/assets/Men/modernStaples.jpg"}
         altSRc={"Modern Staple Image"}
+        linkSrc={"Men-ModernStaple-50606"}
       ></Banner>
       {/* Asos looks good and Image carousel */}
       <SectionTitle
@@ -35,16 +37,23 @@ function Men() {
       <Banner
         imgSrc={"src/assets/Men/yourMostHyped.webp"}
         altSRc={"Your Most hyped"}
+        linkSrc={"Men-MostHyped-16776"}
       ></Banner>
       <Banner
         imgSrc={"src/assets/Men/topman.webp"}
         altSRc={"Topman Brand"}
+        linkSrc={"Men-TopMan-50451"}
       ></Banner>
       <Banner
         imgSrc={"src/assets/Men/disneyAsos.avif"}
         altSRc={"Disney Brand"}
+        linkSrc={"Men-Disney-50607"}
       ></Banner>
-      <Banner imgSrc={"src/assets/Men/nike.jpg"} altSRc={"Nike Brand"}></Banner>
+      <Banner
+        imgSrc={"src/assets/Men/nike.jpg"}
+        altSRc={"Nike Brand"}
+        linkSrc={"Men-Nike-4766"}
+      ></Banner>
       <VideoBanner videoSrc={"src/assets/Men/brandsToKnow.mp4"}></VideoBanner>
       {/* New In */}
       <SectionTitle Title="New In" justifyContent="flex-start"></SectionTitle>

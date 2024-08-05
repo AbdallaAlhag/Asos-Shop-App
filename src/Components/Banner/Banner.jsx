@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const BannerDiv = styled.div`
   height: 100vh;
@@ -12,10 +13,12 @@ const StyledImg = styled.img`
   width: 100vw;
 `;
 
-const Banner = ({ imgSrc, imgAlt }) => {
+const Banner = ({ imgSrc, imgAlt, linkSrc }) => {
   return (
     <BannerDiv>
-      <StyledImg src={imgSrc} alt={imgAlt} />
+      <Link to={`/Shop/${linkSrc}`}>
+        <StyledImg src={imgSrc} alt={imgAlt} />
+      </Link>
     </BannerDiv>
   );
 };
@@ -23,6 +26,7 @@ const Banner = ({ imgSrc, imgAlt }) => {
 Banner.propTypes = {
   imgSrc: PropTypes.string.isRequired,
   imgAlt: PropTypes.string,
+  linkSrc: PropTypes.string,
 };
 
 export default Banner;
