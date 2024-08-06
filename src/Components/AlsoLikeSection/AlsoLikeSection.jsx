@@ -42,6 +42,6 @@ function AlsoLikeSection({ itemId }) {
 }
 
 AlsoLikeSection.propTypes = {
-  itemId: PropTypes.string.isRequired,
+  itemId: PropTypes.number.isRequired,
 };
 export default AlsoLikeSection;

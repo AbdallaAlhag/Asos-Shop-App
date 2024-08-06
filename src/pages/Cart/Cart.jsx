@@ -10,7 +10,6 @@ const Cart = () => {
   // const { cartItems, removeFromCart, clearCart } = useCart();
   const { cartItems } = useCart();
 
-  console.log(cartItems);
   return (
     <Page>
       <GlobalStyle />
@@ -36,8 +35,8 @@ const Cart = () => {
             <StyledP $fontWeight="bold">MY BAG</StyledP>
             <StyledP>Items are reserved for 60 minutes</StyledP>
           </StyledDiv>
-          <StyledDiv $width="100%">
-            {cartItems.length === 0 ? (
+          <StyledDiv $width="100%" $flexDirection="column">
+            {cartItems.length === 0 || cartItems === undefined ? (
               <p>Your cart is empty</p>
             ) : (
               <>

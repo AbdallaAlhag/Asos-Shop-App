@@ -2,6 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useCart = () => {
   return useContext(CartContext);
 };
@@ -16,7 +17,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (item) => {
     setCartItems((prevItems) => {
       const existingItemIndex = prevItems.findIndex(
-        (cartItem) => cartItem.item.id === item.id
+        (cartItem) => cartItem.id === item.id
       );
       let newCartItems = [];
       if (existingItemIndex >= 0) {

@@ -59,7 +59,7 @@ export const Column = styled.div`
 
 export const Row = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: ${({ $flexDirection }) => $flexDirection || "row"};
   justify-content: ${({ $justifyContent }) => $justifyContent || "center"};
   align-items: ${({ $alignItems }) => $alignItems || "center"};
   text-align: ${({ $textAlign }) => $textAlign || "left"};

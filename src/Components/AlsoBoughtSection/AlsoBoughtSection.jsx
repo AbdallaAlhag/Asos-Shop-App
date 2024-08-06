@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import useFetchDataWithCache from "../../API/useFetchDataWithCache";
 import AlsoBoughtCarousel from "./AlsoBoughtCarousel";
 
+// eslint-disable-next-line react/prop-types
 const AlsoBoughtSection = ({ itemId }) => {
   const url = `https://asos10.p.rapidapi.com/api/v1/getPeopleAlsoBought?productId=${itemId}&currency=USD&country=US&store=US&language=en-US`;
   const options = {
@@ -38,8 +39,14 @@ const AlsoBoughtSection = ({ itemId }) => {
   );
 };
 
-AlsoBoughtSection.propTypes = {
-  itemId: PropTypes.string.isRequired,
+AlsoBoughtCarousel.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      imageUrl: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  itemId: PropTypes.number,
 };
-
 export default AlsoBoughtSection;
