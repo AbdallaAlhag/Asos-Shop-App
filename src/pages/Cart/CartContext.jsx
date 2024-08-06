@@ -17,26 +17,71 @@ export const CartProvider = ({ children }) => {
   const addToCart = (item) => {
     setCartItems((prevItems) => {
       const existingItemIndex = prevItems.findIndex(
-        (cartItem) => cartItem.id === item.id
+        (cartItem) =>
+          cartItem.id === item.id &&
+          cartItem.selectedSize.id === item.selectedSize.id // Check both id and size.id
       );
+
       let newCartItems = [];
       if (existingItemIndex >= 0) {
         newCartItems = [...prevItems];
         newCartItems[existingItemIndex].quantity += 1;
       } else {
-        newCartItems = [...prevItems, { item, quantity: 1 }];
+        newCartItems = [...prevItems, { ...item, quantity: 1 }];
       }
-      console.log("Updated Cart Items:", newCartItems); // Debugging log
       localStorage.setItem("cartItems", JSON.stringify(newCartItems));
       return newCartItems;
     });
   };
 
-  const removeFromCart = (itemId) => {
+  const removeFromCart = (item) => {
     setCartItems((prevItems) => {
       const newCartItems = prevItems.filter(
-        (cartItem) => cartItem.item.id !== itemId
+        (cartItem) =>
+          !(cartItem.id === item.id &&
+          cartItem.selectedSize.brandSize === item.selectedSize.brandSize)
       );
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      return newCartItems;
+    });
+  };
+
+  const incrementItemInCart = (item) => {
+    setCartItems((prevItems) => {
+      prevItems;
+      const existingItemIndex = prevItems.findIndex(
+        (cartItem) =>
+          cartItem.id === item.id &&
+          cartItem.selectedSize.id === item.selectedSize.id
+      );
+      if (existingItemIndex === -1) return prevItems; // Item not found
+
+      const newCartItems = prevItems.map((cartItem, index) =>
+        index === existingItemIndex
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      );
+
+      localStorage.setItem("cartItems", JSON.stringify(newCartItems));
+      return newCartItems;
+    });
+  };
+
+  const decrementItemInCart = (item) => {
+    setCartItems((prevItems) => {
+      const existingItemIndex = prevItems.findIndex(
+        (cartItem) =>
+          cartItem.id === item.id &&
+          cartItem.selectedSize.id === item.selectedSize.id
+      );
+      if (existingItemIndex === -1) return prevItems; // Item not found
+
+      const newCartItems = prevItems.map((cartItem, index) =>
+        index === existingItemIndex && cartItem.quantity > 1
+          ? { ...cartItem, quantity: cartItem.quantity - 1 }
+          : cartItem
+      );
+
       localStorage.setItem("cartItems", JSON.stringify(newCartItems));
       return newCartItems;
     });
@@ -53,7 +98,14 @@ export const CartProvider = ({ children }) => {
 
   return (
     <CartContext.Provider
-      value={{ cartItems, addToCart, removeFromCart, clearCart }}
+      value={{
+        cartItems,
+        addToCart,
+        removeFromCart,
+        clearCart,
+        incrementItemInCart,
+        decrementItemInCart,
+      }}
     >
       {children}
     </CartContext.Provider>

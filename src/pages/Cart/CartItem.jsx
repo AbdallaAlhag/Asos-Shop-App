@@ -8,42 +8,71 @@ import {
 } from "../../style/CommonComponents";
 import Icon from "@mdi/react";
 import { mdiClose } from "@mdi/js";
+import { mdiMinus } from "@mdi/js";
+import { mdiPlus } from "@mdi/js";
+import { useCart } from "./CartContext";
 
 const CartItem = ({ data }) => {
-  const item = data.item;
-  const completeImageUrl = item.imageUrl?.startsWith("http")
-    ? item.imageUrl
-    : `https://${item.imageUrl}`;
-
+  const { removeFromCart, incrementItemInCart, decrementItemInCart } =
+    useCart();
+  const completeImageUrl = data.imageUrl?.startsWith("http")
+    ? data.imageUrl
+    : `https://${data.imageUrl}`;
   return (
     <Content
       $flexDirection="row"
       $padding="20px"
       $alignItems="flex-start"
-      $borderBottom="1px solid #eeeeee"
-      $gap='20px'
+      $borderBottom="2px solid #eeeeee"
+      $gap="20px"
     >
       <StyledImg
-        $height="200px"
+        $height="150px"
         src={completeImageUrl}
-        alt={item.name}
+        alt={data.name}
       ></StyledImg>
       <StyledDiv $flexDirection="column" $alignItems="flex-start" $margin="0px">
         {/* <StyledP $fontWeight="bold">{data.price.current.text}</StyledP> */}
-        {item.price?.current ? (
-          <StyledP $fontWeight="bold">{item.price.current.text}</StyledP>
+        {data.price?.current ? (
+          <StyledP $fontWeight="bold">{data.price.current.text}</StyledP>
         ) : (
           <StyledP>Price not available</StyledP>
         )}
-        <StyledP $textAlign="left">{item.name}</StyledP>
+        <StyledP $textAlign="left">{data.name}</StyledP>
         <Content $flexDirection="row" $margin="0px">
-          <StyledP $textAlign="left">{item.colour}</StyledP>
-          <StyledP $textAlign="left">Size (gotta send this over)</StyledP>
-          <StyledP $textAlign="left">Quantity: {data.quantity}</StyledP>
+          <StyledP $textAlign="left">{data.colour}</StyledP>
+          <StyledP $textAlign="left">
+            Size: {data.selectedSize.brandSize}
+          </StyledP>
+          <StyledDiv>
+            <StyledButton
+              $padding="0px"
+              $margin="0px"
+              $border="none"
+              $hoverBgColor="#eeeeee"
+              onClick={() => decrementItemInCart(data)}
+            >
+              <Icon path={mdiMinus} size={1} color={"black"} />
+            </StyledButton>
+            <StyledP $textAlign="left">Qty: {data.quantity}</StyledP>
+            <StyledButton
+              $padding="0px"
+              $margin="0px"
+              $border="none"
+              $hoverBgColor="#eeeeee"
+              onClick={() => incrementItemInCart(data)}
+            >
+              <Icon path={mdiPlus} size={1} color={"black"} />
+            </StyledButton>
+          </StyledDiv>
         </Content>
       </StyledDiv>
       <StyledDiv>
-        <StyledButton $margin='0px' $padding='0px'>
+        <StyledButton
+          $margin="0px"
+          $padding="0px"
+          onClick={() => removeFromCart(data)}
+        >
           <Icon path={mdiClose} size={1} />
         </StyledButton>
       </StyledDiv>
@@ -53,19 +82,20 @@ const CartItem = ({ data }) => {
 
 CartItem.propTypes = {
   data: PropTypes.shape({
-    item: PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      price: PropTypes.shape({
-        current: PropTypes.shape({
-          value: PropTypes.number,
-          text: PropTypes.string,
-        }),
-      }).isRequired,
-      colour: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
+    id: PropTypes.number,
+    name: PropTypes.string,
+    price: PropTypes.shape({
+      current: PropTypes.shape({
+        value: PropTypes.number,
+        text: PropTypes.string,
+      }),
     }).isRequired,
+    colour: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
     quantity: PropTypes.number,
+    selectedSize: PropTypes.shape({
+      brandSize: PropTypes.string,
+    }),
   }),
 };
 

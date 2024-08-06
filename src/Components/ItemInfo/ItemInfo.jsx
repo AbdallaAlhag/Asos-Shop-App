@@ -7,6 +7,7 @@ import {
   StyledButton,
   StyledDiv,
 } from "../../style/CommonComponents";
+import { useState } from "react";
 import PropTypes from "prop-types";
 import AccordionComponent from "./AccordionComponent";
 import SizingComponent from "./SizingComponent";
@@ -15,6 +16,8 @@ import { useCart } from "../../pages/Cart/CartContext";
 
 const ItemInfo = ({ item }) => {
   const { addToCart } = useCart();
+  const [selectedSize, setSelectedSize] = useState(null); // State for selected size
+
   // Construct the complete image URL
   const completeImageUrl = item.imageUrl?.startsWith("http")
     ? item.imageUrl
@@ -30,7 +33,15 @@ const ItemInfo = ({ item }) => {
       images.push(temp);
     });
   }
-
+  // Handle add to cart
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      alert("Please select a size before adding to cart");
+      // Changed this to custom error later
+      return;
+    }
+    addToCart({ ...item, selectedSize });
+  };
   return (
     <Container $gap="50px">
       <Content>
@@ -59,7 +70,7 @@ const ItemInfo = ({ item }) => {
           <strong>COLOR:</strong> {item.colour || "N/A"}
         </StyledP>
         {/* Drop Down Menu */}
-        <SizingComponent productId={item.id} />
+        <SizingComponent productId={item.id} onSizeChange={setSelectedSize} />
         <StyledButton
           $width="100%"
           $margin="10px 0px"
@@ -69,7 +80,7 @@ const ItemInfo = ({ item }) => {
           $border="2px solid #018849"
           $borderRadius="0px"
           $hoverBorderColor="#006637"
-          onClick={() => addToCart(item)}
+          onClick={handleAddToCart}
         >
           {/* Icon */}
           Add to Bag

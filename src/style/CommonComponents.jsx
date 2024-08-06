@@ -24,6 +24,8 @@ export const Container = styled.div`
   border-bottom: ${({ $borderBottom }) => $borderBottom || "none"};
   background: ${({ $background }) => ($background ? $background : "")};
   height: ${({ $height }) => ($height ? $height : "")};
+  min-height: ${({ $minHeight }) => ($minHeight ? $minHeight : "")};
+
   gap: ${({ $gap }) => $gap || ""};
 `;
 
@@ -38,6 +40,7 @@ export const Content = styled.div`
   flex-wrap: ${({ $wrap }) => $wrap || ""};
   height: ${({ $height }) => $height || ""};
   max-width: ${({ $maxWidth }) => $maxWidth || ""};
+  border-bottom: ${({ $borderBottom }) => $borderBottom || "none"};
 `;
 
 export const TextLink = styled.a`

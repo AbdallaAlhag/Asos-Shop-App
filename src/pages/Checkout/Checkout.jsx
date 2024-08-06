@@ -79,7 +79,6 @@ const Checkout = () => {
   if (!data) {
     return <StyledP>No data available</StyledP>;
   }
-  console.log(data);
   return (
     <Page>
       <GlobalStyle />

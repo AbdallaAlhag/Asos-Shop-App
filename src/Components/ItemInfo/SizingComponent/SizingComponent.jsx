@@ -1,70 +1,3 @@
-// import Dropdown from "react-bootstrap/Dropdown";
-// import DropdownButton from "react-bootstrap/DropdownButton";
-// import useFetchDataWithCache from "../../../API/useFetchDataWithCache";
-// import PropTypes from "prop-types";
-// import styled from "styled-components";
-
-// const StyledDropdownButton = styled(DropdownButton)`
-//   background-color: #007bff;
-//   color: white;
-//   border-radius: 5px;
-//   padding: 10px;
-//   &:hover {
-//     background-color: #0056b3;
-//   }
-// `;
-
-// const StyledDropdownItem = styled(Dropdown.Item)`
-//   color: #007bff;
-//   font-weight: bold;
-//   &:hover {
-//     color: white;
-//     background-color: #007bff;
-//   }
-// `;
-// const SizingComponent = ({ productId }) => {
-//   // Define the API URL and options
-//   const url = `https://asos2.p.rapidapi.com/products/v4/detail?id=${productId}&lang=en-US&store=US&sizeSchema=US&currency=USD`;
-//   const options = {
-//     method: "GET",
-//     headers: {
-//       "x-rapidapi-key": "938d9a2093msh6edd9ccf27904aep192706jsn0203b5a863a9",
-//       "x-rapidapi-host": "asos2.p.rapidapi.com",
-//     },
-//   };
-
-//   // Fetch data using the custom hook
-//   const { data, loading, error } = useFetchDataWithCache(url, options, 500);
-
-//   // Handle loading, error, and empty data states
-//   if (loading) return <p>Loading...</p>;
-//   if (error) return <p>Error: {error.message}</p>;
-//   if (!data || !data.variants || data.variants.length === 0)
-//     return <p>No sizes available</p>;
-
-//   // Extract sizes from the data
-//   const sizes = data.variants;
-
-//   return (
-//     <StyledDropdownButton id="dropdown-basic-button" title="Select Size">
-//       {sizes.map(
-//         (size) =>
-//           size.isAvailable && (
-//             <StyledDropdownItem key={size.id} href="#">
-//               {size.displaySizeText}
-//             </StyledDropdownItem>
-//           )
-//       )}
-//     </StyledDropdownButton>
-//   );
-// };
-
-// SizingComponent.propTypes = {
-//   productId: PropTypes.number.isRequired,
-// };
-
-// export default SizingComponent;
-
 import useFetchDataWithCache from "../../../API/useFetchDataWithCache";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -125,7 +58,7 @@ const TopDiv = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
-const SizingComponent = ({ productId }) => {
+const SizingComponent = ({ productId, onSizeChange }) => {
   const url = productId
     ? `https://asos2.p.rapidapi.com/products/v4/detail?id=${productId}&lang=en-US&store=US&sizeSchema=US&currency=USD`
     : null;
@@ -143,14 +76,19 @@ const SizingComponent = ({ productId }) => {
     return <StyledP>No sizes available</StyledP>;
 
   const sizes = data.variants;
-
+  const handleSizeChange = (event) => {
+    const selectedSize = sizes.find(
+      (size) => size.id === parseInt(event.target.value, 10)
+    );
+    onSizeChange(selectedSize);
+  };
   return (
     <StyledContainer>
       <TopDiv>
         <StyledLabel htmlFor="size-select">SIZE:</StyledLabel>
         <SizeGuideLink>Size Guide</SizeGuideLink>
       </TopDiv>
-      <StyledSelect id="size-select">
+      <StyledSelect id="size-select" onChange={handleSizeChange}>
         <StyledOption>Please select</StyledOption>
         {sizes.map((size) => (
           <StyledOption
@@ -168,6 +106,7 @@ const SizingComponent = ({ productId }) => {
 
 SizingComponent.propTypes = {
   productId: PropTypes.number.isRequired,
+  onSizeChange: PropTypes.func.isRequired,
 };
 
 export default SizingComponent;

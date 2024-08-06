@@ -16,7 +16,7 @@ const Cart = () => {
       <Header></Header>
       <Container
         $backgroundColor="#eeeeee"
-        $height="50vh"
+        $minHeight="50vh"
         $alignItems="flex-start"
       >
         <Content
@@ -37,7 +37,7 @@ const Cart = () => {
           </StyledDiv>
           <StyledDiv $width="100%" $flexDirection="column">
             {cartItems.length === 0 || cartItems === undefined ? (
-              <p>Your cart is empty</p>
+              <StyledP>Your cart is empty</StyledP>
             ) : (
               <>
                 {cartItems.map((item, index) => (
