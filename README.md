@@ -18,3 +18,4 @@ https://skeletonreact.com/ (still need to incorporate this one)
 https://react-slick.neostack.com/docs/example/as-nav-for
 https://mui.com/material-ui/react-accordion/
 https://react-bootstrap.netlify.app/docs/components/dropdowns/
+https://floating-ui.com/docs/getting-started -> tooltip

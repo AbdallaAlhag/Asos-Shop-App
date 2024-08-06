@@ -13,6 +13,8 @@
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
+    "@floating-ui/dom": "^1.6.9",
+    "@floating-ui/react": "^0.26.21",
     "@mdi/js": "^7.4.47",
     "@mdi/light-js": "^0.2.63",
     "@mdi/react": "^1.6.1",

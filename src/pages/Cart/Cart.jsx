@@ -8,7 +8,7 @@ import CartItem from "./CartItem";
 
 const Cart = () => {
   // const { cartItems, removeFromCart, clearCart } = useCart();
-  const { cartItems } = useCart();
+  const { cartItems, calculateTotal } = useCart();
 
   return (
     <Page>
@@ -50,8 +50,8 @@ const Cart = () => {
               </>
             )}
           </StyledDiv>
-          <StyledDiv $width="100%" $justifyContent="flex-end">
-            <StyledP>Sub-total £109.50</StyledP>
+          <StyledDiv $width="100%" $justifyContent="flex-end" $padding='10px'>
+            <StyledP $fontWeight='bold'>Sub-total ${calculateTotal()}</StyledP>
           </StyledDiv>
         </Content>
       </Container>

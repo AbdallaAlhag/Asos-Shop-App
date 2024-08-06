@@ -15,6 +15,7 @@ export const CartProvider = ({ children }) => {
   });
 
   const addToCart = (item) => {
+    console.log(item);
     setCartItems((prevItems) => {
       const existingItemIndex = prevItems.findIndex(
         (cartItem) =>
@@ -38,8 +39,10 @@ export const CartProvider = ({ children }) => {
     setCartItems((prevItems) => {
       const newCartItems = prevItems.filter(
         (cartItem) =>
-          !(cartItem.id === item.id &&
-          cartItem.selectedSize.brandSize === item.selectedSize.brandSize)
+          !(
+            cartItem.id === item.id &&
+            cartItem.selectedSize.brandSize === item.selectedSize.brandSize
+          )
       );
       localStorage.setItem("cartItems", JSON.stringify(newCartItems));
       return newCartItems;
@@ -92,6 +95,21 @@ export const CartProvider = ({ children }) => {
     localStorage.removeItem("cartItems");
   };
 
+  // const calculateTotal = () => {
+  //   if (cartItems.length === 0) {
+  //     return 0;
+  //   }
+  //   let sum = 0;
+  //   cartItems.forEach((item) => {
+  //     sum += item.price.current.value * item.quantity;
+  //   });
+  //   return sum;
+  // };
+  const calculateTotal = () => {
+    return cartItems.reduce((sum, item) => {
+      return sum + item.price.current.value * item.quantity;
+    }, 0);
+  };
   useEffect(() => {
     localStorage.setItem("cartItems", JSON.stringify(cartItems));
   }, [cartItems]);
@@ -105,6 +123,7 @@ export const CartProvider = ({ children }) => {
         clearCart,
         incrementItemInCart,
         decrementItemInCart,
+        calculateTotal,
       }}
     >
       {children}
