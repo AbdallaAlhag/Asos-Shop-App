@@ -19,9 +19,7 @@ const AccordionComponent = ({ productId }) => {
     },
   };
   const { data, loading, error } = useFetchDataWithCache(url, options, 500); // 500ms debounce
-  // console.log(data);
   const items = data || [];
-  // console.log(items);
   if (loading) return <StyledP>Loading...</StyledP>;
   if (error) return <StyledP>Error: {error.message}</StyledP>;
   if (!items || items.length === 0) return <StyledP>No data available</StyledP>;

@@ -12,9 +12,7 @@ const SearchBar = ({ placeholder }) => {
     setSearchTerm(event.target.value);
   };
 
-//   const filteredData = data.filter((item) =>
-//     item.toLowerCase().includes(searchTerm.toLowerCase())
-//   );
+
 
   return (
       <Input

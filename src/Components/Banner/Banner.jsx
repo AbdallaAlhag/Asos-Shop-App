@@ -16,9 +16,13 @@ const StyledImg = styled.img`
 const Banner = ({ imgSrc, imgAlt, linkSrc }) => {
   return (
     <BannerDiv>
-      <Link to={`/Shop/${linkSrc}`}>
+      {linkSrc ? (
+        <Link to={`/Shop/${linkSrc}`}>
+          <StyledImg src={imgSrc} alt={imgAlt} />
+        </Link>
+      ) : (
         <StyledImg src={imgSrc} alt={imgAlt} />
-      </Link>
+      )}
     </BannerDiv>
   );
 };

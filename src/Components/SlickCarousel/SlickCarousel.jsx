@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Content } from "../../style/CommonComponents";
+import LazyLoad from "react-lazyload";
 
 // Styled components
 const SliderWrapper = styled.div`
@@ -48,12 +49,12 @@ const SlickCarousel = ({ images }) => {
   const [nav1, setNav1] = useState(null);
   const [nav2, setNav2] = useState(null);
 
-  let sliderRef1 = useRef(null);
-  let sliderRef2 = useRef(null);
+  const sliderRef1 = useRef(null);
+  const sliderRef2 = useRef(null);
 
   useEffect(() => {
-    setNav1(sliderRef1);
-    setNav2(sliderRef2);
+    setNav1(sliderRef1.current);
+    setNav2(sliderRef2.current);
   }, []);
 
   const mainSliderSettings = {
@@ -83,12 +84,14 @@ const SlickCarousel = ({ images }) => {
       <SliderWrapper>
         <Slider
           {...mainSliderSettings}
-          ref={(slider) => (sliderRef1 = slider)}
+          ref={sliderRef1}
           className="main-slider"
         >
           {images.map((image, index) => (
             <div key={`main-slide-${index}`}>
-              <Image src={image} alt={`Slide ${index}`} />
+              <LazyLoad width={500} height={500}>
+                <Image src={image} alt={`Slide ${index}`} />
+              </LazyLoad>
             </div>
           ))}
         </Slider>
@@ -97,12 +100,14 @@ const SlickCarousel = ({ images }) => {
         <ThumbnailWrapper>
           <Slider
             {...thumbnailSliderSettings}
-            ref={(slider) => (sliderRef2 = slider)}
+            ref={sliderRef2}
             className="thumbnail-slider"
           >
             {images.map((image, index) => (
               <div key={`thumbnail-${index}`}>
-                <Thumbnail src={image} alt={`Thumbnail ${index}`} />
+                <LazyLoad width={101} height={130}>
+                  <Thumbnail src={image} alt={`Thumbnail ${index}`} />
+                </LazyLoad>
               </div>
             ))}
           </Slider>
@@ -114,7 +119,6 @@ const SlickCarousel = ({ images }) => {
 
 SlickCarousel.propTypes = {
   images: PropTypes.arrayOf(PropTypes.string).isRequired,
-  // additionalImages: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default SlickCarousel;

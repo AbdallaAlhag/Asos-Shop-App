@@ -29,7 +29,6 @@ function Women() {
         altSRc={"Summer dresses"}
         linkSrc={"Women-SummerDresses-50597"}
       ></Banner>
-      {/* Asos looks good and Image carousel */}
       <SectionTitle
         justifyContent="center"
         Title="ASOS LOOKS GOOD ON YOU"
@@ -55,7 +54,6 @@ function Women() {
         altSRc={"Reclaimed Vintage Brand"}
         linkSrc={"Women-ReclaimedVintage-11248"}
       ></Banner>
-      {/* New In Section*/}
       <SectionTitle Title="New In" justifyContent="flex-start"></SectionTitle>
       <NewIn newInInfo={newInInfo}></NewIn>
       <Banner
@@ -68,7 +66,6 @@ function Women() {
         altSRc={"ghd Duet Blowdry Brush"}
         linkSrc={"Women-ghdDuetBlowdryBrush-26316"}
       ></Banner>
-      {/* The Style Feeds Section */}
       <SectionTitle
         Title="The style Feed"
         justifyContent="flex-start"
@@ -82,12 +79,3 @@ function Women() {
 
 export default Women;
 
-// *header     (DONE)
-// *Banner (DONE)
-// *Looks good on your
-// *New In (DONE)
-// *style feed (DONE)
-// - Video Banner for men. (DONE)
-// *as seen on me (DONE)
-// *Download app (DONE)
-// *Shop More (DONE)

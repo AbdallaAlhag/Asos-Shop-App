@@ -10,8 +10,12 @@ import useFetchDataWithCache from "../../API/useFetchDataWithCache";
 import { useParams } from "react-router-dom";
 import { StyledP } from "../../style/CommonComponents";
 
+import ShopLoader from "../../Components/SkeletonLoader/ShopLoader";
+
 function Shop() {
   const { category } = useParams();
+
+  // eslint-disable-next-line no-unused-vars
   const [gender, brand, categoryId] = category.split("-");
   // console.log(brand, gender, categoryId);
 
@@ -28,35 +32,31 @@ function Shop() {
 
   const items = data?.data?.products || [];
 
-  if (loading)
-    return (
-      <StyledP>
-        Loading... {gender} {brand}
-      </StyledP>
-    );
   if (error) return <StyledP>Error: {error.message}</StyledP>;
-  if (!items || items.length === 0) return <StyledP>No data available</StyledP>;
+  // if (!items || items.length === 0) return <StyledP>No data available</StyledP>;
 
   return (
     <Page>
       <GlobalStyle />
       <Header></Header>
-      <Container>
-        <Content
-          $justifyContent="flex-start"
-          $gap="12px"
-          $wrap="wrap"
-          $padding="50px 0px"
-          $width="70%"
-        >
-          {/* {adidasBrand.map((item, index) => (
-            <Item key={index} item={item} />
-          ))} */}
-          {items.map((item) => (
-            <Item key={item.id} item={item} title={true} />
-          ))}
-        </Content>
-      </Container>
+      {loading ? (
+        <ShopLoader />
+      ) : (
+        <Container>
+          <Content
+            $justifyContent="flex-start"
+            $gap="12px"
+            $wrap="wrap"
+            $padding="50px 0px"
+            $width="70%"
+          >
+
+            {items.map((item) => (
+              <Item key={item.id} item={item} title={true} />
+            ))}
+          </Content>
+        </Container>
+      )}
       <Footer></Footer>
     </Page>
   );

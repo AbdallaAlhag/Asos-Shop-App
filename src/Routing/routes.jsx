@@ -4,7 +4,7 @@ import ErrorPage from "./ErrorPage";
 import Shop from "../pages/Shop";
 import Home from "../pages/Home";
 import Checkout from "../pages/Checkout";
-import Cart from '../pages/Cart';
+import Cart from "../pages/Cart";
 
 const routes = [
   {
@@ -23,9 +23,6 @@ const routes = [
     errorElement: <ErrorPage />,
   },
   {
-    // path: "/Shop",
-    // element: <Shop />,
-    // errorElement: <ErrorPage />,
     path: "/Shop/:category",
     element: <Shop />,
     errorElement: <ErrorPage />,

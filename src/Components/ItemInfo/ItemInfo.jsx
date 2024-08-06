@@ -2,21 +2,32 @@ import {
   Container,
   Content,
   Column,
-  // StyledImg,
   StyledP,
   StyledButton,
   StyledDiv,
 } from "../../style/CommonComponents";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import AccordionComponent from "./AccordionComponent";
 import SizingComponent from "./SizingComponent";
 import SlickCarousel from "../SlickCarousel";
 import { useCart } from "../../pages/Cart/CartContext";
+import ItemInfoLoader from "../../Components/SkeletonLoader/ItemInfoLoader";
 
 const ItemInfo = ({ item }) => {
   const { addToCart } = useCart();
   const [selectedSize, setSelectedSize] = useState(null); // State for selected size
+  const [loading, setLoading] = useState(true); // Initialize loading state
+
+  useEffect(() => {
+    const fetchData = async () => {
+      // Simulate data fetching or any asynchronous operation
+      await new Promise((resolve) => setTimeout(resolve, 1000)); // Adjust the time as needed
+      setLoading(false);
+    };
+
+    fetchData();
+  }, []);
 
   // Construct the complete image URL
   const completeImageUrl = item.imageUrl?.startsWith("http")
@@ -42,10 +53,15 @@ const ItemInfo = ({ item }) => {
     }
     addToCart({ ...item, selectedSize });
   };
+
+  if (loading) {
+    return <ItemInfoLoader />;
+  }
+
   return (
     <Container $gap="50px">
       <Content>
-        <SlickCarousel images={images}></SlickCarousel>
+          <SlickCarousel images={images}></SlickCarousel>
       </Content>
       <Column
         $justifyContent="flex-start"
@@ -82,19 +98,15 @@ const ItemInfo = ({ item }) => {
           $hoverBorderColor="#006637"
           onClick={handleAddToCart}
         >
-          {/* Icon */}
           Add to Bag
         </StyledButton>
-        {/* Heart Button */}
         <Column $width="100%" $alignItems="flex-start">
           <StyledDiv>
-            {/* Truck Delivery Icon */}
             <StyledP $fontSize="12px" $textAlign="left" $margin="0px 0px">
               Free delivery on qualifying orders.
             </StyledP>
           </StyledDiv>
           <StyledDiv>
-            {/* Return Icon */}
             <StyledP $fontSize="12px" $textAlign="left" $margin="0px 0px">
               Free Returns
             </StyledP>

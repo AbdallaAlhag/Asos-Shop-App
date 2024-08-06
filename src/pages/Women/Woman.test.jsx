@@ -18,6 +18,5 @@ describe("App", () => {
 
     screen.debug();
 
-    // check if App components renders headline
   });
 });

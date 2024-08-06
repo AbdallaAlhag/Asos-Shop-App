@@ -82,7 +82,7 @@ const CarouselComponent = ({ array }) => {
                 $userSelect="none"
                 $height="auto"
                 src={src[0]}
-                alt={`Carousel Image ${chunkIndex * 4 + index + 1}`} // Add alt text for accessibility
+                alt={`Carousel Image ${chunkIndex * 4 + index + 1}`}
               />
             // </Link>
           ))}
