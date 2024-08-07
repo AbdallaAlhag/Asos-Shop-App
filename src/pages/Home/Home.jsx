@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import GlobalStyle from "../../style/GlobalStyles";
-import { StyledButton } from "../../style/CommonComponents";
+import { StyledButton, StyledDiv } from "../../style/CommonComponents";
 import { Page } from "../../style/CommonComponents";
 import Header from "../../Components/Header";
 import Banner from "../../Components/Banner";
@@ -66,31 +66,39 @@ function Home() {
         height={"70vh"}
         click={true}
       ></FourPicBanner>
-      <StyledButton
-        $margin="70px auto"
-        $borderRadius="0px"
-        $hoverBorderColor="white"
-        $padding="20px 40px"
-        $fontWeight="bold"
-        $fontSize="18px"
-      >
-        SHOP WOMEN'S BRANDS
-      </StyledButton>
+      <StyledDiv $justifyContent="center">
+        <Link to={"/Brand/Women"}>
+          <StyledButton
+            $margin="70px auto"
+            $borderRadius="0px"
+            $hoverBorderColor="white"
+            $padding="20px 40px"
+            $fontWeight="bold"
+            $fontSize="18px"
+          >
+            SHOP WOMEN'S BRANDS
+          </StyledButton>
+        </Link>
+      </StyledDiv>
       <FourPicBanner
         resource={mensBrands}
         height={"70vh"}
         click={true}
       ></FourPicBanner>
-      <StyledButton
-        $margin="70px auto"
-        $borderRadius="0px"
-        $hoverBorderColor="white"
-        $padding="20px 40px"
-        $fontWeight="bold"
-        $fontSize="18px"
-      >
-        SHOP MEN'S BRANDS
-      </StyledButton>
+      <StyledDiv $justifyContent="center">
+        <Link to={"/Brand/Men"}>
+          <StyledButton
+            $margin="70px auto"
+            $borderRadius="0px"
+            $hoverBorderColor="white"
+            $padding="20px 40px"
+            $fontWeight="bold"
+            $fontSize="18px"
+          >
+            SHOP MEN'S BRANDS
+          </StyledButton>
+        </Link>
+      </StyledDiv>
       <Footer></Footer>
     </Page>
   );

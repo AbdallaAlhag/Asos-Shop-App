@@ -5,6 +5,7 @@ import Shop from "../pages/Shop";
 import Home from "../pages/Home";
 import Checkout from "../pages/Checkout";
 import Cart from "../pages/Cart";
+import Brand from "../pages/Brand";
 
 const routes = [
   {
@@ -25,6 +26,11 @@ const routes = [
   {
     path: "/Shop/:category",
     element: <Shop />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/Brand/:gender",
+    element: <Brand />,
     errorElement: <ErrorPage />,
   },
   {

@@ -80,6 +80,7 @@ export const StyledP = styled.p`
   text-align: ${({ $textAlign }) => $textAlign || "center"};
   margin: ${({ $margin }) => $margin || "10px"};
   width: ${({ $width }) => $width || ""};
+  padding: ${({ $padding }) => $padding || "0px"};
 `;
 
 export const StyledButton = styled.button`
@@ -123,4 +124,9 @@ export const StyledDiv = styled.div`
   height: ${({ $height }) => $height || ""};
   max-width: ${({ $maxWidth }) => $maxWidth || ""};
   border-bottom: ${({ $borderBottom }) => $borderBottom || "none"};
+  &:hover {
+    background-color: ${({ $hoverBgColor }) => $hoverBgColor || ""};
+    color: ${({ $hoverTextColor }) => $hoverTextColor || ""};
+    border-color: ${({ $hoverBorderColor }) => $hoverBorderColor || ""};
+  }
 `;
