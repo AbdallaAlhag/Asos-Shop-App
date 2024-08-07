@@ -20,7 +20,7 @@ const AlsoBoughtSection = ({ itemId }) => {
 
   if (loading) return <StyledP>Loading...</StyledP>;
   if (error) return <StyledP>Error: {error.message}</StyledP>;
-  if (!items || items.length === 0) return <StyledP>No data available</StyledP>;
+  if (!items || items.length === 0) return;
   return (
     <Column $alignItems={"flex-start"} $width={"100%"}>
       <StyledP $textAlign={"left"} $fontSize={"18px"} $fontWeight={"bold"}>

@@ -19,7 +19,7 @@ function AlsoLikeSection({ itemId }) {
 
   if (loading) return <StyledP>Loading...</StyledP>;
   if (error) return <StyledP>Error: {error.message}</StyledP>;
-  if (!items || items.length === 0) return <StyledP>No data available</StyledP>;
+  if (!items || items.length === 0) return;
 
   return (
     <Column $alignItems={"flex-start"}>
@@ -34,7 +34,13 @@ function AlsoLikeSection({ itemId }) {
         $width="100%"
       >
         {items.slice(0, maxItemsToShow).map((item) => (
-          <Item key={item.id} item={item} height={"auto"} width={"180px"} brand={true}/>
+          <Item
+            key={item.id}
+            item={item}
+            height={"auto"}
+            width={"180px"}
+            brand={true}
+          />
         ))}
       </Content>
     </Column>

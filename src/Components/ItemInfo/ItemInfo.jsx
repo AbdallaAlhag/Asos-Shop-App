@@ -14,10 +14,16 @@ import SlickCarousel from "../SlickCarousel";
 import { useCart } from "../../pages/Cart/CartContext";
 import ItemInfoLoader from "../../Components/SkeletonLoader/ItemInfoLoader";
 
+import { FaCheck } from "react-icons/fa";
+import { motion } from "framer-motion";
+
 const ItemInfo = ({ item }) => {
   const { addToCart } = useCart();
   const [selectedSize, setSelectedSize] = useState(null); // State for selected size
   const [loading, setLoading] = useState(true); // Initialize loading state
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,6 +57,16 @@ const ItemInfo = ({ item }) => {
       // Changed this to custom error later
       return;
     }
+    //
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      setIsAdded(true);
+      setTimeout(() => {
+        setIsAdded(false);
+      }, 2000);
+    }, 2000);
+    //
     addToCart({ ...item, selectedSize });
   };
 
@@ -61,7 +77,7 @@ const ItemInfo = ({ item }) => {
   return (
     <Container $gap="50px">
       <Content>
-          <SlickCarousel images={images}></SlickCarousel>
+        <SlickCarousel images={images}></SlickCarousel>
       </Content>
       <Column
         $justifyContent="flex-start"
@@ -87,7 +103,7 @@ const ItemInfo = ({ item }) => {
         </StyledP>
         {/* Drop Down Menu */}
         <SizingComponent productId={item.id} onSizeChange={setSelectedSize} />
-        <StyledButton
+        {/* <StyledButton
           $width="100%"
           $margin="10px 0px"
           $bgColor="#018849"
@@ -99,6 +115,38 @@ const ItemInfo = ({ item }) => {
           onClick={handleAddToCart}
         >
           Add to Bag
+        </StyledButton> */}
+        <StyledButton
+          $width="100%"
+          $margin="10px 0px"
+          $bgColor="#018849"
+          $hoverBgColor="#006637"
+          $textColor="white"
+          $border="2px solid #018849"
+          $borderRadius="0px"
+          $hoverBorderColor="#006637"
+          onClick={handleAddToCart}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {isLoading ? (
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ repeat: Infinity, duration: 1 }}
+              style={{
+                border: "2px solid #fff",
+                borderRadius: "50%",
+                width: "20px",
+                height: "20px",
+                borderTopColor: "transparent",
+                margin: "auto",
+              }}
+            />
+          ) : isAdded ? (
+            <FaCheck />
+          ) : (
+            "Add to Bag"
+          )}
         </StyledButton>
         <Column $width="100%" $alignItems="flex-start">
           <StyledDiv>

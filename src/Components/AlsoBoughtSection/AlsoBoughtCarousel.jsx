@@ -75,7 +75,6 @@ const AlsoBoughtCarousel = ({ data }) => {
     // asNavFor: sliderRef2.current,
     // fade: true,
     dots: true,
-
   };
 
   return (
@@ -95,7 +94,7 @@ const AlsoBoughtCarousel = ({ data }) => {
                     key={item.id}
                     item={item}
                     height={"auto"}
-                    width={"180px"}
+                    width={"178px"}
                     title={true}
                   />
                 </div>
