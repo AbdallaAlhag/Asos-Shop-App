@@ -30,7 +30,6 @@ export const Container = styled.div`
   gap: ${({ $gap }) => $gap || ""};
   flex-grow: ${({ $flexGrow }) => $flexGrow || ""};
   over-flow: ${({ $overFlow }) => $overFlow || ""};
-
 `;
 
 export const Content = styled.div`
@@ -106,6 +105,7 @@ export const StyledImg = styled.img`
   width: ${({ $width }) => ($width ? $width : "")};
   user-select: ${({ $userSelect }) => ($userSelect ? $userSelect : "")};
   transition: opacity 0.3s ease-in-out;
+  object-fit: ${({ $objectFit }) => ($objectFit ? $objectFit : "")};
 `;
 
 export const StyledDiv = styled.div`

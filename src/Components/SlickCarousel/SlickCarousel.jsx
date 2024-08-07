@@ -9,9 +9,11 @@ import LazyLoad from "react-lazyload";
 
 // Styled components
 const SliderWrapper = styled.div`
-  max-width: 500px;
-  height: auto;
+  margin-right: -20px; // Adjust this value to control the gap
+  margin-left: 30px; // Adjust this value to control the gap
 
+  height: 100%;
+  width: 400px;
   .slick-prev,
   .slick-next {
     z-index: 1;
@@ -26,7 +28,7 @@ const SliderWrapper = styled.div`
 const Image = styled.img`
   width: 100%;
   height: auto;
-  object-fit: cover;
+  object-fit: none;
 `;
 
 const ThumbnailWrapper = styled.div`
@@ -34,10 +36,12 @@ const ThumbnailWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  
+  width: 100px;
 `;
 
 const Thumbnail = styled.img`
-  width: 101px;
+  width: 100px;
   height: auto;
   cursor: pointer;
   object-fit: cover;
@@ -77,7 +81,7 @@ const SlickCarousel = ({ images }) => {
   return (
     <Content
       $maxWidth="600px"
-      $height="400px"
+      $height="550px"
       $flexDirection="row-reverse"
       $gap="0px"
     >

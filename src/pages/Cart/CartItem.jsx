@@ -11,6 +11,7 @@ import { mdiClose } from "@mdi/js";
 import { mdiMinus } from "@mdi/js";
 import { mdiPlus } from "@mdi/js";
 import { useCart } from "./CartContext";
+import { Link } from "react-router-dom";
 
 const CartItem = ({ data }) => {
   const { removeFromCart, incrementItemInCart, decrementItemInCart } =
@@ -18,6 +19,8 @@ const CartItem = ({ data }) => {
   const completeImageUrl = data.imageUrl?.startsWith("http")
     ? data.imageUrl
     : `https://${data.imageUrl}`;
+  console.log(data);
+  const itemPath = data.name.replace(/ /g, "-");
   return (
     <Content
       $flexDirection="row"
@@ -26,19 +29,23 @@ const CartItem = ({ data }) => {
       $borderBottom="2px solid #eeeeee"
       $gap="20px"
     >
-      <StyledImg
-        $height="150px"
-        src={completeImageUrl}
-        alt={data.name}
-      ></StyledImg>
-      <StyledDiv $flexDirection="column" $alignItems="flex-start" $margin="0px">
-        {/* <StyledP $fontWeight="bold">{data.price.current.text}</StyledP> */}
+      <Link to={`/Checkout/${itemPath}-${data.id}`} state={{ data: data }}>
+        <StyledImg
+          $height="auto"
+          src={completeImageUrl}
+          alt={data.name}
+        ></StyledImg>
+      </Link>
+      <StyledDiv $flexDirection="column" $alignItems="flex-start" $justifyContent='space-around' $margin="0px">
         {data.price?.current ? (
           <StyledP $fontWeight="bold">{data.price.current.text}</StyledP>
         ) : (
           <StyledP>Price not available</StyledP>
         )}
-        <StyledP $textAlign="left">{data.name}</StyledP>
+        <Link to={`/Checkout/${itemPath}-${data.id}`} state={{ data: data }}>
+          <StyledP $textAlign="left">{data.name}</StyledP>
+        </Link>
+
         <Content $flexDirection="row" $margin="0px">
           <StyledP $textAlign="left">{data.colour}</StyledP>
           <StyledP $textAlign="left">

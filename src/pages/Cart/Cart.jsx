@@ -6,7 +6,7 @@ import { StyledP, StyledDiv, StyledButton } from "../../style/CommonComponents";
 import { useCart } from "./CartContext";
 import CartItem from "./CartItem";
 import styled from "styled-components";
-
+import { useState } from "react";
 import { PaymentImg } from "../../Components/Footer/FooterStyleComponents";
 
 import visa from "../../assets/FooterLogo/visa-png.webp";
@@ -18,6 +18,43 @@ import applePay from "../../assets/FooterLogo/apple-pay-png.webp";
 import afterPay from "../../assets/FooterLogo/afterpay_new-png.webp";
 import discover from "../../assets/FooterLogo/discover-card-png.webp";
 import dinerClub from "../../assets/FooterLogo/diners-club-png.webp";
+import Tooltip from "../../Components/Tooltip";
+import Dropdown from "react-dropdown";
+import "react-dropdown/style.css";
+
+const StyledDropdown = styled(Dropdown)`
+  .Dropdown-control {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    font-family: Arial, sans-serif;
+    width: 300px; /* Set your desired width */
+    margin: 10px;
+  }
+
+  .Dropdown-menu {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    margin: -10px 10px;
+
+    width: 300px; /* Set your desired width */
+  }
+
+  .Dropdown-option {
+    font-family: Arial, sans-serif;
+    // font-size: 8px;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .Dropdown-option.is-selected {
+    background-color: #e0e0e0;
+  }
+
+  .Dropdown-arrow {
+    top: 14px; /* Adjust arrow position if needed */
+  }
+`;
 
 const StyledContainer = styled(Container)`
   position: sticky;
@@ -28,6 +65,36 @@ const StyledContainer = styled(Container)`
 const Cart = () => {
   // const { cartItems, removeFromCart, clearCart } = useCart();
   const { cartItems, calculateTotal } = useCart();
+
+  // const options = ["one", "two", "three"];
+  // const defaultOption = options[0];
+  const options = [
+    {
+      value: "Standard Click & Collect (Free)",
+      label: "Standard Click & Collect (Free)",
+    },
+    {
+      value: "Express Click & Collect ($10.00)",
+      label: "Express Click & Collect ($10.00)",
+    },
+    {
+      value: "Next-Day Click & Collect ($19.99)",
+      label: "Next-Day Click & Collect ($19.99)",
+    },
+    { value: "Standard Shipping (Free)", label: "Standard Shipping (Free)" },
+    { value: "Express Delivery ($10.00)", label: "Express Delivery ($10.00)" },
+    {
+      value: "Next-Day Delivery ($19.99)",
+      label: "Next-Day Delivery ($19.99)",
+    },
+  ];
+  const defaultOption = options[0];
+
+  const [selectedOption, setSelectedOption] = useState(defaultOption);
+
+  const handleSelect = (option) => {
+    setSelectedOption(option);
+  };
 
   return (
     <Page>
@@ -118,10 +185,16 @@ const Cart = () => {
               Sales Tax
             </StyledP>
             {/* drop down */}
+            <StyledDropdown
+              options={options}
+              onChange={handleSelect}
+              value={selectedOption}
+              placeholder="Select an option"
+            />
           </StyledDiv>
           <StyledButton
             $margin="20px"
-            $width="85%"
+            $width="90%"
             $bgColor="#018849"
             $textColor="white"
             $border="solid #018849"
@@ -131,7 +204,17 @@ const Cart = () => {
             $fontWeight="bold"
             $fontSize="18px"
           >
-            Checkout
+            <Tooltip
+              content="Payment not implemented"
+              tooltipStyles={{
+                $padding: "10px",
+                $fontSize: "12px",
+                $borderRadius: "4px",
+                $width: "50%",
+              }}
+            >
+              <span>Checkout</span>
+            </Tooltip>
           </StyledButton>
           <StyledDiv $justifyContent="center" $alignItems="center">
             <StyledP $fontWeight="bold" $margin="10px">

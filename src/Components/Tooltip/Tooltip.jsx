@@ -3,17 +3,17 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const FloatingToolTip = styled.div`
-  background: #333;
-  width: 120px;
+  background: ${(props) => props.background || "#333"};
+  width: ${(props) => props.width || "120px"};
   height: auto;
-  color: white;
-  padding: 12px;
+  color: ${(props) => props.color || "white"};
+  padding: ${(props) => props.padding || "12px"};
   pointer-events: none;
   position: absolute;
   z-index: 1000;
-  border-radius: 8px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  font-size: 10px;
+  border-radius: ${(props) => props.borderRadius || "8px"};
+  box-shadow: ${(props) => props.boxShadow || "0px 4px 8px rgba(0, 0, 0, 0.2)"};
+  font-size: ${(props) => props.fontSize || "10px"};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,10 +21,14 @@ const FloatingToolTip = styled.div`
 `;
 
 // eslint-disable-next-line react/prop-types
-function Tooltip({ children, content }) {
+function Tooltip({ children, content, tooltipStyles }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { refs, floatingStyles, context } = useFloating({
+  const {
+    refs,
+    floatingStyles,
+    context = "",
+  } = useFloating({
     open: isOpen,
     onOpenChange: setIsOpen,
     placement: "bottom",
@@ -46,8 +50,9 @@ function Tooltip({ children, content }) {
       {isOpen && (
         <FloatingToolTip
           ref={refs.setFloating}
-          style={{ ...floatingStyles, top: "5px" }} 
+          style={{ ...floatingStyles, top: "5px" }}
           {...getFloatingProps()}
+          {...tooltipStyles} // Correctly pass the tooltipStyles here
         >
           {content}
         </FloatingToolTip>
@@ -56,5 +61,5 @@ function Tooltip({ children, content }) {
   );
 }
 
-
 export default Tooltip;
+
