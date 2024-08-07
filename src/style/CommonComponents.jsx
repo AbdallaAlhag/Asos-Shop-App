@@ -10,7 +10,8 @@ export const Page = styled.div`
 
 export const PageContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: ${({ $flexDirection }) => $flexDirection || "column"};
+  gap: ${({ $gap }) => $gap || ""};
 `;
 
 export const Container = styled.div`
@@ -25,8 +26,11 @@ export const Container = styled.div`
   background: ${({ $background }) => ($background ? $background : "")};
   height: ${({ $height }) => ($height ? $height : "")};
   min-height: ${({ $minHeight }) => ($minHeight ? $minHeight : "")};
-
+  padding: ${({ $padding }) => $padding || "0px"};
   gap: ${({ $gap }) => $gap || ""};
+  flex-grow: ${({ $flexGrow }) => $flexGrow || ""};
+  over-flow: ${({ $overFlow }) => $overFlow || ""};
+
 `;
 
 export const Content = styled.div`
@@ -118,4 +122,5 @@ export const StyledDiv = styled.div`
   flex-wrap: ${({ $wrap }) => $wrap || ""};
   height: ${({ $height }) => $height || ""};
   max-width: ${({ $maxWidth }) => $maxWidth || ""};
+  border-bottom: ${({ $borderBottom }) => $borderBottom || "none"};
 `;
