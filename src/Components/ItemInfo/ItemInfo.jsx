@@ -16,6 +16,8 @@ import ItemInfoLoader from "../../Components/SkeletonLoader/ItemInfoLoader";
 
 import { FaCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
+import confetti from "canvas-confetti";
+import { MdDiscount } from "react-icons/md";
 
 const ItemInfo = ({ item }) => {
   const { addToCart } = useCart();
@@ -62,6 +64,14 @@ const ItemInfo = ({ item }) => {
     setTimeout(() => {
       setIsLoading(false);
       setIsAdded(true);
+
+      // Trigger confetti animation
+      confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { x: 0.65, y: 0.6 },
+      });
+
       setTimeout(() => {
         setIsAdded(false);
       }, 2000);
@@ -89,11 +99,18 @@ const ItemInfo = ({ item }) => {
         </StyledP>
         <StyledP $margin="10px 0px" $textAlign="left">
           {item.price.current?.text || "N/A"}
-        </StyledP>{" "}
-        {/* Access price text */}
+        </StyledP>
         <StyledDiv $backGroundColor="#cde2f5" $margin="10px 0px">
+          <MdDiscount
+            style={{
+              color: "black",
+              fontSize: "4em",
+              padding: "0px 3px",
+              transform: "scaleX(-1)",
+            }}
+          />
           <StyledP $margin="10px 10px" $textAlign="left">
-            {/* icon */}
+            {/* #00ffff */}
             PSST! NEW HERE? Get 10% off almost everything!* With code:{" "}
             <strong>HIFRIEND</strong>
           </StyledP>

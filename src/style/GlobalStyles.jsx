@@ -1,5 +1,6 @@
 // src/GlobalStyles.js
 import { createGlobalStyle } from "styled-components";
+import futur from "../assets/futur.ttf";
 
 const GlobalStyle = createGlobalStyle`
   /* CSS Reset */
@@ -12,6 +13,13 @@ const GlobalStyle = createGlobalStyle`
     --link-hover: #0770cf;
     --button-hover: #1862a5;
   }
+    @font-face {
+    font-family: 'Futura';
+    src: url(${futur}) format('ttf'),
+    font-weight: normal;
+    font-style: normal;
+  }
+    
   /* Base Styles */
   body, html, #root {
     height: 100%;
@@ -19,7 +27,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Futur', 'Trebuchet MS', Arial, sans-serif;
     background-color: #ffffff;
     color: #333;
     overflow-x: hidden;
