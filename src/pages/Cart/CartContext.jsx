@@ -15,7 +15,6 @@ export const CartProvider = ({ children }) => {
   });
 
   const addToCart = (item) => {
-    console.log(item);
     setCartItems((prevItems) => {
       const existingItemIndex = prevItems.findIndex(
         (cartItem) =>

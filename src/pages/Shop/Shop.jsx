@@ -7,19 +7,26 @@ import Footer from "../../Components/Footer/";
 import Item from "../../Components/Item";
 
 import useFetchDataWithCache from "../../API/useFetchDataWithCache";
-import { useParams } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { StyledP } from "../../style/CommonComponents";
 
 import ShopLoader from "../../Components/SkeletonLoader/ShopLoader";
+import EmptyMatches from "../../Components/EmptyMatches/EmptyMatches";
 
 function Shop() {
   const { category } = useParams();
+  const location = useLocation();
+  const { state } = location;
+  const searchResults = state?.data || [];
 
   // eslint-disable-next-line no-unused-vars
   const [gender, brand, categoryId] = category.split("-");
-  // console.log(brand, gender, categoryId);
 
-  const url = `https://asos10.p.rapidapi.com/api/v1/getProductList?categoryId=${categoryId}&currency=USD&country=US&store=US&languageShort=en&sizeSchema=US&offset=0&sort=recommended`;
+  const url =
+    gender !== "search"
+      ? `https://asos10.p.rapidapi.com/api/v1/getProductList?categoryId=${categoryId}&currency=USD&country=US&store=US&languageShort=en&sizeSchema=US&offset=0&sort=recommended`
+      : null;
+
   const options = {
     method: "GET",
     headers: {
@@ -29,17 +36,18 @@ function Shop() {
   };
 
   const { data, loading, error } = useFetchDataWithCache(url, options, 500); // 500ms debounce
-
-  const items = data?.data?.products || [];
+  const items =
+    gender === "search" ? searchResults : data?.data?.products || [];
 
   if (error) return <StyledP>Error: {error.message}</StyledP>;
-  // if (!items || items.length === 0) return <StyledP>No data available</StyledP>;
 
+  (loading);
   return (
     <Page>
       <GlobalStyle />
-      <Header></Header>
-      {loading ? (
+      <Header />
+      {!items.length && gender === "search" && <EmptyMatches />}
+      {loading && gender !== "search" ? (
         <ShopLoader />
       ) : (
         <Container>
@@ -50,14 +58,13 @@ function Shop() {
             $padding="50px 0px"
             $width="70%"
           >
-
             {items.map((item) => (
               <Item key={item.id} item={item} title={true} />
             ))}
           </Content>
         </Container>
       )}
-      <Footer></Footer>
+      <Footer />
     </Page>
   );
 }

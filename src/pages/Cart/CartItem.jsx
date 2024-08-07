@@ -19,7 +19,7 @@ const CartItem = ({ data }) => {
   const completeImageUrl = data.imageUrl?.startsWith("http")
     ? data.imageUrl
     : `https://${data.imageUrl}`;
-  console.log(data);
+  (data);
   const itemPath = data.name.replace(/ /g, "-");
   return (
     <Content

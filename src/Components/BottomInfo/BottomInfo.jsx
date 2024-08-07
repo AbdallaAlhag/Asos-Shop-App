@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Container, Content, TextLink } from "../../style/CommonComponents";
+import { Container, Content } from "../../style/CommonComponents";
 import {
   BottomInfoContainer,
   ContentColumn,
@@ -37,7 +37,7 @@ function BottomInfo({ useMen }) {
             <ContentColumn key={index}>
               {chunk.map((item, i) => (
                 <Link key={i} to={`/Shop/${item[1]}`}>
-                  <TextLink>{item[0]}</TextLink>
+                  {item[0]}
                 </Link>
               ))}
             </ContentColumn>

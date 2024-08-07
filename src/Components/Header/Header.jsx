@@ -70,17 +70,21 @@ function Header() {
             </Link>
           </MidButton>
           <SearchBar placeholder="Search for items and brands" />
-          <MidButton>
-            <Icon
-              path={mdiAccountOutline}
-              title="User Profile"
-              size={2}
-              color="white"
-            />
-          </MidButton>
-          <MidButton>
-            <Icon path={mdiHeartOutline} size={2} color="white" />
-          </MidButton>
+          <Tooltip content="Page not implemented">
+            <MidButton>
+              <Icon
+                path={mdiAccountOutline}
+                title="User Profile"
+                size={2}
+                color="white"
+              />
+            </MidButton>
+          </Tooltip>
+          <Tooltip content="Page not implemented">
+            <MidButton>
+              <Icon path={mdiHeartOutline} size={2} color="white" />
+            </MidButton>
+          </Tooltip>
           <Link to="/Cart">
             <MidButton>
               <Icon path={mdiShoppingOutline} size={2} color="white" />
@@ -91,7 +95,7 @@ function Header() {
       <Container $backgroundColor="#525050">
         <Content $gap="10px" $width="70%">
           {bottomLinks.map((link, index) => (
-            <Tooltip key={index} content="Tab not available">
+            <Tooltip key={index} content="Tab not implemented">
               <LowButton>
                 <TabText>{link}</TabText>
               </LowButton>
