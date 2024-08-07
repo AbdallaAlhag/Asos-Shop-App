@@ -71,7 +71,7 @@ function Women() {
         justifyContent="flex-start"
       ></SectionTitle>
       <StyleFeed styleFeedArray={styleFeed}></StyleFeed>
-      <BottomInfo></BottomInfo>
+      <BottomInfo useMen={false}></BottomInfo>
       <Footer></Footer>
     </Page>
   );

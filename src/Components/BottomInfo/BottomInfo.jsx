@@ -8,9 +8,13 @@ import {
   AppButton,
   DownloadButton,
 } from "./BottomInfoStyledComponents";
+import { Link } from "react-router-dom";
 
-function BottomInfo( ) {
-  const chunks = chunkArray(mensFashionItems.slice(0, 40), 10);
+// eslint-disable-next-line react/prop-types
+function BottomInfo({ useMen }) {
+  const chunks = useMen
+    ? chunkArray(mensFashionItems.slice(0, 40), 10)
+    : chunkArray(womensFashionItems.slice(0, 40), 10);
   return (
     <BottomInfoContainer>
       {/* Download part */}
@@ -32,7 +36,9 @@ function BottomInfo( ) {
           {chunks.map((chunk, index) => (
             <ContentColumn key={index}>
               {chunk.map((item, i) => (
-                <TextLink key={i}>{item}</TextLink>
+                <Link key={i} to={`/Shop/${item[1]}`}>
+                  <TextLink>{item[0]}</TextLink>
+                </Link>
               ))}
             </ContentColumn>
           ))}
@@ -74,44 +80,87 @@ const chunkArray = (array, size) => {
 };
 
 const mensFashionItems = [
-  "Men's Bucket Hats",
-  "Men's Cross Body Bags",
-  "Men's Shackets",
-  "Men's Gray Jeans",
-  "Men's Chinos",
-  "Men's Sandals",
-  "Men's Leather Sneakers",
-  "Men's Cargo Shorts",
-  "Slim Fit Suits",
-  "Men's Oversized T-shirts",
-  "Men's Sunglasses",
-  "Men's Hoodies",
-  "Men's Vests",
-  "Men's Ripped jeans",
-  "Men's Casual shirts",
-  "Men's Sneakers",
-  "Men's Nike Dunk",
-  "Men's Black Shorts",
-  "Men's Wedding Suits",
-  "Men's Sweatpants",
-  "Men's Gym Clothes",
-  "Men's Sweatshirts",
-  "Men's Black Jeans",
-  "Men's Skinny Jeans",
-  "Men's Linen Shirts",
-  "Men's adidas Samba",
-  "Men's White Sneakers",
-  "Men's White Shorts",
-  "Men's Sweater Vests",
-  "Men's Shorts Sets",
-  "Men's Backpacks",
-  "Men's Denim jackets",
-  "Men's Blue Jeans",
-  "Men's Black Cargo Pants",
-  "Men's Short Sleeve Shirts",
-  "Men's Black Sneakers",
-  "Men's Wide Shoes",
-  "Men's Black Suits",
-  "Men's Swim Shorts",
-  "Men's Underwear",
+  ["Men's Bucket Hats", "men-jeans&trousers-20296"],
+  ["Men's Cross Body Bags", "men-jeans&trousers-9265"],
+  ["Men's Shackets", "men-jeans&trousers-50080"],
+  ["Men's Gray Jeans", "men-jeans&trousers-4208"],
+  ["Men's Chinos", "men-jeans&trousers-14051"],
+  ["Men's Sandals", "men-jeans&trousers-6593"],
+  ["Men's Leather Sneakers", "men-jeans&trousers-5775"],
+  ["Men's Cargo Shorts", "men-jeans&trousers-25402"],
+  ["Slim Fit Suits", "men-jeans&trousers-13532"],
+  ["Men's Oversized T-shirts", "men-jeans&trousers-9171"],
+  ["Men's Sunglasses", "men-jeans&trousers-6519"],
+  ["Men's Hoodies", "men-jeans&trousers-15427"],
+  ["Men's Vests", "men-jeans&trousers-14886"],
+  ["Men's Ripped Jeans", "men-jeans&trousers-19790"],
+  ["Men's Casual Shirts", "men-jeans&trousers-17410"],
+  ["Men's Sneakers", "men-jeans&trousers-5775"],
+  ["Men's Nike Dunk", "men-jeans&trousers-5775"],
+  ["Men's Black Shorts", "men-jeans&trousers-7078"],
+  ["Men's Wedding Suits", "men-jeans&trousers-14673"],
+  ["Men's Sweatpants", "men-jeans&trousers-14274"],
+  ["Men's Gym Clothes", "men-jeans&trousers-27183"],
+  ["Men's Sweatshirts", "men-jeans&trousers-15426"],
+  ["Men's Black Jeans", "men-jeans&trousers-4208"],
+  ["Men's Skinny Jeans", "men-jeans&trousers-5403"],
+  ["Men's Linen Shirts", "men-jeans&trousers-50539"],
+  ["Men's adidas Samba", "men-jeans&trousers-5775"],
+  ["Men's White Sneakers", "men-jeans&trousers-5775"],
+  ["Men's White Shorts", "men-jeans&trousers-7078"],
+  ["Men's Sweater Vests", "men-jeans&trousers-50416"],
+  ["Men's Shorts Sets", "men-jeans&trousers-28291"],
+  ["Men's Backpacks", "men-jeans&trousers-12888"],
+  ["Men's Denim Jackets", "men-jeans&trousers-11908"],
+  ["Men's Blue Jeans", "men-jeans&trousers-4208"],
+  ["Men's Black Cargo Pants", "men-jeans&trousers-14273"],
+  ["Men's Short Sleeve Shirts", "men-jeans&trousers-13802"],
+  ["Men's Black Sneakers", "men-jeans&trousers-5775"],
+  ["Men's Wide Shoes", "men-jeans&trousers-26280"],
+  ["Men's Black Suits", "men-jeans&trousers-5678"],
+  ["Men's Swim Shorts", "men-jeans&trousers-16328"],
+  ["Men's Underwear", "men-jeans&trousers-20317"],
+];
+
+const womensFashionItems = [
+  ["sportsBras", "women-sportsBras-27168"],
+  ["blackDresses", "women-dresses-8799"],
+  ["pinkDresses", "women-dresses-8799"],
+  ["summerDresses", "women-dresses-10860"],
+  ["momJeans", "women-jeans-20310"],
+  ["rompers", "women-rompers-15166"],
+  ["blackHeels", "women-heels-6461"],
+  ["womensSandals", "women-sandals-6458"],
+  ["womensNikeDunk", "women-sneakers-6456"],
+  ["blackSkirts", "women-skirts-2639"],
+  ["bridesmaidDresses", "women-dresses-15156"],
+  ["blazerDresses", "women-dresses-8799"],
+  ["redDresses", "women-dresses-8799"],
+  ["weddingDresses", "women-dresses-25408"],
+  ["wideLegJeans", "women-jeans-28017"],
+  ["bras", "women-bras-6576"],
+  ["goldHeels", "women-heels-6461"],
+  ["womensSneakers", "women-sneakers-6456"],
+  ["denimSkirts", "women-skirts-15177"],
+  ["summerSkirts", "women-skirts-28015"],
+  ["weddingGuestDresses", "women-dresses-13934"],
+  ["goldDresses", "women-dresses-8799"],
+  ["whiteDresses", "women-dresses-8799"],
+  ["workDresses", "women-dresses-11464"],
+  ["womensJumpsuits", "women-jumpsuits-15165"],
+  ["plusSizeBridalDresses", "women-dresses-21606"],
+  ["pinkHeels", "women-heels-6461"],
+  ["womensAdidasSamba", "women-sneakers-6456"],
+  ["maxiSkirts", "women-skirts-12910"],
+  ["bikinis", "women-swimwear-10117"],
+  ["promDresses", "women-dresses-11152"],
+  ["greenDresses", "women-dresses-8799"],
+  ["shirtDresses", "women-dresses-13053"],
+  ["makeup", "women-makeup-5020"],
+  ["blackJumpsuits", "women-jumpsuits-15165"],
+  ["womensCowboyBoots", "women-boots-15170"],
+  ["silverHeels", "women-heels-6461"],
+  ["womensNewBalance530", "women-sneakers-6456"],
+  ["miniSkirts", "women-skirts-12908"],
+  ["womensSwimsuits", "women-swimwear-10118"],
 ];

@@ -65,7 +65,7 @@ function Men() {
         justifyContent="flex-start"
       ></SectionTitle>
       <StyleFeed styleFeedArray={styleFeed}></StyleFeed>
-      <BottomInfo></BottomInfo>
+      <BottomInfo useMen={true}></BottomInfo>
       <Footer></Footer>
     </Page>
   );

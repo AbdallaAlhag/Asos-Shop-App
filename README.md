@@ -19,3 +19,5 @@ https://react-slick.neostack.com/docs/example/as-nav-for
 https://mui.com/material-ui/react-accordion/
 https://react-bootstrap.netlify.app/docs/components/dropdowns/
 https://floating-ui.com/docs/getting-started -> tooltip
+
+next project: Don't use old npm packages/bad ones. Might take too long to format to my needs
