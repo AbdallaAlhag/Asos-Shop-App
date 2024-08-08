@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   InnerDiv,
   MidButton,
@@ -12,7 +13,7 @@ import {
   Container,
   Content,
 } from "../../style/CommonComponents";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Icon from "@mdi/react";
 import {
   mdiAccountOutline,
@@ -23,6 +24,28 @@ import SearchBar from "../SearchBar/";
 import Tooltip from "../Tooltip";
 
 function Header() {
+  const location = useLocation(); // Get the current location
+
+  const [activeButton, setActiveButton] = useState("asos");
+  const handleClick = (buttonName) => {
+    setActiveButton(buttonName); // Update active button state
+  };
+  useEffect(() => {
+    // Set the active button based on the current pathname
+    switch (location.pathname) {
+      case "/":
+        setActiveButton("asos");
+        break;
+      case "/Women":
+        setActiveButton("women");
+        break;
+      case "/Men":
+        setActiveButton("men");
+        break;
+      default:
+        setActiveButton("asos");
+    }
+  }, [location.pathname]);
   const bottomLinks = [
     "TRENDING",
     "New in",
@@ -54,17 +77,27 @@ function Header() {
       </Container>
       <Container $backgroundColor="#2d2d2d">
         <Content $width="70%">
-          <MidButton>
+          <MidButton
+            active={activeButton === "asos"}
+            onClick={() => handleClick("asos")}
+          >
             <Link to="/">
-              <StyledAsosLogo color="white" width={80} height={50} />
+              <StyledAsosLogo $color="white" width={80} height={59} />
             </Link>
           </MidButton>
-          <MidButton>
+          <MidButton
+            active={activeButton === "women"}
+            onClick={() => handleClick("women")}
+          >
             <Link to="/Women">
               <LinkText>Women</LinkText>
             </Link>
           </MidButton>
-          <MidButton>
+          <MidButton
+            active={activeButton === "men"}
+            onClick={() => handleClick("men")}
+            $padding="11px 22px"
+          >
             <Link to="/Men">
               <LinkText>Men</LinkText>
             </Link>

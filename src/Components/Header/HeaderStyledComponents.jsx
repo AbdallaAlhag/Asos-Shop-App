@@ -10,15 +10,18 @@ const InnerDiv = styled.div`
 `;
 
 const MidButton = styled.button`
+  background-color: ${(props) => (props.active ? "#525050" : " #2d2d2d")};
+
   color: #fff;
-  background-color: #2d2d2d;
+  // background-color: #2d2d2d;
   border-style: none;
   border: none;
   box-sizing: border-box;
   cursor: pointer;
   text-align: center;
   text-decoration: none;
-  padding: 5px 15px; /* Adjust padding as needed */
+  padding: ${({ $padding }) => $padding || "11px 10px"};
+
   &:hover {
     background-color: #525050;
   }
@@ -50,7 +53,7 @@ const TabText = styled(LinkText)`
 `;
 
 const StyledAsosLogo = styled(AsosLogo)`
-  fill: ${({ color }) => color || "black"};
+  fill: ${({ $color }) => $color || "black"};
 `;
 
 const TopButton = styled(MidButton)`

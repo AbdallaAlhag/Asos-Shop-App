@@ -14,7 +14,7 @@ import ShopLoader from "../../Components/SkeletonLoader/ShopLoader";
 import EmptyMatches from "../../Components/EmptyMatches/EmptyMatches";
 
 function Shop() {
-  const { category } = useParams();
+  const { shop } = useParams();
   const location = useLocation();
   const { state } = location;
   const searchResults = state?.data || [];
