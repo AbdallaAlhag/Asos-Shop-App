@@ -5,6 +5,7 @@ import {
   StyledP,
   StyledButton,
   StyledDiv,
+  Row
 } from "../../style/CommonComponents";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
@@ -84,6 +85,18 @@ const ItemInfo = ({ item }) => {
     return <ItemInfoLoader />;
   }
 
+  const discountPercent =
+    item.price.previous && item.price.current
+      ? ((parseFloat(item.price.previous.text.replace(/[^0-9.-]+/g, "")) -
+          parseFloat(item.price.current.text.replace(/[^0-9.-]+/g, ""))) /
+          parseFloat(item.price.previous.text.replace(/[^0-9.-]+/g, ""))) *
+        100
+      : null;
+
+  // Convert to a string with the '%' symbol and round to the nearest whole number.
+  const formattedDiscountPercent = discountPercent
+    ? `${Math.round(discountPercent)}%`
+    : null;
   return (
     <Container $gap="50px">
       <Content>
@@ -97,9 +110,35 @@ const ItemInfo = ({ item }) => {
         <StyledP $margin="10px 0px" $textAlign="left">
           {item.name}
         </StyledP>
-        <StyledP $margin="10px 0px" $textAlign="left">
-          {item.price.current?.text || "N/A"}
-        </StyledP>
+        {discountPercent ? (
+          <StyledDiv $flexDirection="column" $margin="0px">
+            <StyledP
+              $color="#d01345"
+              $fontWeight="bold"
+              $textAlign="left"
+              $margin="0px 0px"
+            >
+              Now {item.price.current?.text || "N/A"}
+            </StyledP>
+            <Row $gap='3px'>
+              <StyledP $margin="0px 0px" $textAlign="left" $fontSize="12px">
+                Was {item.price.previous?.text || "N/A"} {" "}
+              </StyledP>
+              <StyledP
+                $color="#d01345"
+                $textAlign="left"
+                $margin="0px 0px"
+                $fontSize="12px"
+              >
+                (-{formattedDiscountPercent})
+              </StyledP>
+            </Row>
+          </StyledDiv>
+        ) : (
+          <StyledP $margin="10px 0px" $textAlign="left">
+            {item.price.current?.text || "N/A"}
+          </StyledP>
+        )}
         <StyledDiv $backGroundColor="#cde2f5" $margin="10px 0px">
           <MdDiscount
             style={{
@@ -195,6 +234,9 @@ ItemInfo.propTypes = {
     additionalImageUrls: PropTypes.array,
     price: PropTypes.shape({
       current: PropTypes.shape({
+        text: PropTypes.string,
+      }),
+      previous: PropTypes.shape({
         text: PropTypes.string,
       }),
     }),

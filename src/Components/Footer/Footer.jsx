@@ -88,7 +88,7 @@ function Footer() {
           <InnerContent>
             <Header5>SHOPPING FROM:</Header5>
             <p>You're in US | Change</p>
-            <p>Some of your international sites: (add flags maybe later)</p>
+            <p>Some of your international sites: Usa, Asia, South America</p>
           </InnerContent>
         </Content>
       </Container>

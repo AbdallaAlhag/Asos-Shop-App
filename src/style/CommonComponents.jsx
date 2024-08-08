@@ -71,6 +71,7 @@ export const Row = styled.div`
   text-align: ${({ $textAlign }) => $textAlign || "left"};
   width: ${({ $width }) => $width || "100%"};
   background-color: ${({ $backgroundColor }) => $backgroundColor || "#ffffff"};
+  gap: ${({ $gap }) => $gap || "0px"};
 `;
 
 export const StyledP = styled.p`
