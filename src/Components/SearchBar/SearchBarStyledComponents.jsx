@@ -37,7 +37,7 @@ export const SuggestionList = styled.ul`
   width: 41.5%;
   z-index: 1000;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-  top: 80px; /* Adjust this value to control the dropdown's vertical 
+  top: 100px; /* Adjust this value to control the dropdown's vertical 
   position */
   left: 575px;
 `;

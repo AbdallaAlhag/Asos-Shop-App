@@ -14,7 +14,7 @@ import ShopLoader from "../../Components/SkeletonLoader/ShopLoader";
 import EmptyMatches from "../../Components/EmptyMatches/EmptyMatches";
 
 function Shop() {
-  const { shop } = useParams();
+  const { category } = useParams();
   const location = useLocation();
   const { state } = location;
   const searchResults = state?.data || [];
@@ -41,7 +41,7 @@ function Shop() {
 
   if (error) return <StyledP>Error: {error.message}</StyledP>;
 
-  (loading);
+  loading;
   return (
     <Page>
       <GlobalStyle />

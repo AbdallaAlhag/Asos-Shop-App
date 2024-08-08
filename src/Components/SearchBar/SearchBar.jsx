@@ -110,11 +110,9 @@ const SearchBar = ({ placeholder }) => {
   const handleKeyDown = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
-      if (suggestions.length && activeSuggestion >= 0) {
-        setSearchTerm(suggestions[activeSuggestion].searchTerm);
-        setFetchSuggestions(false);
-        setSuggestions([]);
-      }
+      setFetchSearchResults(true);
+      setFetchSuggestions(false);
+      setSuggestions([]);
     } else if (event.key === "ArrowUp") {
       event.preventDefault();
       setActiveSuggestion((prev) =>
