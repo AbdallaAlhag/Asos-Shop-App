@@ -20,10 +20,6 @@ It's ideal for anyone looking to explore or purchase items similar to the ASOS i
 - **Zoom Feature:** Zoom in on product images for a closer look, with smooth cursor interaction.
 
 
-
-
-
-
 ## Tech Stack
 
 **Client:** React, React Router, Styled-Components, vite, Mo.js
@@ -40,9 +36,30 @@ It's ideal for anyone looking to explore or purchase items similar to the ASOS i
 
 - **UI & Icons:**
 
-    - React Responsive Carousel - A responsive carousel component for React.
     - Pictogrammers Icons - Easy-to-use icons integrated with React.
+    - @emotion/react & @emotion/styled: Emotion's React-based styling solution, for writing CSS styles with JavaScript.
+    - @mui/material & @mui/icons-material: Material-UI components and icons for building consistent, modern UIs.
+    - styled-components: A popular library for styling React components using tagged template literals.
+    - react-bootstrap: Bootstrap components as React components.
+    - react-icons: A collection of popular icons for React.
+    - react-responsive-carousel: A responsive carousel component for React.
+    - react-slick & slick-carousel: Carousel components for React with extensive customization options.
 
+- **Animation & Effects:**
+
+    - @mojs/core: A powerful motion graphics library.
+    - canvas-confetti: A lightweight library for creating confetti animations.
+    - framer-motion: A library for animations and gestures in React.
+
+- **State Management & Miscellaneous:**
+
+    - react-lazyload: For lazy-loading React components and images.
+    - prop-types: For type-checking React props.
+
+- **Routing:**
+
+    - react-router-dom: The standard routing library for React applications.
+    
 - **React Libraries:**
 
     - Skeleton React - To be incorporated.
