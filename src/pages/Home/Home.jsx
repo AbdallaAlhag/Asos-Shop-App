@@ -27,7 +27,7 @@ function Home() {
       <GlobalStyle />
       <Header></Header>
       <Banner
-        imgSrc={"src/assets/Home/thisIsAsos.webp"}
+        imgSrc={"/assets/Home/thisIsAsos.webp"}
         altSRc={"New in Summer image"}
       ></Banner>
       <ButtonContainer>

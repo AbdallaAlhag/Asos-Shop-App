@@ -6,9 +6,9 @@ import {
   StyledImg,
 } from "../../style/CommonComponents";
 import { Link } from "react-router-dom";
-import WomenImg from "../../assets/Home/WomenEmptySearch.webp";
-import MenImg from "../../assets/Home/MenEmptySearch.webp";
-import FaceAndBodyImg from "../../assets/Home/FaceAndBodyEmptySearch.webp";
+import WomenImg from "/assets/Home/WomenEmptySearch.webp";
+import MenImg from "/assets/Home/MenEmptySearch.webp";
+import FaceAndBodyImg from "/assets/Home/FaceAndBodyEmptySearch.webp";
 const EmptyMatches = () => {
   return (
     <Container $flexDirection="column">

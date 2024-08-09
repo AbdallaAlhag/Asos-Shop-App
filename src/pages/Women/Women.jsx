@@ -20,12 +20,12 @@ function Women() {
       <GlobalStyle />
       <Header></Header>
       <Banner
-        imgSrc={"src/assets/Women/unrealFinds.jpg"}
+        imgSrc={"/assets/Women/unrealFinds.jpg"}
         altSRc={"Unreal Finds, Unreal Summer"}
         linkSrc={"Women-UnrealFinds-51449"}
       ></Banner>
       <Banner
-        imgSrc={"src/assets/Women/summerDresses.webp"}
+        imgSrc={"/assets/Women/summerDresses.webp"}
         altSRc={"Summer dresses"}
         linkSrc={"Women-SummerDresses-50597"}
       ></Banner>
@@ -35,34 +35,34 @@ function Women() {
       ></SectionTitle>
       <Carousel array={CarouselArray}></Carousel>
       <Banner
-        imgSrc={"src/assets/Women/topshop.webp"}
+        imgSrc={"/assets/Women/topshop.webp"}
         altSRc={"TopShop"}
         linkSrc={"Women-TopShop-29298"}
       ></Banner>
       <Banner
-        imgSrc={"src/assets/Women/yourMostHypedWomen.webp"}
+        imgSrc={"/assets/Women/yourMostHypedWomen.webp"}
         altSRc={"Your most hyped"}
         linkSrc={"Women-MostHyped-51674"}
       ></Banner>
       <Banner
-        imgSrc={"src/assets/Women/MangoBrand.avif"}
+        imgSrc={"/assets/Women/MangoBrand.avif"}
         altSRc={"Mango Brand"}
         linkSrc={"Women-Mango-8264"}
       ></Banner>
       <Banner
-        imgSrc={"src/assets/Women/reclaimedVintage.webp"}
+        imgSrc={"/assets/Women/reclaimedVintage.webp"}
         altSRc={"Reclaimed Vintage Brand"}
         linkSrc={"Women-ReclaimedVintage-11248"}
       ></Banner>
       <SectionTitle Title="New In" justifyContent="flex-start"></SectionTitle>
       <NewIn newInInfo={newInInfo}></NewIn>
       <Banner
-        imgSrc={"src/assets/Men/disneyAsos.avif"}
+        imgSrc={"/assets/Men/disneyAsos.avif"}
         altSRc={"Disney Brand"}
         linkSrc={"Women-Disney-50451"}
       ></Banner>
       <Banner
-        imgSrc={"src/assets/Women/ghdDuetBlowdryBrush.avif"}
+        imgSrc={"/assets/Women/ghdDuetBlowdryBrush.avif"}
         altSRc={"ghd Duet Blowdry Brush"}
         linkSrc={"Women-ghdDuetBlowdryBrush-26316"}
       ></Banner>

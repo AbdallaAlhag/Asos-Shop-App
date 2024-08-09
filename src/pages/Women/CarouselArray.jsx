@@ -1,16 +1,16 @@
 const CarouselArray = [
-  ["src/assets/Women/carWomen1.jpg"],
-  ["src/assets/Women/carWomen2.jpg"],
-  ["src/assets/Women/carWomen3.jpg"],
-  ["src/assets/Women/carWomen4.jpg"],
-  ["src/assets/Women/carWomen5.jpg"],
-  ["src/assets/Women/carWomen6.jpg"],
-  ["src/assets/Women/carWomen7.jpg"],
-  ["src/assets/Women/carWomen8.jpg"],
-  ["src/assets/Women/carWomen9.jpg"],
-  ["src/assets/Women/carWomen10.jpg"],
-  ["src/assets/Women/carWomen11.jpg"],
-  ["src/assets/Women/carWomen12.jpg"],
+  ["/assets/Women/carWomen1.jpg"],
+  ["/assets/Women/carWomen2.jpg"],
+  ["/assets/Women/carWomen3.jpg"],
+  ["/assets/Women/carWomen4.jpg"],
+  ["/assets/Women/carWomen5.jpg"],
+  ["/assets/Women/carWomen6.jpg"],
+  ["/assets/Women/carWomen7.jpg"],
+  ["/assets/Women/carWomen8.jpg"],
+  ["/assets/Women/carWomen9.jpg"],
+  ["/assets/Women/carWomen10.jpg"],
+  ["/assets/Women/carWomen11.jpg"],
+  ["/assets/Women/carWomen12.jpg"],
 ];
 
 export default CarouselArray;
