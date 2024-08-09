@@ -6,6 +6,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { Content } from "../../style/CommonComponents";
 import LazyLoad from "react-lazyload";
+import ScrollZoomImage from "../ScrollZoomImage";
 
 // Styled components
 const SliderWrapper = styled.div`
@@ -25,18 +26,18 @@ const SliderWrapper = styled.div`
   }
 `;
 
-const Image = styled.img`
-  width: 100%;
-  height: auto;
-  object-fit: none;
-`;
+// const Image = styled.img`
+//   width: 100%;
+//   height: auto;
+//   object-fit: none;
+// `;
 
 const ThumbnailWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
+
   width: 100px;
 `;
 
@@ -94,7 +95,7 @@ const SlickCarousel = ({ images }) => {
           {images.map((image, index) => (
             <div key={`main-slide-${index}`}>
               <LazyLoad width={500} height={500}>
-                <Image src={image} alt={`Slide ${index}`} />
+                <ScrollZoomImage width={'100%'} height={'auto'} src={image} alt={`Slide ${index}`} />
               </LazyLoad>
             </div>
           ))}
