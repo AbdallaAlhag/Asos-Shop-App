@@ -28,6 +28,18 @@ const Save = () => {
             Saved Items
           </StyledP>
         </StyledDiv>
+        {saveItems.length === 0 && (
+          <StyledDiv
+            $width="100%"
+            $backGroundColor="#eeeeee"
+            $justifyContent="center"
+            $margin="50px"
+          >
+            <StyledP $fontWeight="bold" $fontSize="28px" $padding="20px">
+              No Saved Items
+            </StyledP>
+          </StyledDiv>
+        )}
         <StyledDiv
           $width="70%"
           $justifyContent="flex-start"
