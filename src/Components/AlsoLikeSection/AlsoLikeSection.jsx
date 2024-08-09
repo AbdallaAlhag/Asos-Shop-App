@@ -40,6 +40,7 @@ function AlsoLikeSection({ itemId }) {
             height={"auto"}
             width={"180px"}
             brand={true}
+            saveIcon={true}
           />
         ))}
       </Content>

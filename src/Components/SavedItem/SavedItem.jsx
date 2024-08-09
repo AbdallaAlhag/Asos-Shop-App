@@ -5,6 +5,7 @@ import {
   StyledP,
   StyledDiv,
   StyledButton,
+  Row,
 } from "../../style/CommonComponents";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -132,17 +133,19 @@ const SavedItem = ({ data }) => {
           >
             Now {data.price.current?.text || "N/A"}
           </StyledP>
-          <StyledP $margin=" 5px 0px " $textAlign="left" $fontSize="12px">
-            Was {data.price.previous?.text || "N/A"}{" "}
-          </StyledP>
-          <StyledP
-            $color="#d01345"
-            $textAlign="left"
-            $margin="0px"
-            $fontSize="12px"
-          >
-            (-{formattedDiscountPercent})
-          </StyledP>
+          <Row $gap='5px'>
+            <StyledP $margin=" 5px 0px " $textAlign="left" $fontSize="12px">
+              Was {data.price.previous?.text || "N/A"}{" "}
+            </StyledP>
+            <StyledP
+              $color="#d01345"
+              $textAlign="left"
+              $margin="0px"
+              $fontSize="12px"
+            >
+              (-{formattedDiscountPercent})
+            </StyledP>
+          </Row>
         </StyledDiv>
       ) : (
         <StyledP $margin="5px 0px" $textAlign="left">
@@ -167,7 +170,7 @@ const SavedItem = ({ data }) => {
         $fontWeight="bold"
         onClick={handleAddToCart}
       >
-        Add to Bag
+        Move to Bag
       </StyledButton>
     </Content>
   );
@@ -187,7 +190,7 @@ SavedItem.propTypes = {
         text: PropTypes.string,
       }),
     }).isRequired,
-    colour: PropTypes.string.isRequired,
+    colour: PropTypes.string,
     imageUrl: PropTypes.string.isRequired,
     quantity: PropTypes.number,
     selectedSize: PropTypes.shape({

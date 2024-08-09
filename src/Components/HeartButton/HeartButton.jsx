@@ -1,28 +1,49 @@
+/* eslint-disable react/prop-types */
 import { useRef } from "react";
 import mojs from "@mojs/core";
 import styled from "styled-components";
 
-const HButton = styled.div`
-  width: 40px;
-  height: 40px;
-  margin: 20px auto; /* Center the button horizontally within its container */
+export const HButton = styled.div`
+  width: ${({ width }) => width || "40px"};
+  height: ${({ height }) => height || "40px"};
+  margin: ${({ margin }) => margin || "20px auto"}; /* Default to centered */
+  position: ${({ position }) =>
+    position || "relative"}; /* Default to relative */
+  top: ${({ top }) => top || "auto"}; /* Custom top positioning */
+  left: ${({ left }) => left || "auto"}; /* Custom left positioning */
   border-radius: 5px;
   background: none;
   cursor: pointer;
   transition: background 0.5s ease;
-  position: relative; /* Make the position relative to the parent */
-  border: none; /* Remove default button border */
-  padding: 0; /* Remove default button padding */
+  border: none;
+  padding: 0;
 
+  &:hover {
+    animation: bounce 0.3s ease-in-out;
+  }
+
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+  }
   &:before,
   &:after {
     transition: background 0.5s ease;
     position: absolute;
     content: "";
-    left: 20px; /* Adjust to center the heart shape */
+    left: ${({ width }) =>
+      width ? `${parseInt(width) / 2}px` : "20px"}; /* Adjust to center */
     top: 0;
-    width: 20px;
-    height: 32px; /* Adjust height to keep the heart shape proportional */
+    width: ${({ width }) => (width ? `${parseInt(width) / 2}px` : "20px")};
+    height: ${({ height }) =>
+      height
+        ? `${parseInt(height) * 0.8}px`
+        : "32px"}; /* Proportional height */
     background: dimgrey;
     border-radius: 50px 50px 0 0;
     transform: rotate(-45deg);
@@ -40,13 +61,20 @@ const HButton = styled.div`
     background: red !important;
   }
 `;
-
 const TempBtn = styled.button`
-border:none;
-background: transparent;
+  border: none;
+  background: transparent;
 `;
 // eslint-disable-next-line react/prop-types
-const HeartButton = ({ onClick }) => {
+const HeartButton = ({
+  onClick,
+  width,
+  height,
+  margin,
+  position,
+  top,
+  left,
+}) => {
   const heartRef = useRef(null);
 
   // Function to handle the animation
@@ -110,9 +138,19 @@ const HeartButton = ({ onClick }) => {
 
   return (
     <TempBtn onClick={onClick}>
-        <HButton ref={heartRef} onClick={handleAnimation} id="heart">
-          {/* Heart shape */}
-        </HButton>
+      <HButton
+        ref={heartRef}
+        width={width}
+        height={height}
+        margin={margin}
+        position={position}
+        top={top}
+        left={left}
+        onClick={handleAnimation}
+        id="heart"
+      >
+        {/* Heart shape */}
+      </HButton>
     </TempBtn>
   );
 };

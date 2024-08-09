@@ -96,6 +96,7 @@ const AlsoBoughtCarousel = ({ data }) => {
                     height={"auto"}
                     width={"178px"}
                     title={true}
+                    saveIcon={true}
                   />
                 </div>
               ))}

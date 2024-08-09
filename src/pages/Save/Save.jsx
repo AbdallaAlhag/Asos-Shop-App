@@ -22,9 +22,9 @@ const Save = () => {
           $width="100%"
           $backGroundColor="#eeeeee"
           $justifyContent="center"
-          $margin='0px'
+          $margin="0px"
         >
-          <StyledP $fontWeight="bold" $fontSize="28px" $padding='20px'>
+          <StyledP $fontWeight="bold" $fontSize="28px" $padding="20px">
             Saved Items
           </StyledP>
         </StyledDiv>
@@ -32,9 +32,10 @@ const Save = () => {
           $width="70%"
           $justifyContent="flex-start"
           $alignItems="flex-start"
-          $flexDirection="column"
+          $flexDirection="row"
           $padding="20px"
           $margin="0px"
+          $wrap="wrap"
         >
           {saveItems.map((save, index) => (
             <SavedItem key={index} data={save} />
