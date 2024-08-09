@@ -40,8 +40,6 @@ function Shop() {
     gender === "search" ? searchResults : data?.data?.products || [];
 
   if (error) return <StyledP>Error: {error.message}</StyledP>;
-
-  loading;
   return (
     <Page>
       <GlobalStyle />

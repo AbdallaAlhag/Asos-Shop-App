@@ -86,7 +86,11 @@ const AlsoBoughtCarousel = ({ data }) => {
           className="main-slider"
         >
           {imageChunks.map((chunk, chunkIndex) => (
-            <Column key={`chunk-${chunkIndex}`} $justifyContent={"flex-start"}>
+            <Column
+              key={`chunk-${chunkIndex}`}
+              $justifyContent={"flex-start"}
+              $gap="10px"
+            >
               {chunk.map((item) => (
                 <div key={item.id}>
                   {/* <Image src={item.imageUrl} alt={item.name} /> */}

@@ -1,5 +1,10 @@
 import { ItemContainer } from "./ItemStyled";
-import { StyledImg, StyledP } from "../../style/CommonComponents";
+import {
+  StyledImg,
+  StyledP,
+  Row,
+  StyledDiv,
+} from "../../style/CommonComponents";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -52,7 +57,21 @@ function Item({
       return newIsSaved; // Return the new state value
     });
   };
+
+  const discountPercent =
+    item.price.previous && item.price.current
+      ? ((parseFloat(item.price.previous.text.replace(/[^0-9.-]+/g, "")) -
+          parseFloat(item.price.current.text.replace(/[^0-9.-]+/g, ""))) /
+          parseFloat(item.price.previous.text.replace(/[^0-9.-]+/g, ""))) *
+        100
+      : null;
+
+  // Convert to a string with the '%' symbol and round to the nearest whole number.
+  const formattedDiscountPercent = discountPercent
+    ? `${Math.round(discountPercent)}%`
+    : null;
   const itemPath = item.name.replace(/ /g, "-");
+
   return (
     <ItemContainer $height={height} $width={width}>
       {/* <Link to={`/Checkout/${itemPath}-${item.id}`} state={{ data: item }}>
@@ -104,14 +123,48 @@ function Item({
           {item.name}
         </StyledP>
       )}
-      <StyledP
+      {/* <StyledP
         $textAlign="left"
         $fontSize="12px"
         $fontWeight="bold"
         $margin="10px 0px"
       >
         {item.price.current.text}
-      </StyledP>
+      </StyledP> */}
+      {discountPercent ? (
+        <StyledDiv
+          $flexDirection="column"
+          $margin="0px"
+          $alignItems="flex-start"
+        >
+          <StyledP
+            $color="#d01345"
+            $fontWeight="bold"
+            $textAlign="left"
+            $margin="0px 0px"
+            $fontSize="14px"
+          >
+            {item.price.current?.text || "N/A"}
+          </StyledP>
+          <Row $gap="3px">
+            <StyledP $margin="3px 0px" $textAlign="left" $fontSize="12px">
+              {item.price.previous?.text || "N/A"}{" "}
+            </StyledP>
+            <StyledP
+              $color="#d01345"
+              $textAlign="left"
+              $margin="0px 0px"
+              $fontSize="12px"
+            >
+              (-{formattedDiscountPercent})
+            </StyledP>
+          </Row>
+        </StyledDiv>
+      ) : (
+        <StyledP $margin="3px 0px" $textAlign="left" $fontSize="14px">
+          {item.price.current?.text || "N/A"}
+        </StyledP>
+      )}
       {brand && (
         <StyledP $textAlign="left" $fontSize="12px" $margin="0px 0px">
           {item.brandName}

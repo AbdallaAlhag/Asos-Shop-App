@@ -101,7 +101,6 @@ const ItemInfo = ({ item }) => {
 
       return newIsSaved; // Return the new state value
     });
-
   };
 
   if (loading) {
@@ -134,7 +133,11 @@ const ItemInfo = ({ item }) => {
           {item.name}
         </StyledP>
         {discountPercent ? (
-          <StyledDiv $flexDirection="column" $margin="0px">
+          <StyledDiv
+            $flexDirection="column"
+            $margin="0px"
+            $alignItems="flex-start"
+          >
             <StyledP
               $color="#d01345"
               $fontWeight="bold"
@@ -182,7 +185,7 @@ const ItemInfo = ({ item }) => {
         </StyledP>
         {/* Drop Down Menu */}
         <SizingComponent productId={item.id} onSizeChange={setSelectedSize} />
-        <Row $gap='10px'>
+        <Row $gap="10px">
           <MotionButton
             $width="80%"
             $margin="10px 0px"
