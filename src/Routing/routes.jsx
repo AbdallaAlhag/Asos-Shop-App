@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Checkout from "../pages/Checkout";
 import Cart from "../pages/Cart";
 import Brand from "../pages/Brand";
+import Save from "../pages/Save";
 
 const routes = [
   {
@@ -41,6 +42,11 @@ const routes = [
   {
     path: "/Cart",
     element: <Cart />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/Save",
+    element: <Save />,
     errorElement: <ErrorPage />,
   },
 ];

@@ -89,10 +89,7 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const clearCart = () => {
-    setCartItems([]);
-    localStorage.removeItem("cartItems");
-  };
+
 
   // const calculateTotal = () => {
   //   if (cartItems.length === 0) {
@@ -119,7 +116,6 @@ export const CartProvider = ({ children }) => {
         cartItems,
         addToCart,
         removeFromCart,
-        clearCart,
         incrementItemInCart,
         decrementItemInCart,
         calculateTotal,

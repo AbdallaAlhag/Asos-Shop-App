@@ -30,8 +30,8 @@ function Header() {
   const handleClick = (buttonName) => {
     setActiveButton(buttonName); // Update active button state
   };
+
   useEffect(() => {
-    // Set the active button based on the current pathname
     switch (location.pathname) {
       case "/":
         setActiveButton("asos");
@@ -46,6 +46,7 @@ function Header() {
         setActiveButton("asos");
     }
   }, [location.pathname]);
+  
   const bottomLinks = [
     "TRENDING",
     "New in",
@@ -78,7 +79,7 @@ function Header() {
       <Container $backgroundColor="#2d2d2d">
         <Content $width="70%">
           <MidButton
-            active={activeButton === "asos"}
+            $isActive={activeButton === "asos"}
             onClick={() => handleClick("asos")}
           >
             <Link to="/">
@@ -86,7 +87,7 @@ function Header() {
             </Link>
           </MidButton>
           <MidButton
-            active={activeButton === "women"}
+            $isActive={activeButton === "women"}
             onClick={() => handleClick("women")}
           >
             <Link to="/Women">
@@ -94,7 +95,7 @@ function Header() {
             </Link>
           </MidButton>
           <MidButton
-            active={activeButton === "men"}
+            $isActive={activeButton === "men"}
             onClick={() => handleClick("men")}
             $padding="11px 22px"
           >
@@ -108,19 +109,19 @@ function Header() {
               <Icon
                 path={mdiAccountOutline}
                 title="User Profile"
-                size={2}
+                size={2.5}
                 color="white"
               />
             </MidButton>
           </Tooltip>
-          <Tooltip content="Page not implemented">
+          <Link to="/Save">
             <MidButton>
-              <Icon path={mdiHeartOutline} size={2} color="white" />
+              <Icon path={mdiHeartOutline} size={2.5} color="white" />
             </MidButton>
-          </Tooltip>
+          </Link>
           <Link to="/Cart">
             <MidButton>
-              <Icon path={mdiShoppingOutline} size={2} color="white" />
+              <Icon path={mdiShoppingOutline} size={2.5} color="white" />
             </MidButton>
           </Link>
         </Content>

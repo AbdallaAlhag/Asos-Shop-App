@@ -5,7 +5,7 @@ import {
   StyledP,
   StyledButton,
   StyledDiv,
-  Row
+  Row,
 } from "../../style/CommonComponents";
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
@@ -13,20 +13,26 @@ import AccordionComponent from "./AccordionComponent";
 import SizingComponent from "./SizingComponent";
 import SlickCarousel from "../SlickCarousel";
 import { useCart } from "../../pages/Cart/CartContext";
+import { useSave } from "../../pages/Save/SaveContext";
 import ItemInfoLoader from "../../Components/SkeletonLoader/ItemInfoLoader";
-
 import { FaCheck } from "react-icons/fa";
 import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { MdDiscount } from "react-icons/md";
+import HeartButton from "../HeartButton";
+
+const MotionButton = motion(StyledButton);
 
 const ItemInfo = ({ item }) => {
   const { addToCart } = useCart();
+  const { addToSave, removeFromSave } = useSave();
   const [selectedSize, setSelectedSize] = useState(null); // State for selected size
   const [loading, setLoading] = useState(true); // Initialize loading state
 
   const [isLoading, setIsLoading] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
+  // eslint-disable-next-line no-unused-vars
+  const [isSaved, setIsSaved] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -81,6 +87,23 @@ const ItemInfo = ({ item }) => {
     addToCart({ ...item, selectedSize });
   };
 
+  const handleAddToSave = () => {
+    // Update the state based on the previous state
+    setIsSaved((prevIsSaved) => {
+      const newIsSaved = !prevIsSaved;
+
+      // Add or remove the item based on the new state
+      if (newIsSaved) {
+        addToSave({ ...item });
+      } else {
+        removeFromSave(item);
+      }
+
+      return newIsSaved; // Return the new state value
+    });
+
+  };
+
   if (loading) {
     return <ItemInfoLoader />;
   }
@@ -98,7 +121,7 @@ const ItemInfo = ({ item }) => {
     ? `${Math.round(discountPercent)}%`
     : null;
   return (
-    <Container $gap="50px">
+    <Container $gap="70px">
       <Content>
         <SlickCarousel images={images}></SlickCarousel>
       </Content>
@@ -120,9 +143,9 @@ const ItemInfo = ({ item }) => {
             >
               Now {item.price.current?.text || "N/A"}
             </StyledP>
-            <Row $gap='3px'>
+            <Row $gap="3px">
               <StyledP $margin="0px 0px" $textAlign="left" $fontSize="12px">
-                Was {item.price.previous?.text || "N/A"} {" "}
+                Was {item.price.previous?.text || "N/A"}{" "}
               </StyledP>
               <StyledP
                 $color="#d01345"
@@ -159,51 +182,42 @@ const ItemInfo = ({ item }) => {
         </StyledP>
         {/* Drop Down Menu */}
         <SizingComponent productId={item.id} onSizeChange={setSelectedSize} />
-        {/* <StyledButton
-          $width="100%"
-          $margin="10px 0px"
-          $bgColor="#018849"
-          $hoverBgColor="#006637"
-          $textColor="white"
-          $border="2px solid #018849"
-          $borderRadius="0px"
-          $hoverBorderColor="#006637"
-          onClick={handleAddToCart}
-        >
-          Add to Bag
-        </StyledButton> */}
-        <StyledButton
-          $width="100%"
-          $margin="10px 0px"
-          $bgColor="#018849"
-          $hoverBgColor="#006637"
-          $textColor="white"
-          $border="2px solid #018849"
-          $borderRadius="0px"
-          $hoverBorderColor="#006637"
-          onClick={handleAddToCart}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          {isLoading ? (
-            <motion.div
-              animate={{ rotate: 360 }}
-              transition={{ repeat: Infinity, duration: 1 }}
-              style={{
-                border: "2px solid #fff",
-                borderRadius: "50%",
-                width: "20px",
-                height: "20px",
-                borderTopColor: "transparent",
-                margin: "auto",
-              }}
-            />
-          ) : isAdded ? (
-            <FaCheck />
-          ) : (
-            "Add to Bag"
-          )}
-        </StyledButton>
+        <Row $gap='10px'>
+          <MotionButton
+            $width="80%"
+            $margin="10px 0px"
+            $bgColor="#018849"
+            $hoverBgColor="#006637"
+            $textColor="white"
+            $border="2px solid #018849"
+            $borderRadius="0px"
+            $hoverBorderColor="#006637"
+            $fontWeight="bold"
+            onClick={handleAddToCart}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            {isLoading ? (
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 1 }}
+                style={{
+                  border: "2px solid #fff",
+                  borderRadius: "50%",
+                  width: "20px",
+                  height: "20px",
+                  borderTopColor: "transparent",
+                  margin: "auto",
+                }}
+              />
+            ) : isAdded ? (
+              <FaCheck />
+            ) : (
+              "Add to Bag"
+            )}
+          </MotionButton>
+          <HeartButton onClick={handleAddToSave}></HeartButton>
+        </Row>
         <Column $width="100%" $alignItems="flex-start">
           <StyledDiv>
             <StyledP $fontSize="12px" $textAlign="left" $margin="0px 0px">

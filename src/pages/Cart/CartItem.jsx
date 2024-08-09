@@ -19,7 +19,7 @@ const CartItem = ({ data }) => {
   const completeImageUrl = data.imageUrl?.startsWith("http")
     ? data.imageUrl
     : `https://${data.imageUrl}`;
-  (data);
+  data;
   const itemPath = data.name.replace(/ /g, "-");
   return (
     <Content
@@ -36,7 +36,12 @@ const CartItem = ({ data }) => {
           alt={data.name}
         ></StyledImg>
       </Link>
-      <StyledDiv $flexDirection="column" $alignItems="flex-start" $justifyContent='space-around' $margin="0px">
+      <StyledDiv
+        $flexDirection="column"
+        $alignItems="flex-start"
+        $justifyContent="space-around"
+        $margin="0px"
+      >
         {data.price?.current ? (
           <StyledP $fontWeight="bold">{data.price.current.text}</StyledP>
         ) : (

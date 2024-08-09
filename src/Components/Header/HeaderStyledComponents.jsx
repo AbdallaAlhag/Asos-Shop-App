@@ -10,7 +10,7 @@ const InnerDiv = styled.div`
 `;
 
 const MidButton = styled.button`
-  background-color: ${(props) => (props.active ? "#525050" : " #2d2d2d")};
+  background-color: ${(props) => (props.isActive ? "#525050" : "#2d2d2d")};
 
   color: #fff;
   // background-color: #2d2d2d;
