@@ -138,7 +138,8 @@ const SearchBar = ({ placeholder }) => {
         type="text"
         placeholder={placeholder}
         value={searchTerm}
-        onChange={handleChange}
+        onChange={handleChange} 
+        onClick={handleChange}
         onKeyDown={handleKeyDown}
       />
       {suggestions.length > 0 && (
