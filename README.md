@@ -23,3 +23,7 @@ https://floating-ui.com/docs/getting-started -> tooltip
 Heart Button -> https://codepen.io/bnewton/pen/KMbLZx
 
 next project: Don't use old npm packages/bad ones. Might take too long to format to my needs
+
+Could improve: 
+- Get rid of alert that reminds you to put in size and create custom error message
+- Add media query
